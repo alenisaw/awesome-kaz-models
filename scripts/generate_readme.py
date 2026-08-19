@@ -63,18 +63,13 @@ WATCHLIST = [
      "Low-Resource Turkic Translation\" (LoResMT 2026, ru-kk track) — describes a LoRA "
      "fine-tune of Tencent HY-MT1.5-7B, but no public download for the trained LoRA weights "
      "could be found in the paper or via search."),
-    ("AIT-ASR",
-     "A Whisper-small Kazakh ASR fine-tune (`nur-dev/ait-asr`) is hosted on Hugging Face, "
-     "but has not yet been through a properly scoped primary-source verification pass for this "
-     "catalog."),
     ("AIT-Syn Kazakh TTS",
-     "A Qwen3-TTS-based Kazakh voice-cloning model (`nur-dev/ait-syn-4L`) exists on Hugging Face, "
-     "but has not yet received a dedicated primary-source verification pass."),
-    ("facebook/mms-tts-kaz",
-     "Meta's Massively Multilingual Speech project includes a per-language Kazakh TTS "
-     "model, but the exact current artifact, license terms, and specifically Kazakh "
-     "training evidence (MMS covers 1000+ languages) have not yet been independently "
-     "re-verified."),
+     "A Qwen3-TTS-12Hz-1.7B-Base fine-tune for Kazakh/Russian/English/Uzbek voice cloning "
+     "(`nur-dev/ait-syn-4L`) is real and was indexed with a full model card (confirmed via "
+     "third-party search results), but the repository currently returns HTTP 401 for "
+     "anonymous access at both the API and page level — unlike the org's other gated repos "
+     "(e.g. `nur-dev/ait-asr`), whose cards remain publicly readable. Could not be "
+     "independently re-verified this pass."),
 ]
 
 REPO = "alenisaw/awesome-kaz-models"
@@ -160,7 +155,8 @@ DEFAULT_SKELETON = """<p align="center">
   <a href="#speech-and-audio">Speech</a> ·
   <a href="#vision-ocr-and-multimodal">Vision &amp; OCR</a> ·
   <a href="#watchlist--announced-resources">Watchlist</a> ·
-  <a href="#contributing">Contributing</a>
+  <a href="#contributing">Contributing</a> ·
+  <a href="#license">License</a>
 </p>
 
 ---
@@ -258,6 +254,13 @@ metadata, and PR format.
 ## Acknowledgements
 
 This project was inspired by [Allessyer/awesome-kaz-datasets](https://github.com/Allessyer/awesome-kaz-datasets). Thanks to its author and contributors for helping establish a public catalog of Kazakh-language AI resources.
+
+## License
+
+This catalog's own content — the repository structure, documentation, generated
+tables, and scripts — is released under the [MIT License](LICENSE). Models
+linked from this catalog remain under their own respective licenses (recorded
+per entry above); this MIT license does not extend to their contents.
 """
 
 
@@ -415,6 +418,7 @@ def build_badges(models):
         ("Models", str(n), "2a78d6"),
         ("Last verified", "2026--08--19", "1baf7a"),
         ("Open weights", f"{open_pct}%25", "2ea44f"),
+        ("License", "MIT", "blue"),
     ]
     parts = [stars] + [
         f'<img alt="{label}" src="https://img.shields.io/badge/{label.replace(" ", "_")}-{value}-{color}">'

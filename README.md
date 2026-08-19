@@ -14,9 +14,10 @@
 <!-- BADGES:START -->
 <p align="center">
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/alenisaw/awesome-kaz-models?style=flat&color=eda100">
-  <img alt="Models" src="https://img.shields.io/badge/Models-70-2a78d6">
+  <img alt="Models" src="https://img.shields.io/badge/Models-72-2a78d6">
   <img alt="Last verified" src="https://img.shields.io/badge/Last_verified-2026--08--19-1baf7a">
-  <img alt="Open weights" src="https://img.shields.io/badge/Open_weights-94%25-2ea44f">
+  <img alt="Open weights" src="https://img.shields.io/badge/Open_weights-93%25-2ea44f">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-blue">
 </p>
 <!-- BADGES:END -->
 
@@ -27,7 +28,8 @@
   <a href="#speech-and-audio">Speech</a> ·
   <a href="#vision-ocr-and-multimodal">Vision &amp; OCR</a> ·
   <a href="#watchlist--announced-resources">Watchlist</a> ·
-  <a href="#contributing">Contributing</a>
+  <a href="#contributing">Contributing</a> ·
+  <a href="#license">License</a>
 </p>
 
 ---
@@ -80,7 +82,7 @@ classification, and family-level deduplication rules.
   <img src="assets/model_growth.svg" alt="Cumulative Kazakh model-family releases over time, by section" width="100%">
 </picture>
 
-<sub>**Models per task** — Automatic speech recognition (11) · Large language model (7) · Machine translation (7) · Embeddings / dense retrieval (6) · Text-to-speech (6) · Masked language modelling / encoder (4) · Question answering (4) · OCR (4) · Text generation (3) · Sentiment classification (3) · Named entity recognition (3) · Instruction following (2) · Text classification (2) · Keyword spotting (2) · Vision-language modelling (2) · Image captioning (2) · Transliteration (1) · Grammar correction (1) · POS tagging (1) · Dependency parsing (1) · Language identification (1) · Target-speaker ASR (1) · Audio-vision-language modelling (1) · Text-to-image (1)</sub>
+<sub>**Models per task** — Automatic speech recognition (12) · Large language model (7) · Machine translation (7) · Text-to-speech (7) · Embeddings / dense retrieval (6) · Masked language modelling / encoder (4) · Question answering (4) · OCR (4) · Text generation (3) · Sentiment classification (3) · Named entity recognition (3) · Instruction following (2) · Text classification (2) · Keyword spotting (2) · Vision-language modelling (2) · Image captioning (2) · Transliteration (1) · Grammar correction (1) · POS tagging (1) · Dependency parsing (1) · Language identification (1) · Target-speaker ASR (1) · Audio-vision-language modelling (1) · Text-to-image (1)</sub>
 <!-- LANDSCAPE:END -->
 
 ## Text, NLP, and LLM
@@ -161,8 +163,13 @@ classification, and family-level deduplication rules.
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/speech_release_calendar-dark.svg">
-  <img src="assets/speech_release_calendar.svg" alt="Calendar map of Speech and audio model releases, 2020-2026, with year on the x-axis and month on the y-axis" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/speech_release_calendar_1-dark.svg">
+  <img src="assets/speech_release_calendar_1.svg" alt="Calendar map of Speech and audio model releases, 2020-2023, with year on the x-axis and month on the y-axis" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/speech_release_calendar_2-dark.svg">
+  <img src="assets/speech_release_calendar_2.svg" alt="Calendar map of Speech and audio model releases, 2024-2026, with year on the x-axis and month on the y-axis" width="100%">
 </picture>
 
 **Abbreviations:**
@@ -183,8 +190,10 @@ classification, and family-level deduplication rules.
 | 2026-01 | **[Spark-TTS Kazakh](https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh)**<br><sub>TTS</sub><br><sub>Open · CC-BY-NC-SA-4.0</sub> | Kazakh fine-tune of Spark-TTS supporting both Cyrillic and Töte Zhazu (Latin-based) script input, with voice cloning from 3-10 seconds of reference audio. | **ErnarBahat** | – Spark-TTS (BiCodec + LLM inference engine) (base: SparkAudio/Spark-TTS-0.5B) |
 | 2025-05 | **[Keyword-MLP LangID / SCR (Kazakh)](https://huggingface.co/artur-muratov/kw-mlp-mono-kk)**<br><sub>KWS · LID</sub><br><sub>Open · Not reported</sub> | Unified multitask Keyword-MLP model performing speech command recognition and language identification, with a dedicated Kazakh-only model alongside multilingual LangID variants. | **Artur Muratov**<br><sub>ISSAI, Nazarbayev University</sub> | – Keyword-MLP (multitask SCR + LangID) |
 | 2025-05 | **[Whisper Turbo KSC2 (abilmansplus)](https://huggingface.co/abilmansplus/whisper-turbo-ksc2)**<br><sub>ASR</sub><br><sub>Open · MIT</sub> | Whisper Large-v3-Turbo fine-tuned for Kazakh ASR on KSC2, with a bilingual Kazakh-Russian LoRA adapter variant built on top of it. | **abilmansplus** | – ≈0.8B<br>– Whisper large-v3-turbo full fine-tune + LoRA adapter (base: openai/whisper-large-v3-turbo) |
+| 2025-03 | **[AIT-ASR](https://huggingface.co/nur-dev/ait-asr)**<br><sub>ASR</sub><br><sub>Gated · CC-BY-NC-4.0</sub> | Whisper-small fine-tune for Kazakh automatic speech recognition, trained on the farabi-lab/kazakh-stt dataset. | **Nurgali Kadyrbek** | – ≈244M<br>– Whisper small fine-tune (base: openai/whisper-small) |
 | 2024-08 | **[Whisper Base Kazakh (akuzdeuov)](https://huggingface.co/akuzdeuov/whisper-base.kk)**<br><sub>ASR</sub><br><sub>Open · Apache-2.0</sub> | Whisper base fine-tuned for Kazakh ASR on the KSC2 corpus. | **akuzdeuov** | – ≈74M<br>– Whisper base fine-tune (base: openai/whisper-base) |
 | 2024 | **[KazEmoTTS](https://github.com/IS2AI/KazEmoTTS)**<br><sub>TTS</sub><br><sub>Open · Not reported</sub> | Emotional text-to-speech model for Kazakh (six emotion categories) using Grad-TTS with a HiFi-GAN vocoder. | **ISSAI, Nazarbayev University** | – Grad-TTS + HiFi-GAN vocoder |
+| 2023-09 | **[MMS-TTS Kazakh (facebook/mms-tts-kaz)](https://huggingface.co/facebook/mms-tts-kaz)**<br><sub>TTS</sub><br><sub>Open · CC-BY-NC-4.0</sub> | Per-language Kazakh (kaz) VITS text-to-speech checkpoint from Meta's Massively Multilingual Speech (MMS) project. | **[MMS project team](https://arxiv.org/abs/2305.13516)**<br><sub>Meta AI (FAIR)</sub> | – VITS (per-language checkpoint) |
 | 2023 | **[TurkicASR](https://github.com/IS2AI/TurkicASR)**<br><sub>ASR</sub><br><sub>Open · CC-BY-4.0</sub> | Multilingual ESPnet Transformer ASR system covering ten Turkic languages including Kazakh, released as joint "Turkic languages" and "all languages" downloadable archives. | **[Mussakhojayeva et al.](https://www.mdpi.com/2078-2489/14/2/74)**<br><sub>ISSAI, Nazarbayev University</sub> | – ESPnet Transformer, multilingual joint training |
 | 2023 | **[Multilingual Speech Command Recognition (Keyword-MLP)](https://github.com/IS2AI/Multilingual-Speech-Command-Recognition)**<br><sub>KWS</sub><br><sub>Open · MIT</sub> | Keyword-MLP keyword-spotting classifier with a dedicated Kazakh monolingual model (Mono-35-kk) plus multilingual Kazakh/Tatar/Russian variants, for voice-controlled robotics and smart systems. | **ISSAI, Nazarbayev University** | – Keyword-MLP classifier |
 | 2023 | **[TurkicTTS](https://github.com/IS2AI/TurkicTTS)**<br><sub>TTS</sub><br><sub>Open · Not reported</sub> | Cross-Turkic TTS system whose acoustic model is trained solely on Kazakh data and extended to nine other Turkic languages via IPA-based transliteration. | **[Yeshpanov et al.](https://arxiv.org/abs/2305.15749)**<br><sub>ISSAI, Nazarbayev University</sub> | – Tacotron2 + ParallelWaveGAN (IPA-based cross-lingual transliteration) |
@@ -237,9 +246,7 @@ above, but could plausibly still qualify once verification succeeds.
 <!-- WATCHLIST:START -->
 - **Söyle** — The IS2AI GitHub repository and its ICAIIC 2024 paper are real, but the only pretrained-model link in the README (`dhcppc0/soyle_onnx` on Hugging Face) resolves to a 404. The official ISSAI project page links the code and a companion dataset but no model under the `issai` org — currently training-code-only, the same pattern as the official KazNERD repository.
 - **Tencent Kazakh 7B Adapter (HY-MT1.5-7B LoRA)** — A real paper — "Script Correction and Synthetic Pivoting: Adapting Tencent HY-MT for Low-Resource Turkic Translation" (LoResMT 2026, ru-kk track) — describes a LoRA fine-tune of Tencent HY-MT1.5-7B, but no public download for the trained LoRA weights could be found in the paper or via search.
-- **AIT-ASR** — A Whisper-small Kazakh ASR fine-tune (`nur-dev/ait-asr`) is hosted on Hugging Face, but has not yet been through a properly scoped primary-source verification pass for this catalog.
-- **AIT-Syn Kazakh TTS** — A Qwen3-TTS-based Kazakh voice-cloning model (`nur-dev/ait-syn-4L`) exists on Hugging Face, but has not yet received a dedicated primary-source verification pass.
-- **facebook/mms-tts-kaz** — Meta's Massively Multilingual Speech project includes a per-language Kazakh TTS model, but the exact current artifact, license terms, and specifically Kazakh training evidence (MMS covers 1000+ languages) have not yet been independently re-verified.
+- **AIT-Syn Kazakh TTS** — A Qwen3-TTS-12Hz-1.7B-Base fine-tune for Kazakh/Russian/English/Uzbek voice cloning (`nur-dev/ait-syn-4L`) is real and was indexed with a full model card (confirmed via third-party search results), but the repository currently returns HTTP 401 for anonymous access at both the API and page level — unlike the org's other gated repos (e.g. `nur-dev/ait-asr`), whose cards remain publicly readable. Could not be independently re-verified this pass.
 <!-- WATCHLIST:END -->
 
 ## Inclusion and maintenance
@@ -269,4 +276,11 @@ metadata, and PR format.
 ## Acknowledgements
 
 This project was inspired by [Allessyer/awesome-kaz-datasets](https://github.com/Allessyer/awesome-kaz-datasets). Thanks to its author and contributors for helping establish a public catalog of Kazakh-language AI resources.
+
+## License
+
+This catalog's own content — the repository structure, documentation, generated
+tables, and scripts — is released under the [MIT License](LICENSE). Models
+linked from this catalog remain under their own respective licenses (recorded
+per entry above); this MIT license does not extend to their contents.
 

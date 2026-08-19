@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="862" height="498" viewBox="0 0 862 498">
+<rect width="862" height="498" fill="#fcfcfb"/>
+<style>text{font-family:"Segoe UI",Inter,Arial,sans-serif;fill:#0b0b0b}.title{font-size:22px;font-weight:700}.sub{font-size:12px;fill:#52514e}.muted{font-size:11px;fill:#898781}.stat-label{font-size:12px;fill:#52514e;font-weight:600}.stat-value{font-size:28px;font-weight:700}.axis{font-size:12px;fill:#898781}.grid{stroke:#e1e0d9;stroke-width:1}.legend{font-size:12px;fill:#52514e}.name{font-size:14px;font-weight:700}.year{font-size:20px;font-weight:700}</style>
+<text x="217.0" y="30" text-anchor="middle" class="year">2024</text>
+<rect x="92" y="50" width="246" height="52" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="92" y="106" width="246" height="60" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="92" y="170" width="246" height="100" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="92" y="274" width="246" height="80" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="92" y="358" width="246" height="60" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="92" y="422" width="246" height="52" rx="6" fill="#9a4422" stroke="#e1e0d9" stroke-width="1"/>
+<text x="104" y="446" class="name" fill="#ffffff">Whisper Base Kazakh (akuzdeuov)</text>
+<text x="467.0" y="30" text-anchor="middle" class="year">2025</text>
+<rect x="342" y="50" width="246" height="52" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="342" y="106" width="246" height="60" rx="6" fill="#9a4422" stroke="#e1e0d9" stroke-width="1"/>
+<text x="354" y="130" class="name" fill="#ffffff">AIT-ASR</text>
+<rect x="342" y="170" width="246" height="100" rx="6" fill="#9a4422" stroke="#e1e0d9" stroke-width="1"/>
+<text x="354" y="194" class="name" fill="#ffffff">Keyword-MLP LangID / SCR</text>
+<text x="354" y="214" class="name" fill="#ffffff">(Kazakh)</text>
+<text x="354" y="234" class="name" fill="#ffffff">Whisper Turbo KSC2</text>
+<text x="354" y="254" class="name" fill="#ffffff">(abilmansplus)</text>
+<rect x="342" y="274" width="246" height="80" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="342" y="358" width="246" height="60" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="342" y="422" width="246" height="52" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<text x="717.0" y="30" text-anchor="middle" class="year">2026</text>
+<rect x="592" y="50" width="246" height="52" rx="6" fill="#9a4422" stroke="#e1e0d9" stroke-width="1"/>
+<text x="604" y="74" class="name" fill="#ffffff">Spark-TTS Kazakh</text>
+<rect x="592" y="106" width="246" height="60" rx="6" fill="#9a4422" stroke="#e1e0d9" stroke-width="1"/>
+<text x="604" y="130" class="name" fill="#ffffff">Whisper Large v3 Tulpar</text>
+<text x="604" y="150" class="name" fill="#ffffff">SozKZ OmniAudio</text>
+<rect x="592" y="170" width="246" height="100" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="592" y="274" width="246" height="80" rx="6" fill="#9a4422" stroke="#e1e0d9" stroke-width="1"/>
+<text x="604" y="298" class="name" fill="#ffffff">Kazakh Whisper Large-v3 Turbo</text>
+<text x="604" y="318" class="name" fill="#ffffff">(shyngys879)</text>
+<text x="604" y="338" class="name" fill="#ffffff">Kazakh Omni ASR CTC (nileq)</text>
+<rect x="592" y="358" width="246" height="60" rx="6" fill="#9a4422" stroke="#e1e0d9" stroke-width="1"/>
+<text x="604" y="382" class="name" fill="#ffffff">Persona-ASR</text>
+<text x="604" y="402" class="name" fill="#ffffff">KazakhTTS OmniVoice</text>
+<rect x="592" y="422" width="246" height="52" rx="6" fill="#fcfcfb" stroke="#e1e0d9" stroke-width="1"/>
+<text x="78" y="83.0" text-anchor="end" class="axis">Jan</text>
+<text x="78" y="143.0" text-anchor="end" class="axis">Mar</text>
+<text x="78" y="227.0" text-anchor="end" class="axis">May</text>
+<text x="78" y="321.0" text-anchor="end" class="axis">Jun</text>
+<text x="78" y="395.0" text-anchor="end" class="axis">Jul</text>
+<text x="78" y="455.0" text-anchor="end" class="axis">Aug</text>
+</svg>

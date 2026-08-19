@@ -23,9 +23,9 @@
 <polyline points="50.0,322.85714285714283 128.75,322.85714285714283 207.5,322.85714285714283 286.25,322.85714285714283 365.0,322.85714285714283 443.75,287.14285714285717 522.5,230.0 601.25,137.14285714285714 680.0,30.0" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="680.0" cy="30.0" r="4" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
 <text x="690.0" y="34.0" class="endlabel" fill="#3987e5">Text/NLP (42)</text>
-<polyline points="50.0,330.0 128.75,330.0 207.5,322.85714285714283 286.25,301.42857142857144 365.0,294.2857142857143 443.75,272.8571428571429 522.5,258.57142857142856 601.25,244.28571428571428 680.0,194.28571428571428" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="680.0" cy="194.28571428571428" r="4" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
-<text x="690.0" y="198.28571428571428" class="endlabel" fill="#d95926">Speech (19)</text>
+<polyline points="50.0,330.0 128.75,330.0 207.5,322.85714285714283 286.25,301.42857142857144 365.0,294.2857142857143 443.75,265.7142857142857 522.5,251.42857142857144 601.25,230.0 680.0,180.0" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="680.0" cy="180.0" r="4" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<text x="690.0" y="184.0" class="endlabel" fill="#d95926">Speech (21)</text>
 <polyline points="50.0,330.0 128.75,330.0 207.5,330.0 286.25,330.0 365.0,330.0 443.75,322.85714285714283 522.5,322.85714285714283 601.25,308.57142857142856 680.0,280.0" fill="none" stroke="#199e70" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="680.0" cy="280.0" r="4" fill="#199e70" stroke="#1a1a19" stroke-width="2"/>
 <text x="690.0" y="284.0" class="endlabel" fill="#199e70">Vision (7)</text>

@@ -2,6 +2,38 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-08-20 — Watchlist verification pass + license
+
+### Added
+
+- **AIT-ASR** (`nur-dev/ait-asr`) — Whisper-small fine-tune for Kazakh ASR,
+  trained on farabi-lab/kazakh-stt (≈204k pairs); 17.10% WER on Kazakh FLEURS,
+  36.05% WER on ISSAI KSC2 in-domain. Moved from Watchlist after confirming
+  the gated repo has real weights, a stated base model, training dataset, and
+  reported metrics.
+- **MMS-TTS Kazakh** (`facebook/mms-tts-kaz`) — per-language Kazakh VITS
+  checkpoint from Meta's MMS project. Moved from Watchlist after confirming
+  the repo is public (non-gated) with real weights, a CC-BY-NC-4.0 license,
+  and a linked paper (arXiv:2305.13516). Classified tier B, not A: MMS's
+  1,000+-language scope means Kazakh-specific training-data volume isn't
+  independently isolated from the shared pipeline.
+
+### Watchlist
+
+- **AIT-Syn Kazakh TTS** (`nur-dev/ait-syn-4L`) reason sharpened: the model is
+  real (indexed with a full technical README via third-party search), but
+  unlike the org's other gated repos, it currently returns HTTP 401 for
+  anonymous access at both the API and page level, so it could not be
+  independently re-verified this pass and stays in the Watchlist.
+- Söyle and the Tencent Kazakh 7B Adapter retained unchanged — their issue is
+  the absence of public weights, not unverified metadata.
+
+### Infrastructure
+
+- Added a top-level `LICENSE` badge, nav link, and closing README section
+  pointing to the existing MIT `LICENSE` file (catalog content only; linked
+  models keep their own licenses).
+
 ## 2026-08-19 — Initial curated release
 
 ### Added

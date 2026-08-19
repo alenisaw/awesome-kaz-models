@@ -2394,6 +2394,81 @@ models:
     last_verified: "2026-08-19"
     notes: null
 
+  - id: ait-asr
+    name: AIT-ASR
+    released: "2025-03"
+    section: "Speech and audio"
+    description: Whisper-small fine-tune for Kazakh automatic speech recognition, trained on the farabi-lab/kazakh-stt dataset.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Nurgali Kadyrbek
+        url: https://huggingface.co/nur-dev
+    organization: []
+    architecture: Whisper small fine-tune
+    base_model: openai/whisper-small
+    params:
+      display: "≈244M"
+      variants: []
+    languages: [kk]
+    access: gated
+    license: CC-BY-NC-4.0
+    links:
+      model: https://huggingface.co/nur-dev/ait-asr
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned from openai/whisper-small on farabi-lab/kazakh-stt (≈204k Kazakh speech-transcript pairs).
+      datasets: []
+    kazakh_evidence: Whisper-small fine-tune trained specifically on a Kazakh speech-transcript dataset; the model card states Kazakh as the primary language, with weak Russian/English performance as a side effect of the base model.
+    metrics:
+      summary: "Reported 17.10% WER on the Kazakh FLEURS test set and 36.05% WER on the ISSAI KSC2 in-domain test set, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-20"
+    last_verified: "2026-08-20"
+    notes: "Moved from Watchlist after primary-source verification: gated (manual) Hugging Face repo with real safetensors weights, a confirmed base model, training dataset, and WER metrics, independently checked via the model card and Hugging Face API."
+
+  - id: mms-tts-kaz
+    name: MMS-TTS Kazakh (facebook/mms-tts-kaz)
+    released: "2023-09"
+    section: "Speech and audio"
+    description: Per-language Kazakh (kaz) VITS text-to-speech checkpoint from Meta's Massively Multilingual Speech (MMS) project.
+    tasks: [Text-to-speech]
+    tier: B
+    kind: speech
+    authors:
+      - name: MMS project team
+    organization:
+      - name: Meta AI (FAIR)
+        url: https://ai.meta.com/
+    architecture: VITS (per-language checkpoint)
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-NC-4.0
+    links:
+      model: https://huggingface.co/facebook/mms-tts-kaz
+      paper: https://arxiv.org/abs/2305.13516
+      code: null
+      project: null
+    training:
+      summary: Trained as part of MMS's per-language VITS text-to-speech checkpoints spanning 1,000+ languages; per-language training-data volume and composition are not individually reported.
+      datasets: []
+    kazakh_evidence: Dedicated per-language Kazakh (kaz) VITS checkpoint, not a shared multilingual model output space; classified tier B rather than A because MMS's 1,000+-language scope means Kazakh-specific training-data volume has not been independently isolated from the shared MMS pipeline.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-20"
+    last_verified: "2026-08-20"
+    notes: "Moved from Watchlist after primary-source verification: public (non-gated) Hugging Face repo with real weights (pytorch_model.bin + safetensors), confirmed CC-BY-NC-4.0 license, and a linked MMS paper (arXiv:2305.13516), independently checked via the model card and Hugging Face API."
+
   # ---------------------------------------------------------------------
   # Vision, OCR, and multimodal
   # ---------------------------------------------------------------------
