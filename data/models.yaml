@@ -1,0 +1,2684 @@
+# Canonical model registry for awesome-kaz-models.
+# README tables and visualizations are generated from this file — do not hand-edit the README's
+# generated blocks. See CONTRIBUTING.md for field definitions and the "released" date rule.
+#
+# access:  open | gated | application | paid | restricted   (never "unavailable" here — see CONTRIBUTING.md)
+# kind:    foundation | continued-pretraining | instruction | task-finetune | translation | embedding | speech | vision | multimodal
+# tier:    A (Kazakh-specific) | B (strong Kazakh support in a multilingual model)
+# section: "Text, NLP, and LLM" | "Speech and audio" | "Vision, OCR, and multimodal"
+
+models:
+
+  # ---------------------------------------------------------------------
+  # Text, NLP, and LLM
+  # ---------------------------------------------------------------------
+
+  - id: fasttext-cc-kk-300
+    name: fastText Kazakh word vectors (cc.kk.300)
+    released: "2018"
+    section: "Text, NLP, and LLM"
+    description: CBOW word embeddings with character n-grams trained on Common Crawl and Wikipedia Kazakh text, part of Facebook AI's 157-language release.
+    tasks: [Embeddings / dense retrieval]
+    tier: A
+    kind: embedding
+    authors:
+      - name: "E. Grave, P. Bojanowski, P. Gupta, A. Joulin, T. Mikolov"
+        url: null
+    organization:
+      - name: Facebook AI Research
+        url: https://fasttext.cc
+    architecture: fastText CBOW + character n-grams
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-SA-3.0
+    links:
+      model: https://fasttext.cc/docs/en/crawl-vectors.html
+      paper: https://aclanthology.org/L18-1550/
+      code: null
+      project: https://fasttext.cc
+    training:
+      summary: CBOW with position weights, 300-dim, character n-grams length 5, trained per-language on Common Crawl + Wikipedia.
+      datasets: []
+    kazakh_evidence: cc.kk.300 is a dedicated per-language Kazakh vector file trained on Kazakh-only corpus text, not a shared multilingual embedding space.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Month of release not verifiable from a primary source, so year-only is used. HF mirror facebook/fasttext-kk-vectors createdAt (2023-03-20) is a later re-upload, not the true release date — not used."
+
+  - id: kaz-roberta-conversational
+    name: Kaz-RoBERTa Conversational
+    released: "2023-04"
+    section: "Text, NLP, and LLM"
+    description: RoBERTa-base trained from scratch on a 25GB multidomain Kazakh corpus spanning formal and conversational text.
+    tasks: [Masked language modelling / encoder]
+    tier: A
+    kind: foundation
+    authors: []
+    organization:
+      - name: kz-transformers
+        url: null
+    architecture: RoBERTa
+    base_model: null
+    params:
+      display: "83.5M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/kz-transformers/kaz-roberta-conversational
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained from scratch with a 52k BPE tokenizer on kz-transformers/multidomain-kazakh-dataset.
+      datasets: []
+    kazakh_evidence: Trained from scratch exclusively on a curated Kazakh multidomain corpus.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: hplt-bert-base-kk
+    name: HPLT BERT Base Kazakh
+    released: "2024-04"
+    section: "Text, NLP, and LLM"
+    description: LTG-BERT-style monolingual encoder for Kazakh, one of many per-language models in the HPLT project's second data/model release.
+    tasks: [Masked language modelling / encoder]
+    tier: A
+    kind: foundation
+    authors: []
+    organization:
+      - name: HPLT Project
+        url: https://hplt-project.org
+    architecture: LTG-BERT (encoder)
+    base_model: null
+    params:
+      display: "≈153M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/HPLT/hplt_bert_base_kk
+      paper: null
+      code: null
+      project: https://hplt-project.org
+    training:
+      summary: Monolingual BERT trained on HPLT's Kazakh web-crawled and cleaned monolingual corpus.
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only model (not a shared-weight multilingual model) within the wider HPLT multilingual project.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazbert
+    name: KazBERT
+    released: "2025-03"
+    section: "Text, NLP, and LLM"
+    description: BERT-style masked-language model pretrained with a Kazakh-tailored tokenizer on Kazakh/Russian/English web and Wikipedia text.
+    tasks: [Masked language modelling / encoder]
+    tier: A
+    kind: foundation
+    authors:
+      - name: Eraly-ml
+        url: null
+    organization: []
+    architecture: BERT
+    base_model: null
+    params:
+      display: "110.7M"
+      variants: []
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Eraly-ml/KazBERT
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Pretrained with a dedicated Kazakh tokenizer on Wikipedia + CommonCrawl-derived text.
+      datasets: []
+    kazakh_evidence: Custom Kazakh tokenizer and from-scratch pretraining with Kazakh as the primary language.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: roberta-kaz-large
+    name: RoBERTa Kazakh Large
+    released: "2024-07"
+    section: "Text, NLP, and LLM"
+    description: RoBERTa-large trained from scratch on a multidomain Kazakh corpus; serves as the base for several downstream QA/classification fine-tunes in this catalog.
+    tasks: [Masked language modelling / encoder]
+    tier: A
+    kind: foundation
+    authors:
+      - name: nur-dev
+        url: null
+    organization: []
+    architecture: RoBERTa-large
+    base_model: null
+    params:
+      display: "355.4M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: AFL-3.0
+    links:
+      model: https://huggingface.co/nur-dev/roberta-kaz-large
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained from scratch on a multidomain Kazakh corpus.
+      datasets: []
+    kazakh_evidence: Full from-scratch pretraining on Kazakh text; base for downstream KazQAD and classification fine-tunes.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazllm-1-0
+    name: KazLLM 1.0
+    released: "2024-12"
+    section: "Text, NLP, and LLM"
+    description: Kazakh-focused Llama 3.1 adaptation released in 8B and 70B variants by ISSAI.
+    tasks: [Large language model]
+    tier: A
+    kind: instruction
+    authors:
+      - name: ISSAI researchers
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Llama 3.1
+    base_model: Meta Llama 3.1
+    params:
+      display: "8B / 70B"
+      variants: ["8B", "70B"]
+    languages: [kk, en, ru, tr]
+    access: gated
+    license: "CC-BY-NC-4.0 (with Llama 3.1 Community License terms)"
+    links:
+      model: https://huggingface.co/issai/LLama-3.1-KazLLM-1.0-8B
+      paper: null
+      code: null
+      project: https://issai.nu.edu.kz/
+    training:
+      summary: Continued pretraining and conversational tuning of Llama 3.1 on Kazakh-centric corpora, evaluated for kk/en/ru/tr.
+      datasets: []
+    kazakh_evidence: Explicitly marketed and evaluated as a Kazakh-language adaptation with dedicated Kazakh benchmark scores.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "8B createdAt 2024-12-08; 70B createdAt 2024-12-07 — treated as one simultaneous release."
+
+  - id: sozkz-core-llama-kk
+    name: SozKZ Core (Llama-family Kazakh base models)
+    released: "2026-03"
+    section: "Text, NLP, and LLM"
+    description: Family of small Llama-architecture Kazakh language models trained from scratch by an independent researcher, ranging from 8M to ≈1.08B parameters.
+    tasks: [Large language model]
+    tier: A
+    kind: foundation
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: Llama (GQA, from scratch)
+    base_model: null
+    params:
+      display: "8M-1.08B (multiple models)"
+      variants: ["8M", "30M", "50M", "150M", "300M", "600M", "1B"]
+    languages: [kk, en]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/stukenov/sozkz-core-llama-1b-kk-base-v1
+      paper: null
+      code: null
+      project: https://huggingface.co/collections/stukenov/sozkz-core-kazakh-language-models
+    training:
+      summary: Trained from scratch on the SozKZ ≈9B-token Kazakh corpus (with some English balance), using progressively larger models.
+      datasets: []
+    kazakh_evidence: From-scratch pretraining on a purpose-built Kazakh corpus, with dedicated base/instruct/balanced/GEC/sentiment sub-variants per size.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Represents a large sprawl of near-identical iterative models (v1-v4 of several sizes; GPT2/Pythia/T5 sibling architectures also exist in the same collection). Only the largest Llama base model (1.08B) is catalogued as the flagship; dozens of smaller/instruct/gec/sentiment/balanced siblings under the same collection are not separately catalogued."
+
+  - id: sozkz-core-qwen-500m-kk-base
+    name: SozKZ Core Qwen 500M (kk base)
+    released: "2026-04"
+    section: "Text, NLP, and LLM"
+    description: Qwen2-architecture Kazakh-only language model trained from scratch by an independent researcher.
+    tasks: [Large language model]
+    tier: A
+    kind: foundation
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: Qwen2
+    base_model: null
+    params:
+      display: "447.5M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/stukenov/sozkz-core-qwen-500m-kk-base-v1
+      paper: null
+      code: null
+      project: https://huggingface.co/collections/stukenov/sozkz-core-kazakh-language-models
+    training:
+      summary: Trained from scratch on Kazakh text (≈7B Kazakh tokens per the account's project description).
+      datasets: []
+    kazakh_evidence: From-scratch Kazakh-only pretraining, distinct architecture (Qwen2) from the Llama-family SozKZ Core models.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "An instruct sibling (sozkz-core-qwen-500m-kk-instruct-v1) also exists, not separately catalogued here."
+
+  - id: sozkz-core-tinyllama-1b-kk-ru
+    name: SozKZ Core TinyLlama kk-ru
+    released: "2026-04"
+    section: "Text, NLP, and LLM"
+    description: Bilingual Kazakh-Russian continued pretraining of TinyLlama-1.1B via tokenizer extension and progressive multi-stage training.
+    tasks: [Large language model]
+    tier: A
+    kind: continued-pretraining
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: Llama (TinyLlama)
+    base_model: "TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T"
+    params:
+      display: "1.14B"
+      variants: []
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/stukenov/sozkz-core-tinyllama-1b-kk-ru-v1
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Vocabulary extended from 32k to 42k tokens (Kazakh/Russian additions) and continued-pretrained on a 6.17B-token bilingual corpus (59.6% Kazakh / 40.4% Russian) over a 7-stage progressive pipeline, following Chinese-LLaMA/EEVE/Swallow-style low-resource adaptation."
+      datasets: [kz-transformers/multidomain-kazakh-dataset]
+    kazakh_evidence: Explicit tokenizer extension and multi-stage continued pretraining majority-weighted toward Kazakh (59.6% of tokens), with reported per-language perplexity.
+    metrics:
+      summary: "Reported perplexity: Kazakh 25.41, Russian 19.14, English 8.91 (self-reported, not independently verified)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "The candidate list's URL (stukenov/sozkz-tinyllama-1b-kk-ru) does not exist; corrected to the real repo stukenov/sozkz-core-tinyllama-1b-kk-ru-v1."
+
+  - id: mgpt-1-3b-kazakh
+    name: mGPT 1.3B Kazakh
+    released: "2023-08"
+    section: "Text, NLP, and LLM"
+    description: Multilingual 1.3B GPT model continuously pretrained on Kazakh web and corpus text for 150,000 steps to specialize for Kazakh text generation.
+    tasks: [Large language model, Text generation]
+    tier: A
+    kind: continued-pretraining
+    authors:
+      - name: "AI Forever (Sber AI)"
+        url: https://ai-forever.github.io
+    organization:
+      - name: AI Forever
+        url: https://github.com/ai-forever
+    architecture: mGPT (GPT-2-based multilingual causal LM)
+    base_model: ai-forever/mGPT
+    params:
+      display: "1.3B"
+      variants: []
+    languages: [kk, en, ru]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/ai-forever/mGPT-1.3B-kazakh
+      paper: https://arxiv.org/abs/2304.09299
+      code: https://github.com/ai-forever/mgpt
+      project: null
+    training:
+      summary: Continued pretraining of mGPT-1.3B (mGPT-XL) on Kazakh corpus data for 150,000 steps with context length 2,048 on A100 GPUs, achieving 3.38 validation perplexity.
+      datasets: []
+    kazakh_evidence: Dedicated per-language checkpoint produced by extensive continual pretraining on Kazakh text.
+    metrics:
+      summary: "3.38 validation perplexity"
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: ekitil-core-qwen3-kkru
+    name: EkiTil (bilingual Kazakh-Russian Qwen3 family)
+    released: "2026-04"
+    section: "Text, NLP, and LLM"
+    description: Family of Qwen3-architecture bilingual Kazakh-Russian language models trained from scratch, in 123M/300M/600M sizes.
+    tasks: [Large language model]
+    tier: A
+    kind: foundation
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: Qwen3 (causal LM, from scratch)
+    base_model: null
+    params:
+      display: "123M-674M"
+      variants: ["123M", "300M", "600M (673.8M actual)"]
+    languages: [kk, ru]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/stukenov/ekitil-core-qwen3-600m-kkru-base-v1
+      paper: null
+      code: null
+      project: https://huggingface.co/collections/stukenov/ekitil-bilingual-kazakh-russian-language-models
+    training:
+      summary: Trained from scratch on a tokenized bilingual Kazakh-Russian corpus (≈2.47B tokens per the project's stated scope).
+      datasets: []
+    kazakh_evidence: From-scratch bilingual pretraining with Kazakh as one of exactly two central target languages, with a dedicated tokenizer (ekitil-vocab-bpe-64k-kkru-v1).
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "A translation-tuned sibling (ekitil-core-qwen3-600m-kkru-translate-v1) also exists in the same collection, not separately catalogued here."
+
+  - id: tilqazyna-llama-kaz-instruct-8b-1
+    name: llama-kaz-instruct-8B-1
+    released: "2024-09"
+    section: "Text, NLP, and LLM"
+    description: Llama 3 8B continued-pretrained and instruction-tuned for Kazakh by the TilQazyna team.
+    tasks: [Instruction following]
+    tier: A
+    kind: instruction
+    authors: []
+    organization:
+      - name: TilQazyna
+        url: null
+    architecture: Llama 3
+    base_model: "meta-llama/Meta-Llama-3-8B"
+    params:
+      display: "8B"
+      variants: []
+    languages: [kk]
+    access: gated
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/TilQazyna/llama-kaz-instruct-8B-1
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Continued pretraining and instruction fine-tuning of Llama 3 8B on Kazakh data.
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh instruction fine-tune of a Llama 3 base.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Access requires an approved request through TilQazyna (HF-style gating). GGUF/AWQ mirrors (RichardErkhov, featherless-ai-quants, BeibitDS) exist and are not catalogued separately."
+
+  - id: llama-1-9b-kaz
+    name: Llama 1.9B Kazakh
+    released: "2024-08"
+    section: "Text, NLP, and LLM"
+    description: 1.9B-parameter Llama-architecture model trained from scratch on Kazakh text.
+    tasks: [Large language model]
+    tier: A
+    kind: foundation
+    authors:
+      - name: nur-dev
+        url: null
+    organization: []
+    architecture: Llama
+    base_model: null
+    params:
+      display: "1.94B"
+      variants: []
+    languages: [kk]
+    access: open
+    license: AFL-3.0
+    links:
+      model: https://huggingface.co/nur-dev/llama-1.9B-kaz
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained from scratch on kz-transformers/multidomain-kazakh-dataset.
+      datasets: [kz-transformers/multidomain-kazakh-dataset]
+    kazakh_evidence: Full from-scratch Kazakh pretraining.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "An instruction-tuned sibling nur-dev/llama-1.9B-kaz-instruct also exists and could be added as a separate task-finetune row in a future PR."
+
+  - id: darmm-text-generation-kazakh-v1
+    name: Darmm Text Generation (v1, mT5)
+    released: "2026-01"
+    section: "Text, NLP, and LLM"
+    description: mT5-base fine-tuned for Kazakh text generation.
+    tasks: [Text generation]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Darmm
+        url: null
+    organization: []
+    architecture: mT5
+    base_model: "google/mt5-base"
+    params:
+      display: "966.6M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Darmm/darmm-text-generation-kazakh
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned mT5-base on a Kazakh text-generation dataset.
+      datasets: [Darmm/darmm-text-generation-kazakh]
+    kazakh_evidence: Kazakh-specific fine-tune with a dedicated Kazakh training dataset.
+    metrics:
+      summary: "Card reports RougeL ≈0.109 (self-reported, not independently verified)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: darmm-text-generation-kazakh-v2
+    name: Darmm Text Generation (v2, Qwen2.5-Coder)
+    released: "2026-02"
+    section: "Text, NLP, and LLM"
+    description: QLoRA adapter fine-tuning Qwen2.5-Coder-7B-Instruct for Kazakh instruction-following text generation.
+    tasks: [Text generation]
+    tier: A
+    kind: instruction
+    authors:
+      - name: Darmm
+        url: null
+    organization: []
+    architecture: Qwen2.5-Coder (QLoRA adapter)
+    base_model: "Qwen/Qwen2.5-Coder-7B-Instruct"
+    params:
+      display: "≈7B base (QLoRA adapter ≈646MB)"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Darmm/darmm-text-generation-kazakh-v2
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: QLoRA fine-tuning of Qwen2.5-Coder-7B-Instruct on an "organic Kazakh corpus v2" dataset.
+      datasets: []
+    kazakh_evidence: Kazakh-specific instruction fine-tune; distinct base architecture from v1, so catalogued as a separate model rather than a version bump.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Repo contains adapter_model.safetensors only (QLoRA adapter, not a merged full model) — requires loading the Qwen2.5-Coder-7B-Instruct base separately."
+
+  - id: issai-foggen
+    name: FogGen
+    released: "2026-05"
+    section: "Text, NLP, and LLM"
+    description: ISSAI research family (Qwen3/Gemma3-based, 270M-1.7B) exploring edge-cloud routing, verbalized confidence, and continual learning, trained with Kazakh-culture data.
+    tasks: [Instruction following]
+    tier: A
+    kind: instruction
+    authors:
+      - name: ISSAI researchers
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Qwen3 / Gemma3
+    base_model: Qwen3 / Gemma3 family
+    params:
+      display: "270M-1.7B"
+      variants: ["270M", "600M", "1B", "1.7B"]
+    languages: [en, kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/issai/foggen
+      paper: null
+      code: null
+      project: https://issai.nu.edu.kz/
+    training:
+      summary: Fine-tuned on issai/foggen-data and issai/KazCulture for edge-cloud routing, verbalized confidence, and multi-round continual-learning research.
+      datasets: [issai/foggen-data, issai/KazCulture]
+    kazakh_evidence: Explicit bilingual (en/kk) training with a dedicated Kazakh-culture dataset (issai/KazCulture), from an established Kazakh-NLP research institute.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "GGUF mirrors and an issai/foggen-r15-oe variant also exist and are not catalogued separately."
+
+  - id: kazsandra-rembert-polarity
+    name: KazSAnDRA RemBERT (polarity classification)
+    released: "2023-10"
+    section: "Text, NLP, and LLM"
+    description: RemBERT fine-tuned for Kazakh sentiment polarity classification on the KazSAnDRA review dataset.
+    tasks: [Sentiment classification]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: ISSAI researchers
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: RemBERT
+    base_model: "google/rembert"
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/issai/rembert-sentiment-analysis-polarity-classification-kazakh
+      paper: null
+      code: null
+      project: https://issai.nu.edu.kz/
+    training:
+      summary: Fine-tuned on the KazSAnDRA Kazakh product-review sentiment dataset for polarity classification.
+      datasets: [issai/kazsandra]
+    kazakh_evidence: Dedicated Kazakh sentiment fine-tune on a Kazakh-specific review dataset from a Kazakh-NLP research institute.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Parameter count not disclosed in the model card or safetensors metadata; not guessed."
+
+  - id: kazbert-nerd
+    name: KazBERT-NERD
+    released: "2025-12"
+    section: "Text, NLP, and LLM"
+    description: KazBERT fine-tuned for Kazakh named-entity recognition on KazNERD.
+    tasks: [Named entity recognition]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Eraly-ml
+        url: null
+    organization: []
+    architecture: BERT
+    base_model: "Eraly-ml/KazBERT"
+    params:
+      display: "110.1M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/Eraly-ml/KazBERT-NERD
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned KazBERT on the issai/kaznerd NER dataset.
+      datasets: [issai/kaznerd]
+    kazakh_evidence: Task-specific Kazakh NER fine-tune on the KazNERD dataset.
+    metrics:
+      summary: null
+    derivative_of: kazbert
+    base_model_id: kazbert
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazbert-duplicates
+    name: KazBERT Duplicates
+    released: "2025-05"
+    section: "Text, NLP, and LLM"
+    description: KazBERT fine-tuned on the KazakhTextDuplicates dataset for semantic duplicate and near-duplicate text detection in Kazakh.
+    tasks: [Text classification]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Yeraly Gainulla
+        url: https://huggingface.co/Eraly-ml
+    organization: []
+    architecture: BERT
+    base_model: Eraly-ml/KazBERT
+    params:
+      display: "110.6M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Eraly-ml/KazBERT-Duplicates
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on Arailym-tleubayeva/KazakhTextDuplicates containing over 25,000 controlled Kazakh text fragments with exact, contextual, and partial duplicates.
+      datasets: [Arailym-tleubayeva/KazakhTextDuplicates]
+    kazakh_evidence: Fine-tuned specifically on a dedicated Kazakh semantic deduplication and sentence similarity benchmark on top of KazBERT.
+    metrics:
+      summary: null
+    derivative_of: kazbert
+    base_model_id: kazbert
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: xlm-roberta-large-kaznerd
+    name: XLM-R Large KazNERD
+    released: "2023-05"
+    section: "Text, NLP, and LLM"
+    description: XLM-RoBERTa-large fine-tuned for Kazakh named-entity recognition on KazNERD.
+    tasks: [Named entity recognition]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Rustem Yeshpanov
+        url: null
+    organization: []
+    architecture: XLM-RoBERTa-large
+    base_model: "FacebookAI/xlm-roberta-large"
+    params:
+      display: "558.9M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/yeshpanovrustem/xlm-roberta-large-kaznerd
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on the KazNERD dataset for Kazakh NER.
+      datasets: []
+    kazakh_evidence: Independent public fine-tune with real published weights trained on KazNERD (distinct from the official training-scripts-only KazNERD repo).
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Same author also publishes an ner-kazakh variant not in the original candidate list; not catalogued here."
+
+  - id: kaz-roberta-ner
+    name: Kaz-RoBERTa NER
+    released: "2025-11"
+    section: "Text, NLP, and LLM"
+    description: Kaz-RoBERTa Conversational fine-tuned for Kazakh named-entity recognition on KazNERD.
+    tasks: [Named entity recognition]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: shoplikov
+        url: null
+    organization: []
+    architecture: RoBERTa
+    base_model: "kz-transformers/kaz-roberta-conversational"
+    params:
+      display: "82.9M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/shoplikov/kaz-roberta-ner
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned Kaz-RoBERTa Conversational on KazNERD.
+      datasets: []
+    kazakh_evidence: Task-specific Kazakh NER fine-tune of a Kazakh-native RoBERTa base.
+    metrics:
+      summary: null
+    derivative_of: kaz-roberta-conversational
+    base_model_id: kaz-roberta-conversational
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: roberta-large-kazqad
+    name: RoBERTa Large KazQAD
+    released: "2024-08"
+    section: "Text, NLP, and LLM"
+    description: RoBERTa Kazakh Large fine-tuned for extractive question answering on KazQAD.
+    tasks: [Question answering]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: nur-dev
+        url: null
+    organization: []
+    architecture: RoBERTa-large
+    base_model: "nur-dev/roberta-kaz-large"
+    params:
+      display: "354.3M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: AFL-3.0
+    links:
+      model: https://huggingface.co/nur-dev/roberta-large-kazqad
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on the issai/kazqad Kazakh QA dataset.
+      datasets: [issai/kazqad]
+    kazakh_evidence: Task-specific Kazakh QA fine-tune of a Kazakh-native RoBERTa-large base.
+    metrics:
+      summary: null
+    derivative_of: roberta-kaz-large
+    base_model_id: roberta-kaz-large
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: roberta-large-kazqad-informatics
+    name: RoBERTa Large KazQAD Informatics
+    released: "2025-03"
+    section: "Text, NLP, and LLM"
+    description: RoBERTa Large KazQAD further fine-tuned for informatics/computer-science domain QA in Kazakh.
+    tasks: [Question answering]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Arailym Tleubayeva
+        url: null
+    organization: []
+    architecture: RoBERTa-large
+    base_model: "nur-dev/roberta-large-kazqad"
+    params:
+      display: "354.3M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Arailym-tleubayeva/roberta-large-kazqad-informatics_kaz
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Domain-adapted fine-tune on the Kundyzka/informatics_kaz Kazakh informatics QA dataset.
+      datasets: [Kundyzka/informatics_kaz]
+    kazakh_evidence: Domain-specific Kazakh QA fine-tune, a real new capability (informatics domain) on top of the general KazQAD fine-tune.
+    metrics:
+      summary: null
+    derivative_of: roberta-large-kazqad
+    base_model_id: roberta-large-kazqad
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "A LoRA/fp16 packaging variant also exists and is not catalogued separately."
+
+  - id: bert-multilingual-informatics-kaz
+    name: Kundyzka Informatics QA (mBERT)
+    released: "2025-01"
+    section: "Text, NLP, and LLM"
+    description: mBERT fine-tuned for Kazakh informatics/computer-science question answering.
+    tasks: [Question answering]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Kundyz Maksutova
+        url: null
+    organization: []
+    architecture: BERT (multilingual)
+    base_model: "google-bert/bert-base-multilingual-cased"
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Kundyzka/bert-base-multilingual-informatics-kaz
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on the Kundyzka/informatics_kaz Kazakh informatics QA dataset.
+      datasets: [Kundyzka/informatics_kaz]
+    kazakh_evidence: Kazakh-only, domain-specific QA fine-tune with a dedicated Kazakh dataset.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Prior candidate list incorrectly described this as a Kaz-RoBERTa fine-tune; the actual base model is mBERT, corrected here. A near-identical fine-tune from a different account exists on the same dataset; not catalogued separately."
+
+  - id: kazakh-qa-mbert
+    name: Kazakh Question Answering (mBERT KazQAD)
+    released: "2026-01"
+    section: "Text, NLP, and LLM"
+    description: Multilingual BERT fine-tuned on the KazQAD dataset for extractive question answering in Kazakh.
+    tasks: [Question answering]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Rayvan
+        url: https://huggingface.co/R3iwan
+    organization: []
+    architecture: BERT (multilingual)
+    base_model: google-bert/bert-base-multilingual-cased
+    params:
+      display: "177.3M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/R3iwan/kazakh-question-answering
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on 3,163 training examples from the issai/kazqad reading-comprehension dataset.
+      datasets: [issai/kazqad]
+    kazakh_evidence: Extractive QA head fine-tuned specifically on the Kazakh Open-Domain Question Answering (KazQAD) dataset.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: roberta-kaz-large-small-corpus-classifier
+    name: Arailym Kazakh text classifier
+    released: "2025-03"
+    section: "Text, NLP, and LLM"
+    description: RoBERTa Kazakh Large fine-tuned for text classification on a curated small Kazakh corpus.
+    tasks: [Text classification]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Arailym Tleubayeva
+        url: null
+    organization: []
+    architecture: RoBERTa-large
+    base_model: "nur-dev/roberta-kaz-large"
+    params:
+      display: "355.4M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Arailym-tleubayeva/roberta-kaz-large-small-kazakh-corpus
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned for Kazakh text classification on Arailym-aitu/small_kazakh_corpus.
+      datasets: [Arailym-aitu/small_kazakh_corpus]
+    kazakh_evidence: Task-specific Kazakh classification fine-tune of a Kazakh-native RoBERTa-large base.
+    metrics:
+      summary: null
+    derivative_of: roberta-kaz-large
+    base_model_id: roberta-kaz-large
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: dalat5
+    name: DalaT5
+    released: "2025-04"
+    section: "Text, NLP, and LLM"
+    description: T5-small fine-tuned for Kazakh Cyrillic-to-Latin transliteration.
+    tasks: [Transliteration]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: crossroderick
+        url: null
+    organization: []
+    architecture: T5-small
+    base_model: t5-small
+    params:
+      display: "64.6M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/crossroderick/dalat5
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned for Kazakh script transliteration (Cyrillic to the 2021 Latin alphabet).
+      datasets: []
+    kazakh_evidence: Kazakh-specific transliteration task fine-tune.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: sozkz-fix-qwen-500m-kk-gec
+    name: SozKZ GEC (Qwen 500M)
+    released: "2026-04"
+    section: "Text, NLP, and LLM"
+    description: Qwen-architecture 500M model iteratively fine-tuned for Kazakh grammatical error correction, via a preference-optimization pipeline.
+    tasks: [Grammar correction]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: Qwen2
+    base_model: sozkz-core-qwen-500m-kk-base
+    params:
+      display: "447.5M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/stukenov/sozkz-fix-qwen-500m-kk-gec-v4
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned with preference optimization on GPT-4o-generated synthetic Kazakh GEC data, latest (v4) of a v1-v4 iterative chain.
+      datasets: [stukenov/sozkz-gec-synthetic-gpt4o-v1]
+    kazakh_evidence: Dedicated Kazakh grammatical-error-correction fine-tune.
+    metrics:
+      summary: null
+    derivative_of: sozkz-core-qwen-500m-kk-base
+    base_model_id: sozkz-core-qwen-500m-kk-base
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "The v1-v4 iterative chain plus earlier mT5-based GEC models in the same account are not catalogued separately; only the latest model (v4) is."
+
+  - id: kazakh-sentiment-bert-r3iwan
+    name: Kazakh Sentiment BERT
+    released: "2026-01"
+    section: "Text, NLP, and LLM"
+    description: mBERT fine-tuned for 3-class Kazakh sentiment classification on entertainment reviews.
+    tasks: [Sentiment classification]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: R3iwan
+        url: null
+    organization: []
+    architecture: BERT (multilingual)
+    base_model: "google-bert/bert-base-multilingual-cased"
+    params:
+      display: "177.9M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/R3iwan/kazakh-sentiment-bert
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on R3iwan/entertainment-reviews-kazakh for 3-class sentiment.
+      datasets: [R3iwan/entertainment-reviews-kazakh]
+    kazakh_evidence: Substantive Kazakh-specific fine-tune with its own dedicated Kazakh review dataset (not a thin wrapper).
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: darmm-sentiment-kazakh
+    name: Darmm Kazakh Sentiment
+    released: "2026-01"
+    section: "Text, NLP, and LLM"
+    description: mBERT fine-tuned for Kazakh sentiment classification.
+    tasks: [Sentiment classification]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Darmm
+        url: null
+    organization: []
+    architecture: BERT (multilingual)
+    base_model: "google-bert/bert-base-multilingual-cased"
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Darmm/darmm-sentiment-kazakh
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on Darmm/darmm-sentiment-kk.
+      datasets: [Darmm/darmm-sentiment-kk]
+    kazakh_evidence: Kazakh-specific sentiment fine-tune with a dedicated dataset.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Class count not independently confirmed; parameter count not disclosed in card metadata."
+
+  - id: stanza-kk-ktb
+    name: Stanza Kazakh pipeline (kk_ktb)
+    released: "Unknown"
+    section: "Text, NLP, and LLM"
+    description: Stanford Stanza's Kazakh Universal Dependencies pipeline (tokenize/POS/lemma/dependency parsing), trained on the KTB treebank.
+    tasks: [POS tagging, Dependency parsing]
+    tier: A
+    kind: task-finetune
+    authors: []
+    organization:
+      - name: Stanford NLP Group
+        url: https://stanfordnlp.github.io/stanza/
+    architecture: Stanza UD pipeline (biaffine parser + neural taggers)
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://stanfordnlp.github.io/stanza/available_models.html
+      paper: null
+      code: https://github.com/stanfordnlp/stanza
+      project: https://stanfordnlp.github.io/stanza/
+    training:
+      summary: Trained on the UD_Kazakh-KTB Universal Dependencies treebank as part of Stanza's per-language UD model releases.
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only model (kk_ktb) trained on the Kazakh UD treebank within the wider multilingual Stanza toolkit.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Confirmed the kk_ktb package exists in current Stanza releases, but could not pin the specific month/year it first became available from a primary source, so released is Unknown."
+
+  - id: e5-base-kazakh
+    name: e5-base-kazakh
+    released: "2025-10"
+    section: "Text, NLP, and LLM"
+    description: multilingual-e5-base fine-tuned on Kazakh-translated NLI (SNLI) pairs for Kazakh sentence embeddings.
+    tasks: [Embeddings / dense retrieval]
+    tier: A
+    kind: embedding
+    authors:
+      - name: sultanbi
+        url: null
+    organization: []
+    architecture: XLM-RoBERTa (E5)
+    base_model: intfloat/multilingual-e5-base
+    params:
+      display: "278M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/sultanbi/e5-base-kazakh
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on a translated Kazakh version of SNLI for embedding/retrieval quality.
+      datasets: []
+    kazakh_evidence: "Substantive fine-tune, not a thin wrapper: card reports Kazakh SNLI retrieval R@1 improving from 0.433 to 0.887 and STS-B Pearson from 0.708 to 0.817 over the base model."
+    metrics:
+      summary: "Self-reported: Kazakh SNLI R@1 0.887 vs base 0.433; STS-B Pearson 0.817 vs base 0.708."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazembed-v5
+    name: KazEmbed-V5
+    released: "2025-12"
+    section: "Text, NLP, and LLM"
+    description: multilingual-e5-base fine-tuned on 61,255 Kazakh pairs (KazQAD, KazQAD-Retrieval, Kazakh dialogue) for retrieval-quality Kazakh embeddings.
+    tasks: [Embeddings / dense retrieval]
+    tier: A
+    kind: embedding
+    authors:
+      - name: Nurlykhan
+        url: null
+    organization: []
+    architecture: XLM-RoBERTa (E5)
+    base_model: intfloat/multilingual-e5-base
+    params:
+      display: "278M"
+      variants: []
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Nurlykhan/KazEmbed-V5
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Fine-tuned on 61,255 Kazakh pairs (KazQAD 6,640; KazQAD-Retrieval 44,615; Powerful-Kazakh-Dialogue 10,000)."
+      datasets: [issai/kazqad, issai/kazqad-retrieval, DarkyMan/powerful-kazakh-dialogue]
+    kazakh_evidence: Explicit, sizable Kazakh-specific retrieval fine-tuning dataset with reported evaluation results.
+    metrics:
+      summary: "Self-reported: Hits@1 72%, Hits@5 96%, MRR 0.835."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazakh-e5-rag-embedding
+    name: Kazakh E5 RAG embedding
+    released: "2026-05"
+    section: "Text, NLP, and LLM"
+    description: KazEmbed-V5 further fine-tuned for Kazakh RAG/retrieval on a Kazakh Wikipedia RAG dataset.
+    tasks: [Embeddings / dense retrieval]
+    tier: A
+    kind: embedding
+    authors:
+      - name: shyngys879
+        url: null
+    organization: []
+    architecture: XLM-RoBERTa (E5)
+    base_model: Nurlykhan/KazEmbed-V5
+    params:
+      display: "278M"
+      variants: []
+    languages: [kk, ru, en]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://huggingface.co/shyngys879/kazakh-e5-rag-embedding
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Additional RAG-oriented fine-tuning of KazEmbed-V5 on shyngys879/Kazakh-Wiki-RAG-Dataset plus KazQAD/KazQAD-Retrieval.
+      datasets: [shyngys879/Kazakh-Wiki-RAG-Dataset, issai/kazqad, issai/kazqad-retrieval]
+    kazakh_evidence: Genuinely distinct additional training (a new Kazakh Wikipedia RAG dataset) beyond the KazEmbed-V5 parent, warranting a separate row per the derivative/new-capability rule.
+    metrics:
+      summary: null
+    derivative_of: kazembed-v5
+    base_model_id: kazembed-v5
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "License tagged 'other' on HF with no further license text disclosed anywhere on the card; recorded as Not reported rather than invented."
+
+  - id: darmm-embedding-multilingual
+    name: Darmm Embedding Multilingual
+    released: "2026-01"
+    section: "Text, NLP, and LLM"
+    description: BGE-M3 fine-tuned for Kazakh/Russian/English multilingual sentence embeddings.
+    tasks: [Embeddings / dense retrieval]
+    tier: B
+    kind: embedding
+    authors:
+      - name: Darmm
+        url: null
+    organization: []
+    architecture: BGE-M3
+    base_model: BAAI/bge-m3
+    params:
+      display: "567.8M"
+      variants: []
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Darmm/darmm-embedding-multilingual
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned for retrieval across Kazakh, Russian, and English.
+      datasets: []
+    kazakh_evidence: Explicit kk/ru/en domain training with Kazakh as one of three central target languages.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: granite-278m-kk
+    name: Granite-278m-kk
+    released: "2026-07"
+    section: "Text, NLP, and LLM"
+    description: IBM Granite multilingual embedding model fine-tuned for Kazakh RAG/retrieval.
+    tasks: [Embeddings / dense retrieval]
+    tier: A
+    kind: embedding
+    authors:
+      - name: Tim2190
+        url: null
+    organization: []
+    architecture: Granite Embedding
+    base_model: ibm-granite/granite-embedding-278m-multilingual
+    params:
+      display: "278M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-SA-4.0
+    links:
+      model: https://huggingface.co/Tim2190/granite-278m-kk
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned for Kazakh RAG/retrieval embeddings.
+      datasets: []
+    kazakh_evidence: Kazakh-specific fine-tune of a multilingual embedding foundation.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: tilmash
+    name: Tilmash
+    released: "2023-10"
+    section: "Text, NLP, and LLM"
+    description: "ISSAI's NLLB-based machine translation model for Kazakh, Russian, English, and Turkish (12 directional pairs), trained on the KazParC corpus."
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors:
+      - name: ISSAI researchers
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: NLLB-200-distilled-1.3B (fine-tuned)
+    base_model: facebook/nllb-200-distilled-1.3B
+    params:
+      display: null
+      variants: []
+    languages: [kk, ru, en, tr]
+    access: gated
+    license: "Not reported"
+    links:
+      model: https://huggingface.co/issai/tilmash
+      paper: https://arxiv.org/abs/2403.19399
+      code: https://github.com/IS2AI/KazParC
+      project: https://issai.nu.edu.kz/tilmash/
+    training:
+      summary: Fine-tuned NLLB-200-distilled-1.3B on the KazParC parallel corpus for kk/ru/en/tr translation.
+      datasets: []
+    kazakh_evidence: Kazakh is one of exactly four central target languages, with dedicated Kazakh-focused MT training and evaluation.
+    metrics:
+      summary: "Card claims performance on par with or exceeding Google Translate/Yandex Translate by BLEU/chrF (self-reported, not independently verified)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Access requires agreeing to share contact information (HF gating). No explicit license text found on the model page, GitHub repo, or paper; recorded as Not reported."
+
+  - id: kazrush-kk-ru
+    name: KazRush kk-ru
+    released: "2024-10"
+    section: "Text, NLP, and LLM"
+    description: T5-based Kazakh-to-Russian machine translation model trained on KazParC.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors: []
+    organization:
+      - name: deepvk
+        url: null
+    architecture: T5
+    base_model: null
+    params:
+      display: "197M"
+      variants: []
+    languages: [kk, ru]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/deepvk/kazRush-kk-ru
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained on the issai/kazparc parallel corpus for Kazakh-to-Russian translation.
+      datasets: [issai/kazparc]
+    kazakh_evidence: Kazakh is one of exactly two central target languages in a dedicated directional MT model.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: llama-3-1-8b-kkru
+    name: Llama 3.1 8B kk-ru
+    released: "2025-02"
+    section: "Text, NLP, and LLM"
+    description: Llama 3.1 8B fine-tuned for bidirectional Russian-Kazakh translation.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors: []
+    organization:
+      - name: PolynomeAI
+        url: null
+    architecture: Llama 3.1
+    base_model: meta-llama/Llama-3.1-8B
+    params:
+      display: "8B"
+      variants: []
+    languages: [kk, ru]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/PolynomeAI/Llama-3.1-8B-kkru
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned (via Unsloth, on unsloth/Meta-Llama-3.1-8B-bnb-4bit) on 1.53M bidirectional ru-kk translation samples from KazParC and other sources.
+      datasets: [issai/kazparc]
+    kazakh_evidence: Kazakh is one of exactly two central target languages, with dedicated bidirectional MT training data volume documented.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Confirmed as a full merged model, not a LoRA-only release."
+
+  - id: sozkz-mgpt-1-3b-translate-kkru
+    name: SozKZ mGPT kk-ru translation
+    released: "2026-04"
+    section: "Text, NLP, and LLM"
+    description: mGPT-1.3B-kazakh further fine-tuned for bilingual Kazakh-Russian translation.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: mGPT
+    base_model: ai-forever/mGPT-1.3B-kazakh
+    params:
+      display: "1.42B"
+      variants: []
+    languages: [kk, ru]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/stukenov/sozkz-mgpt-1.3b-translate-kkru-v1
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Two-stage fine-tuning of the already-Kazakh mGPT-1.3B-kazakh model on the ekitil-parallel-kkru-v2 bilingual corpus for translation.
+      datasets: [stukenov/ekitil-parallel-kkru-v2]
+    kazakh_evidence: Built on an already-Kazakh-dedicated mGPT model, further tuned specifically for kk-ru translation.
+    metrics:
+      summary: null
+    derivative_of: mgpt-1-3b-kazakh
+    base_model_id: mgpt-1-3b-kazakh
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Base model is ai-forever/mGPT-1.3B-kazakh. A non-translation instruct sibling also exists and is not catalogued here."
+
+  - id: hplt-translate-kk-en
+    name: HPLT Kazakh-English MT
+    released: "2025-04"
+    section: "Text, NLP, and LLM"
+    description: HPLT project's bidirectional Kazakh-English translation models, trained on HPLT parallel data only.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors: []
+    organization:
+      - name: HPLT Project
+        url: https://hplt-project.org
+    architecture: Transformer (Marian-style)
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk, en]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/HPLT/translate-kk-en-v2.0-hplt
+      paper: null
+      code: null
+      project: https://hplt-project.org
+    training:
+      summary: "Bidirectional kk<->en translation models (translate-kk-en-v2.0-hplt and translate-en-kk-v2.0-hplt) trained on HPLT-only parallel data."
+      datasets: []
+    kazakh_evidence: Dedicated pair-specific model where Kazakh is one of exactly two central languages.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "The two directions (kk-en and en-kk) are treated as one bidirectional entry. Kept separate from the HPLT+OPUS variant below because it uses a different training-data recipe."
+
+  - id: hplt-opus-translate-kk-en
+    name: HPLT+OPUS Kazakh-English MT
+    released: "2025-04"
+    section: "Text, NLP, and LLM"
+    description: HPLT project's bidirectional Kazakh-English translation models, trained on HPLT parallel data augmented with OPUS corpora.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors: []
+    organization:
+      - name: HPLT Project
+        url: https://hplt-project.org
+    architecture: Transformer (Marian-style)
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk, en]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/HPLT/translate-kk-en-v2.0-hplt_opus
+      paper: null
+      code: null
+      project: https://hplt-project.org
+    training:
+      summary: "Bidirectional kk<->en translation models (translate-kk-en-v2.0-hplt_opus and translate-en-kk-v2.0-hplt_opus) trained on HPLT parallel data plus OPUS corpora."
+      datasets: []
+    kazakh_evidence: Dedicated pair-specific model where Kazakh is one of exactly two central languages; distinct training-data composition from the HPLT-only variant.
+    metrics:
+      summary: null
+    derivative_of: hplt-translate-kk-en
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Catalogued separately from the HPLT-only variant because OPUS data augmentation is a genuinely different training recipe, not a format/packaging duplicate."
+
+  - id: nothingger-kaz-literature-translation
+    name: Nothingger Literary Translation
+    released: "2024-06"
+    section: "Text, NLP, and LLM"
+    description: Tilmash fine-tuned on a Kazakh-Russian-English literary parallel corpus for literary-domain translation.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors:
+      - name: Nothingger
+        url: null
+    organization: []
+    architecture: NLLB/M2M100-derived (via Tilmash)
+    base_model: issai/tilmash
+    params:
+      display: "1.37B"
+      variants: []
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Nothingger/kaz-literature-translation
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Domain-adapted fine-tune of Tilmash on Nothingger/kaz-rus-eng-literature-parallel-corpus.
+      datasets: [Nothingger/kaz-rus-eng-literature-parallel-corpus]
+    kazakh_evidence: Domain-adapted (literary) MT fine-tune of a Kazakh-dedicated translation model, a real new capability vs. the general Tilmash model.
+    metrics:
+      summary: null
+    derivative_of: tilmash
+    base_model_id: tilmash
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  # ---------------------------------------------------------------------
+  # Speech and audio
+  # ---------------------------------------------------------------------
+
+  - id: saida-kazakh-asr
+    name: SAIDA Kazakh ASR
+    released: "2020-10"
+    section: "Speech and audio"
+    description: ESPnet Transformer ASR baseline released with the original Kazakh Speech Corpus (KSC), one of the first open Kazakh ASR models.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Saida Mussakhojayeva
+        url: null
+      - name: Yerbolat Khassanov
+        url: null
+      - name: Huseyin Atakan Varol
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: ESPnet Transformer encoder-decoder ASR
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://issai.nu.edu.kz/wp-content/uploads/2020/10/model.tar.gz
+      paper: https://arxiv.org/abs/2009.10334
+      code: https://github.com/IS2AI/ISSAI_SAIDA_Kazakh_ASR
+      project: null
+    training:
+      summary: Trained on the original ≈332-hour crowdsourced Kazakh Speech Corpus (KSC).
+      datasets: []
+    kazakh_evidence: Dedicated ESPnet Transformer trained specifically on the original Kazakh-only KSC corpus; official ISSAI Kazakh ASR baseline.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Model archive URL path (/2020/10/) confirms an October 2020 upload; the GitHub README text has since been generalized to describe the larger successor corpus KSC2, but the linked model predates KSC2 and is trained on the original KSC."
+
+  - id: ksc2-asr-kazakh
+    name: KSC2 Kazakh ASR (best-performing model)
+    released: "2022"
+    section: "Speech and audio"
+    description: ESPnet Transformer ASR model with language-model rescoring, trained on the large-scale KSC2 Kazakh speech corpus; the best-performing model from the KSC2 paper.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Saida Mussakhojayeva
+        url: null
+      - name: Yerbolat Khassanov
+        url: null
+      - name: Huseyin Atakan Varol
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: ESPnet Transformer ASR + language model rescoring
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://github.com/IS2AI/Kazakh_ASR
+      paper: https://www.isca-archive.org/interspeech_2022/mussakhojayeva22_interspeech.pdf
+      code: https://github.com/IS2AI/Kazakh_ASR
+      project: null
+    training:
+      summary: Best-performing model trained on the ≈1,200-hour KSC2 (Kazakh Speech Corpus 2).
+      datasets: []
+    kazakh_evidence: Dedicated ASR model trained on the Kazakh-only KSC2 corpus, downloadable via a link in the README; distinct from the KSC2 speech dataset already cataloged in awesome-kaz-datasets.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: multilingual-asr-kz-ru-en
+    name: IS2AI Multilingual ASR (Kazakh-Russian-English)
+    released: "2021"
+    section: "Speech and audio"
+    description: Large Transformer ASR system with monolingual Kazakh, Russian, and English variants plus combined/independent multilingual variants, from the ISSAI multilingual ASR study.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors: []
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Large Transformer (ESPnet)
+    base_model: null
+    params:
+      display: null
+      variants: [mono_kz, mono_ru, mono_en, mlt_independent, mlt_combined]
+    languages: [kk, ru, en]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://github.com/IS2AI/MultilingualASR
+      paper: https://arxiv.org/abs/2108.01280
+      code: https://github.com/IS2AI/MultilingualASR
+      project: null
+    training:
+      summary: Kazakh (KSC), Russian (OpenSTT), and English (Common Voice) trained monolingual and multilingual (independent/combined) Large Transformer ASR variants.
+      datasets: []
+    kazakh_evidence: Includes a dedicated Kazakh-only ("mono_kz") model trained on the Kazakh Speech Corpus, in addition to Kazakh-inclusive multilingual variants.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: turkic-asr
+    name: TurkicASR
+    released: "2023"
+    section: "Speech and audio"
+    description: Multilingual ESPnet Transformer ASR system covering ten Turkic languages including Kazakh, released as joint "Turkic languages" and "all languages" downloadable archives.
+    tasks: [Automatic speech recognition]
+    tier: B
+    kind: speech
+    authors:
+      - name: Saida Mussakhojayeva
+        url: null
+      - name: Kaisar Dauletbek
+        url: null
+      - name: Rustem Yeshpanov
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: ESPnet Transformer, multilingual joint training
+    base_model: null
+    params:
+      display: null
+      variants: [turkic_languages_model, all_languages_model]
+    languages: [az, ba, cv, kk, ky, sah, tt, tr, ug, uz]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://github.com/IS2AI/TurkicASR
+      paper: https://www.mdpi.com/2078-2489/14/2/74
+      code: https://github.com/IS2AI/TurkicASR
+      project: null
+    training:
+      summary: Trained on speech corpora for 10 Turkic languages; Kazakh is one of the explicitly trained and separately evaluated languages.
+      datasets: []
+    kazakh_evidence: Kazakh is one of ten explicitly trained, separately evaluated central Turkic languages, with dedicated per-language error-rate results reported.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: multilingual-speech-command-recognition
+    name: Multilingual Speech Command Recognition (Keyword-MLP)
+    released: "2023"
+    section: "Speech and audio"
+    description: Keyword-MLP keyword-spotting classifier with a dedicated Kazakh monolingual model (Mono-35-kk) plus multilingual Kazakh/Tatar/Russian variants, for voice-controlled robotics and smart systems.
+    tasks: [Keyword spotting]
+    tier: A
+    kind: speech
+    authors: []
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Keyword-MLP classifier
+    base_model: null
+    params:
+      display: null
+      variants: [Mono-35-kk, Mono-35-tt, Mono-35-ru, Mono-35-en, Multi-35, Multi-140]
+    languages: [kk, tt, ru]
+    access: open
+    license: MIT
+    links:
+      model: https://github.com/IS2AI/Multilingual-Speech-Command-Recognition
+      paper: https://www.techrxiv.org/doi/abs/10.36227/techrxiv.174137744.48975229/v1
+      code: https://github.com/IS2AI/Multilingual-Speech-Command-Recognition
+      project: null
+    training:
+      summary: Trained on the Multilingual Speech Commands (MSC) dataset (35 keywords collected for Kazakh, Tatar, and Russian via a Telegram bot) plus Google Speech Commands.
+      datasets: []
+    kazakh_evidence: Dedicated Mono-35-kk Kazakh keyword-spotting model trained on Kazakh-specific speech-command data.
+    metrics:
+      summary: "Reported Kazakh test-set accuracy of 98.57% for the multilingual model, per project documentation."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Released date approximated from GitHub repo creation (2023-09); a related TechRxiv write-up appears to postdate the code/model release."
+
+  - id: keyword-mlp-langid-kazakh
+    name: Keyword-MLP LangID / SCR (Kazakh)
+    released: "2025-05"
+    section: "Speech and audio"
+    description: Unified multitask Keyword-MLP model performing speech command recognition and language identification, with a dedicated Kazakh-only model alongside multilingual LangID variants.
+    tasks: [Keyword spotting, Language identification]
+    tier: A
+    kind: speech
+    authors:
+      - name: Artur Muratov
+        url: https://huggingface.co/artur-muratov
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Keyword-MLP (multitask SCR + LangID)
+    base_model: null
+    params:
+      display: null
+      variants: [kw-mlp-mono-kk, kw-mlp-multi-lid, kw-mlp-multi-scr-lid]
+    languages: [kk, ru, tt]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://huggingface.co/artur-muratov/kw-mlp-mono-kk
+      paper: null
+      code: https://github.com/IS2AI/Keyword-MLP-LangID
+      project: null
+    training:
+      summary: Monolingual Kazakh keyword-spotting model (kw-mlp-mono-kk) plus multilingual unified speech-command/language-ID models (kw-mlp-multi-lid, kw-mlp-multi-scr-lid) covering Kazakh, Russian, and Tatar.
+      datasets: []
+    kazakh_evidence: Dedicated "kw-mlp-mono-kk" Kazakh-only model published alongside the multilingual LangID variants within the official IS2AI project.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Models are hosted on a contributor's personal Hugging Face account (artur-muratov) rather than an ISSAI-owned org; the project itself is published under the official IS2AI GitHub organization."
+
+  - id: wav2vec2-xlsr-kazakh
+    name: Wav2Vec2-Large-XLSR-53 Kazakh
+    released: "2021"
+    section: "Speech and audio"
+    description: Community fine-tune of wav2vec2-large-XLSR-53 for Kazakh CTC ASR, produced during Hugging Face's 2021 XLSR Fine-Tuning Week.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: aismlv
+        url: https://huggingface.co/aismlv
+    organization: []
+    architecture: wav2vec2-large-XLSR-53 fine-tune (CTC)
+    base_model: facebook/wav2vec2-large-xlsr-53
+    params:
+      display: "≈0.3B"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/aismlv/wav2vec2-large-xlsr-kazakh
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on the Kazakh Speech Corpus v1.1 (ISSAI_KSC_335RS).
+      datasets: []
+    kazakh_evidence: Independent community fine-tune of XLSR-53 specifically for Kazakh CTC ASR.
+    metrics:
+      summary: "Reported test WER of 19.65% on the Kazakh Speech Corpus v1.1 test partition, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "HF API createdAt shows 2022-03-02, implausibly late for a model tagged 'xlsr-fine-tuning-week' (a HF community event held in early 2021) — likely a repo migration/re-upload, not the true first release. released is left at year granularity (2021) since the exact month could not be independently confirmed."
+
+  - id: whisper-base-kazakh
+    name: Whisper Base Kazakh (akuzdeuov)
+    released: "2024-08"
+    section: "Speech and audio"
+    description: Whisper base fine-tuned for Kazakh ASR on the KSC2 corpus.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: akuzdeuov
+        url: https://huggingface.co/akuzdeuov
+    organization: []
+    architecture: Whisper base fine-tune
+    base_model: openai/whisper-base
+    params:
+      display: "≈74M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/akuzdeuov/whisper-base.kk
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on KSC2 (Kazakh Speech Corpus 2, ≈1,000+ hours).
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only Whisper fine-tune.
+    metrics:
+      summary: "Reported 15.36% WER on the KSC2 test set, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: whisper-large-v3-tulpar
+    name: Whisper Large v3 Tulpar
+    released: "2026-03"
+    section: "Speech and audio"
+    description: Full fine-tune of Whisper Large v3 for Kazakh ASR, combining ISSAI KSC, Farabi-Lab, FLEURS kk_kz, and curated YouTube audio.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Olzhas Alseitov
+        url: https://huggingface.co/olzhasAl
+    organization: []
+    architecture: Whisper large-v3 full fine-tune
+    base_model: openai/whisper-large-v3
+    params:
+      display: "1.55B"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/olzhasAl/whisper-large-v3-tulpar
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "≈957 hours of Kazakh speech: ISSAI KSC (≈335h), Farabi-lab (≈554h), FLEURS kk_kz (≈12h), curated YouTube (≈57h)."
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only full fine-tune of Whisper large-v3.
+    metrics:
+      summary: "Reported 10.62% WER on the ISSAI KSC test set, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazakh-whisper-large-v3-turbo
+    name: Kazakh Whisper Large-v3 Turbo (shyngys879)
+    released: "2026-06"
+    section: "Speech and audio"
+    description: Full fine-tune of Whisper Large-v3 Turbo for Kazakh ASR, merged into a standalone Transformers model (no LoRA required), trained on eight public Kazakh speech datasets.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Shyngys Sovetkhan
+        url: https://huggingface.co/shyngys879
+    organization: []
+    architecture: Whisper large-v3-turbo full fine-tune
+    base_model: openai/whisper-large-v3-turbo
+    params:
+      display: "≈0.8B"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/shyngys879/kazakh-whisper-large-v3-turbo
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "≈1,500+ hours / 841,113 speech-transcript pairs from eight public Kazakh datasets, including issai/Kazakh_Speech_Corpus_2 and farabi-lab/kazakh-stt."
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only full fine-tune of Whisper large-v3-turbo.
+    metrics:
+      summary: "Reported 11.80% WER on FLEURS Kazakh test and 8.73% WER on an internal 5,000-example test set, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: whisper-turbo-abilmansplus
+    name: Whisper Turbo KSC2 (abilmansplus)
+    released: "2025-05"
+    section: "Speech and audio"
+    description: Whisper Large-v3-Turbo fine-tuned for Kazakh ASR on KSC2, with a bilingual Kazakh-Russian LoRA adapter variant built on top of it.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: abilmansplus
+        url: https://huggingface.co/abilmansplus
+    organization: []
+    architecture: Whisper large-v3-turbo full fine-tune + LoRA adapter
+    base_model: openai/whisper-large-v3-turbo
+    params:
+      display: "≈0.8B"
+      variants: ["whisper-turbo-ksc2", "whisper-turbo-kaz-rus-v1 (LoRA)"]
+    languages: [kk, ru]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/abilmansplus/whisper-turbo-ksc2
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained on the train partition of issai/Kazakh_Speech_Corpus_2 (≈1,000 hours).
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only Whisper-turbo fine-tune, extended by a bilingual kk/ru LoRA adapter.
+    metrics:
+      summary: "Reported 9.16% WER on the KSC2 test partition, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "A second model, abilmansplus/whisper-turbo-kaz-rus-v1, is a PEFT/LoRA adapter on this base model for combined Kazakh+Russian transcription — treated as the same family, not a separate row. Its verified training data is issai/Kazakh_Speech_Corpus_2 only."
+
+  - id: kazakh-omni-asr-ctc
+    name: Kazakh Omni ASR CTC (nileq)
+    released: "2026-06"
+    section: "Speech and audio"
+    description: Wav2Vec2-style CTC Kazakh ASR model built on the OmniASR/wav2vec2.5-large architecture via the fairseq2/omnilingual-asr framework.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Nurislam
+        url: https://huggingface.co/nileq
+    organization: []
+    architecture: Wav2Vec2ForCTC (24 layers, 1024 hidden)
+    base_model: null
+    params:
+      display: "≈0.3B"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/nileq/kazakh-omni-asr-ctc
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "20,000 training steps; training data composition not specified in the model card."
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only CTC ASR model.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: persona-asr
+    name: Persona-ASR
+    released: "2026-07"
+    section: "Speech and audio"
+    description: Bilingual Kazakh-English target-speaker ASR system that transcribes only an enrolled speaker in overlapping/multi-speaker mixtures, rejecting non-target speech.
+    tasks: [Target-speaker ASR]
+    tier: A
+    kind: speech
+    authors: []
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: ECAPA-TDNN + WavLM-Base+ (FiLM-modulated, multi-head CTC)
+    base_model: microsoft/wavlm-base-plus
+    params:
+      display: null
+      variants: []
+    languages: [kk, en]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/issai/Persona-ASR
+      paper: null
+      code: https://github.com/IS2AI/Persona_ASR
+      project: null
+    training:
+      summary: Trained/evaluated on LibriMix (English) and KazMix-3 (Kazakh) three-speaker mixtures; also evaluated on PersonaMix.
+      datasets: []
+    kazakh_evidence: Kazakh is one of two central target languages, with a dedicated Kazakh/Cyrillic CTC head and Kazakh-specific evaluation (KazMix-3).
+    metrics:
+      summary: "Reported 50.71% gated WER and 86.78% detection balanced accuracy on Kazakh three-speaker test sets, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: sozkz-omniaudio-kazakh
+    name: SozKZ OmniAudio
+    released: "2026-03"
+    section: "Speech and audio"
+    description: Family of from-scratch Kazakh ASR models (CTC and encoder-decoder variants) ranging from ≈50M to ≈1B parameters, trained entirely on Kazakh speech with no pretrained components.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: "Custom encoder-decoder (Llama-style decoder: RoPE, RMSNorm, SwiGLU)"
+    base_model: null
+    params:
+      display: "50M-1B (multiple model sizes)"
+      variants: ["omniaudio-50m-kk-ctc", "omniaudio-70m-kk-asr", "omniaudio-150m-kk-ctc", "omniaudio-150m-kk-asr", "omniaudio-300m-kk-ctc", "omniaudio-300m-kk-asr", "omniaudio-600m-kk-ctc", "omniaudio-600m-kk-asr", "omniaudio-1b-kk-ctc"]
+    languages: [kk]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/stukenov/sozkz-core-omniaudio-70m-kk-asr-v1
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained from scratch on the kzcalm-tts-kk-v1 dataset (232K samples, ≈439 hours of studio-quality Kazakh TTS audio), using a kazakh-gpt2-50k BPE tokenizer.
+      datasets: []
+    kazakh_evidence: Every model in the family is trained from scratch exclusively on Kazakh speech data.
+    metrics:
+      summary: "Reported 21.28% WER / 12.80% CER for the 70M v2 model, per its model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Independent single-researcher project (not ISSAI/IS2AI). Represented as one family entry covering the omniaudio-50m through omniaudio-1b size variants (CTC and encoder-decoder ASR), since these are genuinely different-scale training runs of the same architecture rather than format conversions."
+
+  - id: kazakhtts
+    name: KazakhTTS
+    released: "2021-04"
+    section: "Speech and audio"
+    description: Open-source Kazakh text-to-speech acoustic and vocoder models, later expanded by the KazakhTTS2 corpus/models.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: Saida Mussakhojayeva
+        url: null
+      - name: Aigerim Janaliyeva
+        url: null
+      - name: Almas Mirzakhmetov
+        url: null
+      - name: Yerbolat Khassanov
+        url: null
+      - name: Huseyin Atakan Varol
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Tacotron2 / FastSpeech acoustic models + Parallel WaveGAN vocoders
+    base_model: null
+    params:
+      display: null
+      variants: ["5 Tacotron2 acoustic models (one per speaker)", "5 Parallel WaveGAN vocoders"]
+    languages: [kk]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://github.com/IS2AI/Kazakh_TTS
+      paper: https://arxiv.org/abs/2104.08459
+      code: https://github.com/IS2AI/Kazakh_TTS
+      project: null
+    training:
+      summary: Trained on the KazakhTTS2 corpus (271 hours, five speakers), which expanded the original 93-hour KazakhTTS corpus.
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only TTS project with a Kazakh-only training corpus.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazemotts
+    name: KazEmoTTS
+    released: "2024"
+    section: "Speech and audio"
+    description: Emotional text-to-speech model for Kazakh (six emotion categories) using Grad-TTS with a HiFi-GAN vocoder.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors: []
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Grad-TTS + HiFi-GAN vocoder
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://github.com/IS2AI/KazEmoTTS
+      paper: https://arxiv.org/abs/2404.01033
+      code: https://github.com/IS2AI/KazEmoTTS
+      project: null
+    training:
+      summary: "Trained on the KazEmoTTS corpus: 54,760 recordings (74.85 hours) across three narrators and six emotion categories (neutral, angry, happy, sad, scared, surprised)."
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only emotional TTS corpus and model.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: turkictts
+    name: TurkicTTS
+    released: "2023"
+    section: "Speech and audio"
+    description: Cross-Turkic TTS system whose acoustic model is trained solely on Kazakh data and extended to nine other Turkic languages via IPA-based transliteration.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: Rustem Yeshpanov
+        url: null
+      - name: Saida Mussakhojayeva
+        url: null
+      - name: Yerbolat Khassanov
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Tacotron2 + ParallelWaveGAN (IPA-based cross-lingual transliteration)
+    base_model: null
+    params:
+      display: null
+      variants: []
+    languages: [kk, az, ba, ky, sah, tt, tr, tk, ug, uz]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://github.com/IS2AI/TurkicTTS
+      paper: https://arxiv.org/abs/2305.15749
+      code: https://github.com/IS2AI/TurkicTTS
+      project: null
+    training:
+      summary: "The Tacotron2 acoustic model (kaztts_male2_tacotron2) is trained only on Kazakh speech data; a ParallelWaveGAN vocoder (parallelwavegan_male2) accompanies it. Other Turkic languages are synthesized zero-shot via IPA transliteration onto Kazakh orthography."
+      datasets: []
+    kazakh_evidence: The underlying acoustic/vocoder model is trained exclusively on Kazakh speech data; other Turkic languages are reached only via transliteration onto this Kazakh-trained model.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: piper-kazakh-voices
+    name: Piper Kazakh Voices
+    released: "Unknown"
+    section: "Speech and audio"
+    description: Three official Kazakh (kk_KZ) voices — iseke, issai, raya — in the Piper/VITS neural TTS voice catalog, trained from scratch on the IS2AI KazakhTTS dataset.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors: []
+    organization: []
+    architecture: VITS (Piper)
+    base_model: null
+    params:
+      display: null
+      variants: ["kk_KZ-iseke-x_low", "kk_KZ-issai-high", "kk_KZ-raya-x_low"]
+    languages: [kk]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/rhasspy/piper-voices/tree/main/kk/kk_KZ
+      paper: null
+      code: https://github.com/rhasspy/piper
+      project: null
+    training:
+      summary: All three voices trained from scratch on the IS2AI/Kazakh_TTS dataset, per each voice's official MODEL_CARD.
+      datasets: []
+    kazakh_evidence: Three dedicated Kazakh voices exist as first-class entries in the official Piper voice catalog (voices.json), each with a MODEL_CARD confirming Kazakh-only training data.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Exact release date could not be pinned to a month or year from a primary source; a third-party ONNX mirror already existed by 2023-11, indicating the voices were public by then at the latest, but the true first-release date is unverified so 'Unknown' is used per policy."
+
+  - id: spark-tts-kazakh
+    name: Spark-TTS Kazakh
+    released: "2026-01"
+    section: "Speech and audio"
+    description: Kazakh fine-tune of Spark-TTS supporting both Cyrillic and Töte Zhazu (Latin-based) script input, with voice cloning from 3-10 seconds of reference audio.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: ErnarBahat
+        url: https://huggingface.co/ErnarBahat
+    organization: []
+    architecture: Spark-TTS (BiCodec + LLM inference engine)
+    base_model: SparkAudio/Spark-TTS-0.5B
+    params:
+      display: null
+      variants: []
+    languages: [kk]
+    access: open
+    license: CC-BY-NC-SA-4.0
+    links:
+      model: https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on the issai/KazakhTTS dataset.
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only fine-tune of Spark-TTS supporting both Cyrillic and Latin-based Kazakh orthographies.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: kazakhtts-omnivoice
+    name: KazakhTTS OmniVoice
+    released: "2026-07"
+    section: "Speech and audio"
+    description: OmniVoice multilingual voice-design and speech-synthesis model fine-tuned on ISSAI KazakhTTS2 and synthetic voice-design data for Kazakh text-to-speech.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: Shyngys Kozhakhmetov
+        url: https://huggingface.co/shyngys879
+    organization: []
+    architecture: OmniVoice
+    base_model: k2-fsa/OmniVoice
+    params:
+      display: "612.6M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/shyngys879/KazakhTTS-OmniVoice
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on ai4kazakh/ISSAI_KazakhTTS2 combined with synthetic voice-design audio data for multi-speaker synthesis and voice cloning.
+      datasets: [ai4kazakh/ISSAI_KazakhTTS2]
+    kazakh_evidence: Dedicated fine-tune of the OmniVoice architecture on Kazakh TTS datasets for multi-speaker Kazakh speech synthesis.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  # ---------------------------------------------------------------------
+  # Vision, OCR, and multimodal
+  # ---------------------------------------------------------------------
+
+  - id: turkicocr-svtrv2-b
+    name: TurkicOCR-SVTRv2-B
+    released: "2026-07"
+    section: "Vision, OCR, and multimodal"
+    description: Lightweight (≈35M-parameter) line-grounded OCR recognizer for Kazakh and Kyrgyz Cyrillic script (plus Russian mixed text), built on SVTRv2-B with a CTC head.
+    tasks: [OCR]
+    tier: A
+    kind: vision
+    authors:
+      - name: Alen Issayev
+        url: null
+      - name: Aidana Zhalgas
+        url: null
+    organization: []
+    architecture: SVTRv2-B (OpenOCR) + CTC
+    base_model: OpenOCR/SVTRv2-B
+    params:
+      display: "≈35M"
+      variants: []
+    languages: [kk, ky, ru]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/alenisaw/turkicocr-svtrv2-b
+      paper: null
+      code: https://github.com/alenisaw/turkicocr-svtrv2-b
+      project: null
+    training:
+      summary: Trained on the large-scale synthetic TurkicOCR-Cyrillic dataset spanning Kazakh, Kyrgyz, and Russian Cyrillic text.
+      datasets: []
+    kazakh_evidence: Purpose-built Kazakh/Kyrgyz Cyrillic recognizer, not a generic multilingual OCR system.
+    metrics:
+      summary: "Reported CER — Kazakh 1.71%, Kyrgyz 1.89%, Russian 1.68% on the TurkicOCR-Cyrillic benchmark."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Separate ONNX FP32 (alenisaw/turkicocr-svtrv2-b-onnx) and ONNX INT8 (alenisaw/turkicocr-svtrv2-b-int8) repos are format-only exports of this same model — intentionally not listed as separate rows."
+
+  - id: kazakh-trocr-fine-tuned
+    name: Kazakh TrOCR (fine-tuned)
+    released: "2026-05"
+    section: "Vision, OCR, and multimodal"
+    description: TrOCR vision-encoder-decoder model fine-tuned specifically for Kazakh printed-text OCR, adapted from a Russian-handwritten TrOCR model with token embeddings resized for nine Kazakh-specific Cyrillic letters.
+    tasks: [OCR]
+    tier: A
+    kind: vision
+    authors:
+      - name: Kamilya Nazarkhanova
+        url: null
+    organization: []
+    architecture: VisionEncoderDecoder (TrOCR)
+    base_model: kazars24/trocr-base-handwritten-ru
+    params:
+      display: "≈334M"
+      variants: []
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/thekamilya/kazakh-trocr-fine-tuned
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained on synthetic images rendered from the ISSAI KazPARC corpus (15.1M entries) plus a custom 4k-sample Kazakh printed dataset, with lighting/font/noise/rotation/JPEG-compression augmentation.
+      datasets: []
+    kazakh_evidence: Base TrOCR model had no Kazakh support; fine-tuned specifically to recognize ә, ғ, қ, ң, ө, ұ, ү, һ, і with resized token embeddings.
+    metrics:
+      summary: "Reported CER 3.7%, exact-match 48.62% on the Kazakh printed test set."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: null
+
+  - id: qolda
+    name: Qolda
+    released: "2025-11"
+    section: "Vision, OCR, and multimodal"
+    description: Compact vision-language model combining InternVL3.5's InternViT-300M encoder/projector with a Qwen3-4B language model, explicitly trained and evaluated for Kazakh alongside Russian and English.
+    tasks: [Vision-language modelling, OCR]
+    tier: A
+    kind: multimodal
+    authors: []
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: InternViT-300M + MLP projector (from InternVL3.5-4B) + Qwen3-4B
+    base_model: OpenGVLab/InternVL3_5-4B + Qwen/Qwen3-4B
+    params:
+      display: "≈4.3B"
+      variants: []
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/issai/Qolda
+      paper: https://ieeexplore.ieee.org/document/11454511
+      code: https://github.com/IS2AI/Qolda-deployment
+      project: https://issai.nu.edu.kz/qolda/
+    training:
+      summary: Trained with the InternVL framework; evaluated on dedicated Kazakh text and vision benchmark suites (KazMMLU, KazCulture, KazBench, KKCOPA, NIS Math, KazQAD, RAGBench) alongside English/Russian baselines.
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-specific benchmark suites and a `kk` language tag; part of ISSAI's Qolda family targeting Kazakh users specifically.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "License is asserted via a README badge but is not present in the HF cardData/tags metadata — flagged for a maintainer re-check."
+
+  - id: qolda-avl
+    name: Qolda-AVL
+    released: "2026-04"
+    section: "Vision, OCR, and multimodal"
+    description: Audio-vision-language extension of Qwen3-VL adding a fine-tuned Whisper encoder and audio-projection module, with all three modalities adapted to Kazakh. Released as 5B/9B/34B variants sharing one architecture and training recipe.
+    tasks: [Audio-vision-language modelling]
+    tier: A
+    kind: multimodal
+    authors: []
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Qwen3-VL-Thinking + Whisper-large-v3-turbo (DeepStack audio projection)
+    base_model: "Qwen3-VL-Thinking + openai/whisper-large-v3-turbo"
+    params:
+      display: "5B / 9B / 34B"
+      variants: ["5B (5.11B params)", "9B (9.49B params)", "34B (34.13B params)"]
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/collections/issai/qolda-avl
+      paper: https://doi.org/10.3390/bdcc10060192
+      code: https://github.com/IS2AI/ms-swift-Qolda-AVL
+      project: https://issai.nu.edu.kz/qolda/
+    training:
+      summary: Staged pipeline adapting vision, language, and a fine-tuned Whisper-based audio branch to Kazakh, covering ASR, speech translation, audio classification, and environmental sound captioning; the same recipe is applied at each backbone scale.
+      datasets: []
+    kazakh_evidence: All three modalities explicitly adapted to Kazakh with dedicated Kazakh text/vision/audio benchmark suites; documented as the first open tri-modal (audio+vision+language) model for Kazakh.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "One family entry covering three size variants (same architecture/recipe at different scales): issai/Qolda-AVL-5B, issai/Qolda-AVL-9B, issai/Qolda-AVL-34B. A GGUF conversion of the 5B variant also exists and is excluded as a format duplicate."
+
+  - id: hordevision
+    name: HordeVision
+    released: "2025-12"
+    section: "Vision, OCR, and multimodal"
+    description: Kazakh vision-language model built on a 4-bit-quantized Qwen3-VL-8B-Instruct, fine-tuned via SFT + GRPO on roughly 50,000 culturally relevant Kazakh images for OCR, captioning, VQA, reasoning, and instruction-following.
+    tasks: [OCR, Image captioning, Vision-language modelling]
+    tier: A
+    kind: multimodal
+    authors:
+      - name: Pavel Zubitskii
+        url: null
+      - name: Vitaliy Morozov
+        url: null
+      - name: Sanzhar Murzakhmetov
+        url: null
+      - name: Beksultan Sagyndyk
+        url: null
+    organization:
+      - name: kz-transformers
+        url: null
+    architecture: Qwen3-VL-8B-Instruct (4-bit) + LoRA SFT + GRPO
+    base_model: Qwen/Qwen3-VL-8B-Instruct
+    params:
+      display: "≈8.8B (4-bit quantized)"
+      variants: []
+    languages: [kk]
+    access: gated
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/kz-transformers/horde-vision
+      paper: https://www.techrxiv.org/users/968774/articles/1376502-hordevision-an-open-source-kazakh-vision-language-model
+      code: null
+      project: null
+    training:
+      summary: "Two-stage training: SFT on 46k images (LoRA r=128), then GRPO RL on 5k images (LoRA r=64), over a synthetic-pipeline dataset spanning 21 categories/104 subcategories of Kazakh daily life, culture, education, and work, annotated via GPT-4.1."
+      datasets: []
+    kazakh_evidence: Single-language (`kk`) tag; trained end-to-end on a purpose-built Kazakh cultural-image corpus; documented as the first open-source Kazakh VLM.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "HF repo is gated (API reports gated: auto; anonymous file download is access-restricted)."
+
+  - id: beynele
+    name: Beynele
+    released: "2026-04"
+    section: "Vision, OCR, and multimodal"
+    description: Lumina-Image 2.0-based text-to-image diffusion transformer adapted for Kazakh-language prompts and Kazakh cultural visual content via a data-centric fine-tuning pipeline.
+    tasks: [Text-to-image]
+    tier: A
+    kind: vision
+    authors:
+      - name: Nartay Aikyn
+        url: null
+      - name: Anuar Aryngazin
+        url: null
+      - name: Akylbek Maxutov
+        url: null
+      - name: Huseyin Atakan Varol
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: Lumina-Image 2.0 (flow-based diffusion transformer)
+    base_model: Alpha-VLLM/Lumina-Image-2.0 + google/gemma-2-2b
+    params:
+      display: "≈2.6B"
+      variants: []
+    languages: [kk, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/issai/Beynele
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Data-centric adaptation pipeline over ≈433k examples: 196k Kazakh cultural image-text pairs (≈73k unique images), 128k general text-image pairs, and 109k base-model anchor examples."
+      datasets: []
+    kazakh_evidence: Explicitly supports Kazakh-language prompts (not just Kazakhstan-themed imagery); trained on curated Kazakh cultural image-text data with a dedicated Kazakh evaluation benchmark (Beynele-Bench).
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "Cited paper (Aikyn et al. 2026) is a pre-release manuscript with no resolvable published link yet — left null rather than guessed. The project link initially reported (beynele.nu.edu.kz) returns HTTP 404 on link-check and was removed rather than left broken."
+
+  - id: kaz-image-captioning
+    name: Kazakh Image Captioning (ExpansionNet v2)
+    released: "2023-02"
+    section: "Vision, OCR, and multimodal"
+    description: ExpansionNet v2 image-captioning model fine-tuned to generate Kazakh-language captions, trained on COCO images with captions machine-translated into Kazakh.
+    tasks: [Image captioning]
+    tier: A
+    kind: vision
+    authors:
+      - name: Batyr Arystanbekov
+        url: null
+      - name: Askat Kuzdeuov
+        url: null
+      - name: Shakhizat Nurgaliyev
+        url: null
+      - name: Huseyin Atakan Varol
+        url: null
+    organization:
+      - name: IS2AI, Nazarbayev University
+        url: null
+    architecture: ExpansionNet v2
+    base_model: null
+    params:
+      display: "Not reported"
+      variants: []
+    languages: [kk]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://github.com/IS2AI/kaz-image-captioning
+      paper: https://www.techrxiv.org/articles/preprint/Image_Captioning_for_the_Visually_Impaired_and_Blind_A_Recipe_for_Low-Resource_Languages/22133894
+      code: https://github.com/IS2AI/kaz-image-captioning
+      project: null
+    training:
+      summary: Trained on COCO images with captions machine-translated into Kazakh; model and a TensorRT FP32 engine export are hosted on a linked public Google Drive folder.
+      datasets: []
+    kazakh_evidence: Fine-tuned specifically to produce Kazakh-language captions, for a low-resource-language accessibility use case (visually impaired/blind users).
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-19"
+    last_verified: "2026-08-19"
+    notes: "GitHub repo has no LICENSE file, so license is 'Not reported' rather than guessed. released uses the GitHub repo's creation date (2023-02), not its later push date or the TechRxiv preprint date. The TensorRT .engine export is a format conversion of the same model, not a separate row."

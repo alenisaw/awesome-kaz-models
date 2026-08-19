@@ -1,0 +1,45 @@
+name: Validate catalog
+
+on:
+  pull_request:
+    paths:
+      - "data/models.yaml"
+      - "scripts/**"
+      - "README.md"
+      - "assets/**"
+      - "CONTRIBUTING.md"
+  push:
+    branches: [main]
+    paths:
+      - "data/models.yaml"
+      - "scripts/**"
+      - "README.md"
+      - "assets/**"
+      - "CONTRIBUTING.md"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate data/models.yaml
+        run: python scripts/validate_catalog.py
+
+      - name: Check README.md is generated from models.yaml
+        run: python scripts/generate_readme.py --check
+
+      - name: Check assets/*.svg are generated from models.yaml
+        run: |
+          python scripts/generate_visualizations.py
+          git diff --exit-code -- assets/ || {
+            echo "::error::assets/*.svg are stale. Run 'python scripts/generate_visualizations.py' and commit the result.";
+            exit 1;
+          }

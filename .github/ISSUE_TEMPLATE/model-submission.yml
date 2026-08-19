@@ -1,0 +1,146 @@
+name: Model submission
+description: Suggest a Kazakh-capable model to add to the catalog
+title: "[Model] "
+labels: ["model-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a model! Please read [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md)
+        first — it explains what does and doesn't belong in the catalog, and exactly
+        what "released" means. Fill in as much as you can verify; use "Not reported"
+        or "Unknown" rather than guessing.
+
+  - type: input
+    id: name
+    attributes:
+      label: Model name
+      description: The model's canonical/official name.
+    validations:
+      required: true
+
+  - type: input
+    id: model_url
+    attributes:
+      label: Canonical model URL
+      description: Link to the model card or repository hosting the actual weights (not a paper page, not a Space wrapper).
+      placeholder: https://huggingface.co/...
+    validations:
+      required: true
+
+  - type: input
+    id: paper_project_url
+    attributes:
+      label: Paper / project URL
+
+  - type: input
+    id: authors
+    attributes:
+      label: Authors
+      placeholder: "Firstname Lastname, Firstname Lastname"
+
+  - type: input
+    id: organization
+    attributes:
+      label: Organization / institution
+
+  - type: input
+    id: released
+    attributes:
+      label: Release date
+      description: >-
+        When this specific trained artifact became PUBLICLY OBTAINABLE — not a
+        paper submission date, not a Hugging Face "last modified" timestamp.
+        Use YYYY-MM, YYYY, or "Unknown".
+      placeholder: "2026-03"
+    validations:
+      required: true
+
+  - type: input
+    id: task
+    attributes:
+      label: Task(s)
+      description: Comma-separated. Reuse an existing canonical task label if one fits.
+      placeholder: "Automatic speech recognition, Language identification"
+    validations:
+      required: true
+
+  - type: input
+    id: params
+    attributes:
+      label: Parameter count
+      placeholder: "8B, or Not reported"
+
+  - type: input
+    id: architecture
+    attributes:
+      label: Architecture / base model
+      placeholder: "Llama 3.1 8B"
+
+  - type: dropdown
+    id: access
+    attributes:
+      label: Access
+      options:
+        - open
+        - gated
+        - application
+        - paid
+        - restricted
+        - unavailable
+        - not sure
+    validations:
+      required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: License
+      placeholder: "Apache-2.0, or Not reported"
+
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Kazakh scope tier
+      description: >-
+        Tier A = trained/adapted specifically for Kazakh. Tier B = multilingual
+        with explicit Kazakh training data and/or dedicated Kazakh evaluation.
+      options:
+        - "Tier A — Kazakh-specific"
+        - "Tier B — strong Kazakh support in a multilingual model"
+        - not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: kazakh_evidence
+    attributes:
+      label: Evidence of Kazakh training/adaptation
+      description: >-
+        What specifically shows Kazakh is a meaningful target — not just a
+        listed tokenizer language or a "supports N languages" claim?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I can currently obtain (download or request) this model's trained weights.
+          required: true
+        - label: This is not a quantization, format conversion (GGUF/AWQ/GPTQ/ONNX), or mirror of a model already in the catalog.
+          required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for inclusion
+      description: Why does this model add something the catalog doesn't already have?
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
