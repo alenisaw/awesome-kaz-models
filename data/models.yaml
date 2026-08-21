@@ -32,6 +32,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 4.5
+      unit: GB
     languages: [kk]
     access: open
     license: CC-BY-SA-3.0
@@ -50,7 +53,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Month of release not verifiable from a primary source, so year-only is used. HF mirror facebook/fasttext-kk-vectors createdAt (2023-03-20) is a later re-upload, not the true release date — not used."
+    notes: "Month of release not verifiable from a primary source, so year-only is used. HF mirror facebook/fasttext-kk-vectors createdAt (2023-03-20) is a later re-upload, not the true release date — not used. storage is the cc.kk.300.bin.gz compressed download size from fasttext.cc's official crawl-vectors page (Content-Length, includes the full subword n-gram model, not just the plain-text .vec file). Params not applicable/reported for fastText word-vector models, so left null."
 
   - id: kaz-roberta-conversational
     name: Kaz-RoBERTa Conversational
@@ -69,6 +72,9 @@ models:
     params:
       display: "83.5M"
       variants: []
+    storage:
+      value: 334.0
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -106,6 +112,9 @@ models:
     params:
       display: "≈153M"
       variants: []
+    storage:
+      value: 625.8
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -143,6 +152,9 @@ models:
     params:
       display: "110.7M"
       variants: []
+    storage:
+      value: 442.6
+      unit: MB
     languages: [kk, ru, en]
     access: open
     license: Apache-2.0
@@ -180,6 +192,9 @@ models:
     params:
       display: "355.4M"
       variants: []
+    storage:
+      value: 1.4
+      unit: GB
     languages: [kk]
     access: open
     license: AFL-3.0
@@ -219,6 +234,9 @@ models:
     params:
       display: "8B / 70B"
       variants: ["8B", "70B"]
+    storage:
+      value: 16.1
+      unit: GB
     languages: [kk, en, ru, tr]
     access: gated
     license: "CC-BY-NC-4.0 (with Llama 3.1 Community License terms)"
@@ -237,7 +255,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "8B createdAt 2024-12-08; 70B createdAt 2024-12-07 — treated as one simultaneous release."
+    notes: "8B createdAt 2024-12-08; 70B createdAt 2024-12-07 — treated as one simultaneous release. storage reflects the linked 8B checkpoint (16.1GB); the 70B sibling (issai/LLama-3.1-KazLLM-1.0-70B) is ≈141.1GB per the HF API."
 
   - id: sozkz-core-llama-kk
     name: SozKZ Core (Llama-family Kazakh base models)
@@ -256,6 +274,9 @@ models:
     params:
       display: "8M-1.08B (multiple models)"
       variants: ["8M", "30M", "50M", "150M", "300M", "600M", "1B"]
+    storage:
+      value: 2.2
+      unit: GB
     languages: [kk, en]
     access: open
     license: MIT
@@ -274,7 +295,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Represents a large sprawl of near-identical iterative models (v1-v4 of several sizes; GPT2/Pythia/T5 sibling architectures also exist in the same collection). Only the largest Llama base model (1.08B) is catalogued as the flagship; dozens of smaller/instruct/gec/sentiment/balanced siblings under the same collection are not separately catalogued."
+    notes: "Represents a large sprawl of near-identical iterative models (v1-v4 of several sizes; GPT2/Pythia/T5 sibling architectures also exist in the same collection). Only the largest Llama base model (1.08B) is catalogued as the flagship; dozens of smaller/instruct/gec/sentiment/balanced siblings under the same collection are not separately catalogued. storage reflects only this linked 1.08B flagship checkpoint, not the whole size family."
 
   - id: sozkz-core-qwen-500m-kk-base
     name: SozKZ Core Qwen 500M (kk base)
@@ -293,6 +314,9 @@ models:
     params:
       display: "447.5M"
       variants: []
+    storage:
+      value: 895.0
+      unit: MB
     languages: [kk]
     access: open
     license: MIT
@@ -330,6 +354,9 @@ models:
     params:
       display: "1.14B"
       variants: []
+    storage:
+      value: 2.3
+      unit: GB
     languages: [kk, ru, en]
     access: open
     license: Apache-2.0
@@ -369,6 +396,9 @@ models:
     params:
       display: "1.3B"
       variants: []
+    storage:
+      value: 5.8
+      unit: GB
     languages: [kk, en, ru]
     access: open
     license: MIT
@@ -406,6 +436,9 @@ models:
     params:
       display: "123M-674M"
       variants: ["123M", "300M", "600M (673.8M actual)"]
+    storage:
+      value: 2.7
+      unit: GB
     languages: [kk, ru]
     access: open
     license: MIT
@@ -424,7 +457,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "A translation-tuned sibling (ekitil-core-qwen3-600m-kkru-translate-v1) also exists in the same collection, not separately catalogued here."
+    notes: "A translation-tuned sibling (ekitil-core-qwen3-600m-kkru-translate-v1) also exists in the same collection, not separately catalogued here. storage reflects only the linked 600M (673.8M actual) checkpoint, not the whole size family."
 
   - id: tilqazyna-llama-kaz-instruct-8b-1
     name: llama-kaz-instruct-8B-1
@@ -443,6 +476,9 @@ models:
     params:
       display: "8B"
       variants: []
+    storage:
+      value: 16.1
+      unit: GB
     languages: [kk]
     access: gated
     license: Apache-2.0
@@ -480,6 +516,9 @@ models:
     params:
       display: "1.94B"
       variants: []
+    storage:
+      value: 7.8
+      unit: GB
     languages: [kk]
     access: open
     license: AFL-3.0
@@ -517,6 +556,9 @@ models:
     params:
       display: "966.6M"
       variants: []
+    storage:
+      value: 3.9
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -554,6 +596,9 @@ models:
     params:
       display: "≈7B base (QLoRA adapter ≈646MB)"
       variants: []
+    storage:
+      value: 646.0
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -593,6 +638,9 @@ models:
     params:
       display: "270M-1.7B"
       variants: ["270M", "600M", "1B", "1.7B"]
+    storage:
+      value: 1.2
+      unit: GB
     languages: [en, kk]
     access: open
     license: Apache-2.0
@@ -611,7 +659,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "GGUF mirrors and an issai/foggen-r15-oe variant also exist and are not catalogued separately."
+    notes: "GGUF mirrors and an issai/foggen-r15-oe variant also exist and are not catalogued separately. storage reflects only the linked issai/foggen repo (≈596M actual params, the ~600M-class variant), not the whole 270M-1.7B size family."
 
   - id: kazsandra-rembert-polarity
     name: KazSAnDRA RemBERT (polarity classification)
@@ -632,6 +680,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 2.3
+      unit: GB
     languages: [kk]
     access: open
     license: CC-BY-4.0
@@ -650,7 +701,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Parameter count not disclosed in the model card or safetensors metadata; not guessed."
+    notes: "Parameter count not disclosed in the model card or safetensors metadata; not guessed. storage is the pytorch_model.bin size per the HF API (no safetensors file exists in this repo)."
 
   - id: kazbert-nerd
     name: KazBERT-NERD
@@ -669,6 +720,9 @@ models:
     params:
       display: "110.1M"
       variants: []
+    storage:
+      value: 440.3
+      unit: MB
     languages: [kk]
     access: open
     license: MIT
@@ -706,6 +760,9 @@ models:
     params:
       display: "110.6M"
       variants: []
+    storage:
+      value: 442.5
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -743,6 +800,9 @@ models:
     params:
       display: "558.9M"
       variants: []
+    storage:
+      value: 2.2
+      unit: GB
     languages: [kk]
     access: open
     license: CC-BY-4.0
@@ -780,6 +840,9 @@ models:
     params:
       display: "82.9M"
       variants: []
+    storage:
+      value: 331.6
+      unit: MB
     languages: [kk]
     access: open
     license: CC-BY-4.0
@@ -817,6 +880,9 @@ models:
     params:
       display: "354.3M"
       variants: []
+    storage:
+      value: 1.4
+      unit: GB
     languages: [kk]
     access: open
     license: AFL-3.0
@@ -854,6 +920,9 @@ models:
     params:
       display: "354.3M"
       variants: []
+    storage:
+      value: 1.4
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -891,6 +960,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: null
+      unit: null
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -909,7 +981,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Prior candidate list incorrectly described this as a Kaz-RoBERTa fine-tune; the actual base model is mBERT, corrected here. A near-identical fine-tune from a different account exists on the same dataset; not catalogued separately."
+    notes: "Prior candidate list incorrectly described this as a Kaz-RoBERTa fine-tune; the actual base model is mBERT, corrected here. A near-identical fine-tune from a different account exists on the same dataset; not catalogued separately. Storage/params left null: the HF repo (checked via API) contains only .gitattributes and README.md — no model weight files are actually hosted there to measure."
 
   - id: kazakh-qa-mbert
     name: Kazakh Question Answering (mBERT KazQAD)
@@ -928,6 +1000,9 @@ models:
     params:
       display: "177.3M"
       variants: []
+    storage:
+      value: 709.1
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -965,6 +1040,9 @@ models:
     params:
       display: "355.4M"
       variants: []
+    storage:
+      value: 1.4
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -1002,6 +1080,9 @@ models:
     params:
       display: "64.6M"
       variants: []
+    storage:
+      value: 258.4
+      unit: MB
     languages: [kk]
     access: open
     license: MIT
@@ -1039,6 +1120,9 @@ models:
     params:
       display: "447.5M"
       variants: []
+    storage:
+      value: 895.0
+      unit: MB
     languages: [kk]
     access: open
     license: MIT
@@ -1076,6 +1160,9 @@ models:
     params:
       display: "177.9M"
       variants: []
+    storage:
+      value: 711.4
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -1111,8 +1198,11 @@ models:
     architecture: BERT (multilingual)
     base_model: "google-bert/bert-base-multilingual-cased"
     params:
-      display: null
+      display: "≈177.9M"
       variants: []
+    storage:
+      value: 711.5
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -1131,7 +1221,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Class count not independently confirmed; parameter count not disclosed in card metadata."
+    notes: "Class count not independently confirmed. Params corrected from null: no root-level safetensors metadata exists (weights live only under checkpoint-* subfolders), but checkpoint-498/model.safetensors is 711,452,660 bytes, dividing evenly by 4 (F32) to 177,863,165 params — matching the same bert-base-multilingual-cased architecture's reported size on sibling fine-tunes in this catalog (e.g. R3iwan/kazakh-sentiment-bert, 177,855,747 params per HF API)."
 
   - id: stanza-kk-ktb
     name: Stanza Kazakh pipeline (kk_ktb)
@@ -1150,6 +1240,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 400.2
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -1168,7 +1261,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Confirmed the kk_ktb package exists in current Stanza releases, but could not pin the specific month/year it first became available from a primary source, so released is Unknown."
+    notes: "Confirmed the kk_ktb package exists in current Stanza releases, but could not pin the specific month/year it first became available from a primary source, so released is Unknown. storage is the models/default.zip bundle size on the official stanfordnlp/stanza-kk Hugging Face mirror (the package `stanza.download(\"kk\")` actually fetches). Stanza pipelines don't publish a unified parameter count, so params is left null."
 
   - id: e5-base-kazakh
     name: e5-base-kazakh
@@ -1187,6 +1280,9 @@ models:
     params:
       display: "278M"
       variants: []
+    storage:
+      value: 1.1
+      unit: GB
     languages: [kk]
     access: open
     license: MIT
@@ -1224,6 +1320,9 @@ models:
     params:
       display: "278M"
       variants: []
+    storage:
+      value: 1.1
+      unit: GB
     languages: [kk, ru, en]
     access: open
     license: Apache-2.0
@@ -1261,6 +1360,9 @@ models:
     params:
       display: "278M"
       variants: []
+    storage:
+      value: 1.1
+      unit: GB
     languages: [kk, ru, en]
     access: open
     license: "Not reported"
@@ -1298,6 +1400,9 @@ models:
     params:
       display: "567.8M"
       variants: []
+    storage:
+      value: 2.3
+      unit: GB
     languages: [kk, ru, en]
     access: open
     license: Apache-2.0
@@ -1335,6 +1440,9 @@ models:
     params:
       display: "278M"
       variants: []
+    storage:
+      value: 556.1
+      unit: MB
     languages: [kk]
     access: open
     license: CC-BY-SA-4.0
@@ -1372,8 +1480,11 @@ models:
     architecture: NLLB-200-distilled-1.3B (fine-tuned)
     base_model: facebook/nllb-200-distilled-1.3B
     params:
-      display: null
+      display: "1.37B"
       variants: []
+    storage:
+      value: 5.5
+      unit: GB
     languages: [kk, ru, en, tr]
     access: gated
     license: "Not reported"
@@ -1392,7 +1503,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Access requires agreeing to share contact information (HF gating). No explicit license text found on the model page, GitHub repo, or paper; recorded as Not reported."
+    notes: "Access requires agreeing to share contact information (HF gating). No explicit license text found on the model page, GitHub repo, or paper; recorded as Not reported. Params filled from null: no safetensors metadata exists (pytorch_model.bin only), but the base architecture's own reported size — and the exact figure independently reported for the derivative Nothingger/kaz-literature-translation fine-tune (1,370,638,336 params per HF API) — gives 1.37B; pytorch_model.bin is 5,491,302,146 bytes, consistent with an FP32 checkpoint of that size."
 
   - id: kazrush-kk-ru
     name: KazRush kk-ru
@@ -1411,6 +1522,9 @@ models:
     params:
       display: "197M"
       variants: []
+    storage:
+      value: 787.9
+      unit: MB
     languages: [kk, ru]
     access: open
     license: Apache-2.0
@@ -1448,6 +1562,9 @@ models:
     params:
       display: "8B"
       variants: []
+    storage:
+      value: 27.3
+      unit: MB
     languages: [kk, ru]
     access: open
     license: Apache-2.0
@@ -1466,7 +1583,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Confirmed as a full merged model, not a LoRA-only release."
+    notes: "Correction: the prior note's claim of 'a full merged model, not a LoRA-only release' is wrong — the HF API (checked directly) shows this repo hosts only adapter_config.json + adapter_model.safetensors (~27MB), i.e. a LoRA adapter over unsloth/Meta-Llama-3.1-8B-bnb-4bit per the README, not merged full-model weights. storage reflects the adapter size; params (8B) still describes the resulting base+adapter model size."
 
   - id: sozkz-mgpt-1-3b-translate-kkru
     name: SozKZ mGPT kk-ru translation
@@ -1485,6 +1602,9 @@ models:
     params:
       display: "1.42B"
       variants: []
+    storage:
+      value: 2.8
+      unit: GB
     languages: [kk, ru]
     access: open
     license: MIT
@@ -1522,6 +1642,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 615.9
+      unit: MB
     languages: [kk, en]
     access: open
     license: CC-BY-4.0
@@ -1540,7 +1663,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "The two directions (kk-en and en-kk) are treated as one bidirectional entry. Kept separate from the HPLT+OPUS variant below because it uses a different training-data recipe."
+    notes: "The two directions (kk-en and en-kk) are treated as one bidirectional entry. Kept separate from the HPLT+OPUS variant below because it uses a different training-data recipe. storage sums both direction checkpoints (kk-en + en-kk, ≈307.9MB each per the HF API)."
 
   - id: hplt-opus-translate-kk-en
     name: HPLT+OPUS Kazakh-English MT
@@ -1559,6 +1682,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 615.9
+      unit: MB
     languages: [kk, en]
     access: open
     license: CC-BY-4.0
@@ -1577,7 +1703,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Catalogued separately from the HPLT-only variant because OPUS data augmentation is a genuinely different training recipe, not a format/packaging duplicate."
+    notes: "Catalogued separately from the HPLT-only variant because OPUS data augmentation is a genuinely different training recipe, not a format/packaging duplicate. storage sums both direction checkpoints (kk-en + en-kk, ≈307.9MB each per the HF API)."
 
   - id: nothingger-kaz-literature-translation
     name: Nothingger Literary Translation
@@ -1596,6 +1722,9 @@ models:
     params:
       display: "1.37B"
       variants: []
+    storage:
+      value: 5.5
+      unit: GB
     languages: [kk, ru, en]
     access: open
     license: Apache-2.0
@@ -1615,6 +1744,450 @@ models:
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
     notes: null
+
+  - id: issai-qwen3-5-kazakh
+    name: ISSAI Qwen3.5 Kazakh
+    released: "2026-08"
+    section: "Text, NLP, and LLM"
+    description: ISSAI's Kazakh adaptation of Qwen3.5 (4B/9B/35B-A3B), combining tokenizer-extended continued pretraining with a chat-vector merge that restores the official instruct alignment.
+    tasks: [Large language model, Instruction following]
+    tier: A
+    kind: instruction
+    authors:
+      - name: ISSAI researchers
+        url: null
+    organization:
+      - name: ISSAI, Nazarbayev University
+        url: https://issai.nu.edu.kz/
+    architecture: "Qwen3.5 (dense 4B/9B; MoE 35B-A3B), continued-pretrained then chat-vector merged with the official instruct model"
+    base_model: "Qwen/Qwen3.5 family (4B / 9B / 35B-A3B)"
+    params:
+      display: "4B / 9B / 35B-A3B (MoE)"
+      variants: ["4B", "9B", "35B-A3B"]
+    storage:
+      value: 70.3
+      unit: GB
+    languages: [kk, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/issai/Qwen3.5-35B-A3B-Kazakh
+      paper: null
+      code: null
+      project: https://issai.nu.edu.kz/
+    training:
+      summary: "Two-stage adaptation per size: tokenizer extended with +16K Kazakh tokens and continued-pretrained on Kazakh text (issai/Qwen3.5-*-Base-Kazakh), then a chat-vector merge (Huang et al., 2024) transfers the official Qwen3.5 instruct alignment onto the Kazakh-adapted weights, with the vision encoder/projector re-attached afterward to restore multimodality."
+      datasets: []
+    kazakh_evidence: Tokenizer-extension plus continued pretraining substantially on Kazakh text at every size, with dedicated KazMMLU/KazCulture evaluation reporting consistent gains over the un-adapted Qwen3.5 baseline at every scale.
+    metrics:
+      summary: "Self-reported gains over base Qwen3.5 (thinking mode, not independently verified): 4B-Kazakh KazMMLU 72.5->78.5, KazCulture 42.3->55.4; 35B-A3B-Kazakh KazMMLU 82.6->84.0, KazCulture 60.3->68.7."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "Six-repo family, all createdAt 2026-08-05: continued-pretraining checkpoints issai/Qwen3.5-4B-Base-Kazakh, issai/Qwen3.5-9B-Base-Kazakh, issai/Qwen3.5-35B-A3B-Base-Kazakh, and instruct-aligned issai/Qwen3.5-4B-Kazakh, issai/Qwen3.5-9B-Kazakh, issai/Qwen3.5-35B-A3B-Kazakh. links.model points to the largest instruct variant (35B-A3B, ~70.3GB per the HF API); the 4B instruct checkpoint is ~9.2GB and the 9B instruct is ~19.1GB. Distinct from the existing kazllm-1-0 entry (a Llama 3.1-based ISSAI model) — a separate, newer ISSAI flagship family, not a replacement."
+
+  - id: irbis-7b
+    name: Irbis-7B
+    released: "2024-03"
+    section: "Text, NLP, and LLM"
+    description: Mistral-7B-architecture Kazakh language model with a tokenizer expanded from 32k to 60k tokens and continued-pretrained on a predominantly Kazakh (with some Russian) corpus.
+    tasks: [Large language model]
+    tier: A
+    kind: continued-pretraining
+    authors: []
+    organization:
+      - name: Gen2B
+        url: null
+    architecture: Mistral (7B)
+    base_model: null
+    params:
+      display: "≈7.47B"
+      variants: []
+    storage:
+      value: 14.9
+      unit: GB
+    languages: [kk, ru, en]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/Gen2B/Irbis-7b-v0.1
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Tokenizer vocabulary expanded from 32k to 60k tokens (adding Kazakh words), then pretrained on ~20GB of predominantly Kazakh (with some Russian) text with the new tokenizer."
+      datasets: []
+    kazakh_evidence: Dedicated tokenizer expansion for Kazakh plus continued pretraining on a predominantly-Kazakh corpus.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "Originally published under the IrbisAI account/name (huggingface.co/IrbisAI/Irbis-7b-v0.1, per the candidate list); that path now 307-redirects to the current canonical repo Gen2B/Irbis-7b-v0.1 (same createdAt 2024-03-31), used here as links.model. Exact upstream Mistral checkpoint (e.g. v0.1 vs v0.2) is not stated on the card, so base_model is left null rather than guessed; architecture is confirmed via the repo's own 'mistral' config/tag, and params are computed from the safetensors total size (14,947,328,784 bytes) divided by 2 bytes/param (bfloat16, per config.json). A separate quantized mirror (NikolayKozloff/Irbis-7b-v0.1-Kazakh-Q8_0-GGUF) exists and is intentionally not catalogued (format-only duplicate)."
+
+  - id: llama2-kazakh-7b-ver2
+    name: Llama 2 Kazakh 7B (ver2)
+    released: "2023-12"
+    section: "Text, NLP, and LLM"
+    description: Llama 2 7B fine-tuned for Kazakh-language question answering, the second (ver2) iteration of an instruction fine-tune trained on a self-instruct Kazakh dataset.
+    tasks: [Question answering]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Mussa Aman
+        url: https://huggingface.co/AmanMussa
+    organization:
+      - name: KBTU (Kazakh-British Technical University)
+        url: null
+    architecture: Llama 2 (7B)
+    base_model: meta-llama/Llama-2-7b-hf
+    params:
+      display: "≈6.74B"
+      variants: []
+    storage:
+      value: 13.5
+      unit: GB
+    languages: [kk]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://huggingface.co/AmanMussa/llama2-kazakh-7b-ver2
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned Meta Llama 2 7B on a Kazakh self-instruct question-answering dataset (AmanMussa/kazakh-instruction-v1 family).
+      datasets: [AmanMussa/kazakh-instruction-v1]
+    kazakh_evidence: Task-specific Kazakh QA fine-tune of a Llama 2 base, from the same author/pipeline as the earlier v1 release.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "An earlier v1 sibling (AmanMussa/llama2-kazakh-7b, createdAt 2023-11-16) also exists with an explicit MIT license tag and a README describing the same Kazakh QA fine-tuning pipeline; ver2 (createdAt 2023-12-13) ships no README/LICENSE of its own, so license is recorded as Not reported here rather than assumed to inherit v1's MIT tag. Config confirms base meta-llama/Llama-2-7b-hf architecture (torch_dtype float16); params computed from the safetensors total size (13,476,864,752 bytes) divided by 2 bytes/param."
+
+  - id: kazakhbertmulti
+    name: KazakhBERTmulti
+    released: "2023-05"
+    section: "Text, NLP, and LLM"
+    description: BERT masked-language model trained on Kazakh text with a large (100k-token) Kazakh-tailored vocabulary — despite the "multi" in its name, a Kazakh-only model.
+    tasks: [Masked language modelling / encoder]
+    tier: A
+    kind: foundation
+    authors:
+      - name: Amandyk Kartbayev
+        url: https://huggingface.co/amandyk
+    organization: []
+    architecture: BERT
+    base_model: null
+    params:
+      display: "≈163.0M"
+      variants: []
+    storage:
+      value: 651.8
+      unit: MB
+    languages: [kk]
+    access: open
+    license: AFL-3.0
+    links:
+      model: https://huggingface.co/amandyk/KazakhBERTmulti
+      paper: https://doi.org/10.1109/ICAICT.2014.7036013
+      code: null
+      project: null
+    training:
+      summary: "BERT-base architecture (12 layers, hidden size 768) pretrained from scratch with a 100k-token Kazakh vocabulary; checkpoint metadata shows training through epoch 3 (checkpoint-1279047)."
+      datasets: []
+    kazakh_evidence: Despite "multi" in the name, the model card and config confirm a kk-only training language and a dedicated large Kazakh vocabulary; the linked paper studies Kazakh-specific morphological structures for machine translation.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "License card only carries a citation request for Bekbulatov & Kartbayev (2014) on Kazakh morphological structures; no separate paper describes this specific BERT checkpoint. Already serves as the base for downstream fine-tunes on other accounts (e.g. a KazakhBERTmulti-SQUAD-kaz style fine-tune), not independently catalogued in this pass. Params estimated from pytorch_model.bin size (651,844,985 bytes) divided by 4 bytes/param (float32, per config.json), excluding the accompanying optimizer.pt training-state file (not a model weight)."
+
+  - id: kimi-k3-kazakh-cpt-59m
+    name: Kimi-K3-0.40B Kazakh CPT (59M tokens)
+    released: "2026-07"
+    section: "Text, NLP, and LLM"
+    description: Experimental hybrid KDA+MLA+MoE Kimi-K3 checkpoint continued-pretrained on Kazakh text, having seen roughly 59 million cumulative Kazakh tokens.
+    tasks: [Large language model]
+    tier: A
+    kind: continued-pretraining
+    authors:
+      - name: Yeraly Gainulla
+        url: https://huggingface.co/Eraly-ml
+    organization: []
+    architecture: "Kimi K3 (hybrid KDA + MLA + MoE, 8 layers, 8 routed experts top-2 + 1 shared expert)"
+    base_model: inference-optimization/Kimi-K3-0.40B
+    params:
+      display: "388.6M"
+      variants: []
+    storage:
+      value: 791.2
+      unit: MB
+    languages: [kk]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/Eraly-ml/Kimi-K3-0.40B-Kazakh-CPT-59M
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Continued pretraining on the kazakhBooks.csv portion of kz-transformers/multidomain-kazakh-dataset (60M prepared training tokens, 500K validation tokens; 2,823 documents accepted after language/Kazakh-character filtering out of 8,423 scanned); latest of an iterative chain (previous CPT step: Eraly-ml/Kimi-K3-0.40B-Kazakh-CPT-step200), reaching ~59M cumulative Kazakh tokens seen."
+      datasets: [kz-transformers/multidomain-kazakh-dataset]
+    kazakh_evidence: Dedicated Kazakh-only continued pretraining of an experimental small MoE architecture, explicitly documented as base-only (not instruction-tuned).
+    metrics:
+      summary: "Self-reported validation loss 3.35 / perplexity 28.51 over 50 batches on the Kazakh Books validation split (not independently verified)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "Immediate parent checkpoint (per cardData base_model) is the author's own prior step, Eraly-ml/Kimi-K3-0.40B-Kazakh-CPT-step200, part of an iterative same-account CPT chain; base_model here instead records the ultimate upstream architecture (inference-optimization/Kimi-K3-0.40B) per the model card's own framing. Marked experimental by the author; not a compressed/distilled version of a production Kimi K3 model."
+
+  - id: tencent-kazakh-7b-adapter
+    name: Tencent Kazakh 7B Adapter
+    released: "2026-02"
+    section: "Text, NLP, and LLM"
+    description: LoRA adapter for tencent/HY-MT1.5-7B that outputs Kazakh in Cyrillic script (the base model defaults to Arabic script) for Russian-to-Kazakh translation.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors:
+      - name: Defetya
+        url: https://huggingface.co/Defetya
+    organization: []
+    architecture: LoRA adapter over tencent/HY-MT1.5-7B
+    base_model: tencent/HY-MT1.5-7B
+    params:
+      display: null
+      variants: []
+    storage:
+      value: 54.6
+      unit: MB
+    languages: [kk, ru]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://huggingface.co/Defetya/tencent-kazakh-7b-adapter
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained on the issai/kazparc parallel corpus specifically for Russian-to-Kazakh translation; the model card notes it likely does not translate other language pairs well.
+      datasets: [issai/kazparc]
+    kazakh_evidence: Dedicated Kazakh-Cyrillic-output LoRA adapter, submitted to the LoResMT 2026 shared task, trained specifically on a Kazakh parallel corpus.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "Resolves the former Watchlist entry 'Tencent Kazakh 7B Adapter' — now confirmed as a real, non-gated LoRA adapter (adapter_model.bin present) via the Hugging Face API. No license is declared on the card or tags; recorded as Not reported rather than guessed. Params left null: this is a LoRA adapter over the tencent/HY-MT1.5-7B base, and the adapter's own rank/parameter count is not stated on the card."
+
+  - id: uzbek-kazakh-machine-translation
+    name: Uzbek-Kazakh Machine Translation
+    released: "2022-09"
+    section: "Text, NLP, and LLM"
+    description: Transformer (JoeyNMT) machine translation model trained from scratch for Uzbek-to-Kazakh translation, released with training-step checkpoints and dev/test hypothesis files.
+    tasks: [Machine translation]
+    tier: A
+    kind: translation
+    authors:
+      - name: Sanatbek Matlatipov
+        url: https://huggingface.co/Sanatbek
+    organization: []
+    architecture: "Transformer (JoeyNMT toolkit; 6 encoder/decoder layers, 4 attention heads, 256-dim embeddings)"
+    base_model: null
+    params:
+      display: null
+      variants: []
+    storage:
+      value: 174.0
+      unit: MB
+    languages: [uz, kk]
+    access: open
+    license: AFL-3.0
+    links:
+      model: https://huggingface.co/Sanatbek/uzbek-kazakh-machine-translation
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained from scratch with JoeyNMT using SentencePiece BPE tokenization (10k vocabulary per side) on an Uzbek-Kazakh parallel corpus.
+      datasets: []
+    kazakh_evidence: Kazakh is one of exactly two central target languages in a dedicated directional MT model; not merely incidental multilingual coverage.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "storage reflects 4000.ckpt (174,009,618 bytes), the file both best.ckpt and latest.ckpt symlink to; an earlier 3000.ckpt training-step checkpoint (same size) also exists in the repo and is excluded as a superseded intermediate. Params not reported by the JoeyNMT toolkit/README, so left null."
+
+  - id: qwen25-3b-history-kazakhstan
+    name: Qwen2.5-3B History of Kazakhstan
+    released: "2026-01"
+    section: "Text, NLP, and LLM"
+    description: Qwen2.5-3B QLoRA-fine-tuned on an 11th-grade Kazakhstan history textbook for Kazakh/Russian/English question answering.
+    tasks: [Question answering]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Ramazan Syrlybay
+        url: https://huggingface.co/rsyrlybay
+    organization: []
+    architecture: Qwen2.5 (QLoRA fine-tune, merged)
+    base_model: Qwen/Qwen2.5-3B
+    params:
+      display: "≈3.09B"
+      variants: []
+    storage:
+      value: 6.2
+      unit: GB
+    languages: [kk, ru, en]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/rsyrlybay/qwen2.5-3b-history-kazakhstan
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "QLoRA fine-tuning (r=32, alpha=64) of Qwen2.5-3B on ~660 Kazakhstan-history question-answer pairs derived from an 11th-grade history textbook."
+      datasets: []
+    kazakh_evidence: Explicit kk/ru/en language tags with a Kazakhstan-specific domain fine-tune, distinguishing it from a generic multilingual Qwen deployment.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "The model card contains two conflicting YAML metadata blocks (an initial one tagged mit / kk-ru-en / pipeline question-answering, and a second embedded block in the body tagged apache-2.0 / ru-kk / pipeline text-generation); Hugging Face's own parsed cardData (and the API) resolve to the first block, so license mit and the kk/ru/en language tags are used here. Params computed from the safetensors total size assuming bf16/fp16 (matches Qwen2.5-3B's official 3.09B parameter count)."
+
+  - id: xlm-roberta-kazakh-pos
+    name: XLM-RoBERTa Kazakh POS Tagger (TilQazyna)
+    released: "2025-11"
+    section: "Text, NLP, and LLM"
+    description: XLM-RoBERTa fine-tuned for Kazakh part-of-speech tagging, with per-tag performance and confusion-matrix evaluation artifacts included in the repo.
+    tasks: [POS tagging]
+    tier: A
+    kind: task-finetune
+    authors: []
+    organization:
+      - name: TilQazyna
+        url: null
+    architecture: XLM-RoBERTa (token classification)
+    base_model: "FacebookAI/xlm-roberta-base"
+    params:
+      display: "≈278.1M"
+      variants: []
+    storage:
+      value: 1.1
+      unit: GB
+    languages: [kk]
+    access: gated
+    license: MIT
+    links:
+      model: https://huggingface.co/TilQazyna/xlm-roberta-kazakh-pos
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned for Kazakh POS tagging on a custom-labeled Kazakh corpus (dataset tagged only as "custom" on the card).
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only POS tagging fine-tune with published per-tag performance, confusion-matrix, and tag-distribution evaluation artifacts.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "Access requires an approved Hugging Face gated request; README not independently readable while gated. Base model not explicitly tagged on the card; inferred as xlm-roberta-base because the single checkpoint file (kazakh_pos_model_complete.pt, 1,112,320,827 bytes) divides evenly by 4 bytes/param (float32) to ≈278.1M params, matching XLM-RoBERTa-base's known size rather than XLM-RoBERTa-large's ≈550M."
+
+  - id: kazakh-morpho-qazcorpora
+    name: Kazakh Morphological Analysis (QazCorpora ensemble)
+    released: "2026-06"
+    section: "Text, NLP, and LLM"
+    description: Ensemble of trained classifiers and small PyTorch lemmatization networks for Kazakh morphological analysis (part-of-speech attribute prediction and lemmatization), evaluated on the QazCorpora corpus.
+    tasks: [Morphological analysis]
+    tier: A
+    kind: task-finetune
+    authors: []
+    organization:
+      - name: TilQazyna
+        url: null
+    architecture: "Ensemble: scikit-learn classifiers/vectorizers (joblib) for morphological attribute tagging plus small PyTorch feed-forward networks for lemma suffix/rule prediction"
+    base_model: null
+    params:
+      display: null
+      variants: []
+    storage:
+      value: 11.2
+      unit: MB
+    languages: [kk]
+    access: gated
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/TilQazyna/kazakh-morpho-qazcorpora
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained on the QazCorpora Kazakh morphological-analysis corpus (per-category joblib classifiers for adjective/adverb/noun/word-class attributes plus PyTorch lemmatization networks for adjective/noun/verb/suffix rules).
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only morphological analysis and lemmatization ensemble trained on a Kazakh-specific corpus.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "Access requires an approved Hugging Face gated request; README not independently readable while gated. Repo also bundles two XLM-R-tokenizer-only subfolders (bert_tag/, ner_model_all4/) with no accompanying model weight file, so these are not counted as trained artifacts. storage sums only the real trained joblib/.pth files across the repo's cor/ and qazcorpora/ subfolders (~11.2MB total), excluding raw data/csv/json/notebook/script files. New task label 'Morphological analysis' (MORPH) added to TASK_ABBREV in scripts/generate_readme.py for this entry, mirroring the sister awesome-kaz-datasets repo's own abbreviation."
+
+  - id: qwen38-27b-kazakh-sft
+    name: Qwen3.8-27B Kazakh SFT (Tohirju)
+    released: "2026-08"
+    section: "Text, NLP, and LLM"
+    description: Kazakh instruction/tool-use fine-tune family (SFT, tool-calling, and GRPO-refined tool-calling variants) of a ~27B Qwen-architecture model, part of a multi-language (Tajik/Uzbek/Kyrgyz/Kazakh) fine-tune series by the same author.
+    tasks: [Instruction following]
+    tier: A
+    kind: instruction
+    authors:
+      - name: Tohir Saidzoda
+        url: https://huggingface.co/Tohirju
+    organization: []
+    architecture: "Qwen3.5-family text architecture (~27B; exact upstream base checkpoint undisclosed)"
+    base_model: null
+    params:
+      display: "≈26.9B"
+      variants: []
+    storage:
+      value: 53.8
+      unit: GB
+    languages: [kk]
+    access: gated
+    license: "Not reported"
+    links:
+      model: https://huggingface.co/Tohirju/qwen38-27b-kazakh-sft
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Kazakh SFT of a ~27B Qwen-architecture model; sibling repos qwen38-27b-kazakh-tool and qwen38-27b-kazakh-tool-grpo add tool-calling SFT and GRPO reinforcement-learning refinement on top, respectively."
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh-only (`kk`-implied) instruction/tool-use fine-tune family, one of several per-language (Tajik/Uzbek/Kyrgyz/Kazakh) releases from the same account using the same recipe.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "Gated repo; both the API and direct raw-file requests return HTTP 401 for the README, and no license or base_model tag is exposed even in the public repo metadata, so license is recorded as Not reported rather than guessed. Sibling repos in the same family: qwen38-27b-kazakh-tool and qwen38-27b-kazakh-tool-grpo (same createdAt window, 2026-08-19). Params estimated from the safetensors total size (53,792,110,192 bytes) assuming bf16/fp16 (2 bytes/param)."
 
   # ---------------------------------------------------------------------
   # Speech and audio
@@ -1643,6 +2216,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 126.6
+      unit: MB
     languages: [kk]
     access: open
     license: CC-BY-4.0
@@ -1661,7 +2237,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Model archive URL path (/2020/10/) confirms an October 2020 upload; the GitHub README text has since been generalized to describe the larger successor corpus KSC2, but the linked model predates KSC2 and is trained on the original KSC."
+    notes: "Model archive URL path (/2020/10/) confirms an October 2020 upload; the GitHub README text has since been generalized to describe the larger successor corpus KSC2, but the linked model predates KSC2 and is trained on the original KSC. storage is the linked model.tar.gz's Content-Length. Params not reported anywhere in the repo/paper, so left null."
 
   - id: ksc2-asr-kazakh
     name: KSC2 Kazakh ASR (best-performing model)
@@ -1686,6 +2262,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 544.0
+      unit: MB
     languages: [kk]
     access: open
     license: "Not reported"
@@ -1704,7 +2283,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: null
+    notes: "storage is the best-performing checkpoint linked from the README (Google Drive, listed there as 544M) — an approximate figure as displayed by Google Drive, not an exact byte count. Params not reported anywhere in the repo/paper, so left null."
 
   - id: multilingual-asr-kz-ru-en
     name: IS2AI Multilingual ASR (Kazakh-Russian-English)
@@ -1723,6 +2302,9 @@ models:
     params:
       display: null
       variants: [mono_kz, mono_ru, mono_en, mlt_independent, mlt_combined]
+    storage:
+      value: 288.0
+      unit: MB
     languages: [kk, ru, en]
     access: open
     license: "Not reported"
@@ -1741,7 +2323,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: null
+    notes: "storage reflects only the base mono_kz_transformer_large.tar.gz checkpoint (the dedicated Kazakh-only variant, no speed-perturbation/SpecAugment), per Content-Length at the README's download link; other variants/languages in this family are not summed in. Params not reported in the repo/paper, so left null."
 
   - id: turkic-asr
     name: TurkicASR
@@ -1766,6 +2348,9 @@ models:
     params:
       display: null
       variants: [turkic_languages_model, all_languages_model]
+    storage:
+      value: 609.0
+      unit: MB
     languages: [az, ba, cv, kk, ky, sah, tt, tr, ug, uz]
     access: open
     license: CC-BY-4.0
@@ -1784,7 +2369,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: null
+    notes: "storage is the turkic_languages_model.zip / all_languages_model.zip download size — both variants are listed as 609M on their Google Drive pages (an approximate figure as displayed by Google Drive, not an exact byte count). Params not reported anywhere in the repo/paper, so left null."
 
   - id: multilingual-speech-command-recognition
     name: Multilingual Speech Command Recognition (Keyword-MLP)
@@ -1803,6 +2388,9 @@ models:
     params:
       display: null
       variants: [Mono-35-kk, Mono-35-tt, Mono-35-ru, Mono-35-en, Multi-35, Multi-140]
+    storage:
+      value: null
+      unit: null
     languages: [kk, tt, ru]
     access: open
     license: MIT
@@ -1821,7 +2409,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Released date approximated from GitHub repo creation (2023-09); a related TechRxiv write-up appears to postdate the code/model release."
+    notes: "Released date approximated from GitHub repo creation (2023-09); a related TechRxiv write-up appears to postdate the code/model release. storage left null: all six checkpoints are hosted as Google Drive folders (not single files), so no reported download size is available without inspecting folder contents directly."
 
   - id: keyword-mlp-langid-kazakh
     name: Keyword-MLP LangID / SCR (Kazakh)
@@ -1842,6 +2430,9 @@ models:
     params:
       display: null
       variants: [kw-mlp-mono-kk, kw-mlp-multi-lid, kw-mlp-multi-scr-lid]
+    storage:
+      value: 5.2
+      unit: MB
     languages: [kk, ru, tt]
     access: open
     license: "Not reported"
@@ -1860,7 +2451,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Models are hosted on a contributor's personal Hugging Face account (artur-muratov) rather than an ISSAI-owned org; the project itself is published under the official IS2AI GitHub organization."
+    notes: "Models are hosted on a contributor's personal Hugging Face account (artur-muratov) rather than an ISSAI-owned org; the project itself is published under the official IS2AI GitHub organization. storage reflects only the linked kw-mlp-mono-kk checkpoint (best.pth), not the other two multilingual variants. Params not reported in the repo, so left null."
 
   - id: wav2vec2-xlsr-kazakh
     name: Wav2Vec2-Large-XLSR-53 Kazakh
@@ -1879,6 +2470,9 @@ models:
     params:
       display: "≈0.3B"
       variants: []
+    storage:
+      value: 1.3
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -1916,6 +2510,9 @@ models:
     params:
       display: "≈74M"
       variants: []
+    storage:
+      value: 290.4
+      unit: MB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -1953,6 +2550,9 @@ models:
     params:
       display: "1.55B"
       variants: []
+    storage:
+      value: 6.2
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -1990,6 +2590,9 @@ models:
     params:
       display: "≈0.8B"
       variants: []
+    storage:
+      value: 1.6
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -2027,6 +2630,9 @@ models:
     params:
       display: "≈0.8B"
       variants: ["whisper-turbo-ksc2", "whisper-turbo-kaz-rus-v1 (LoRA)"]
+    storage:
+      value: 3.2
+      unit: GB
     languages: [kk, ru]
     access: open
     license: MIT
@@ -2064,6 +2670,9 @@ models:
     params:
       display: "≈0.3B"
       variants: []
+    storage:
+      value: 1.3
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -2101,6 +2710,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 1.2
+      unit: GB
     languages: [kk, en]
     access: open
     license: CC-BY-4.0
@@ -2138,6 +2750,9 @@ models:
     params:
       display: "50M-1B (multiple model sizes)"
       variants: ["omniaudio-50m-kk-ctc", "omniaudio-70m-kk-asr", "omniaudio-150m-kk-ctc", "omniaudio-150m-kk-asr", "omniaudio-300m-kk-ctc", "omniaudio-300m-kk-asr", "omniaudio-600m-kk-ctc", "omniaudio-600m-kk-asr", "omniaudio-1b-kk-ctc"]
+    storage:
+      value: 278.4
+      unit: MB
     languages: [kk]
     access: open
     license: MIT
@@ -2156,7 +2771,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Independent single-researcher project (not ISSAI/IS2AI). Represented as one family entry covering the omniaudio-50m through omniaudio-1b size variants (CTC and encoder-decoder ASR), since these are genuinely different-scale training runs of the same architecture rather than format conversions."
+    notes: "Independent single-researcher project (not ISSAI/IS2AI). Represented as one family entry covering the omniaudio-50m through omniaudio-1b size variants (CTC and encoder-decoder ASR), since these are genuinely different-scale training runs of the same architecture rather than format conversions. storage reflects only the linked ~70M (69.6M actual) checkpoint, not the whole size family."
 
   - id: kazakhtts
     name: KazakhTTS
@@ -2185,6 +2800,9 @@ models:
     params:
       display: null
       variants: ["5 Tacotron2 acoustic models (one per speaker)", "5 Parallel WaveGAN vocoders"]
+    storage:
+      value: 614.8
+      unit: MB
     languages: [kk]
     access: open
     license: CC-BY-4.0
@@ -2203,7 +2821,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: null
+    notes: "storage sums the Content-Length of all 10 released checkpoint archives (5 Tacotron2 acoustic models, ≈107.3MB each; 5 Parallel WaveGAN vocoders, ≈15.6-15.8MB each) linked from the README. Params not reported anywhere in the repo/paper, so left null."
 
   - id: kazemotts
     name: KazEmoTTS
@@ -2222,6 +2840,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 243.9
+      unit: MB
     languages: [kk]
     access: open
     license: "Not reported"
@@ -2240,7 +2861,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: null
+    notes: "storage sums the Content-Length of the two checkpoint archives linked from the README (pt_10000.zip TTS checkpoint + pre_trained_hf.zip vocoder checkpoint). Params not reported anywhere in the repo/paper, so left null."
 
   - id: turkictts
     name: TurkicTTS
@@ -2265,6 +2886,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 122.9
+      unit: MB
     languages: [kk, az, ba, ky, sah, tt, tr, tk, ug, uz]
     access: open
     license: "Not reported"
@@ -2283,7 +2907,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: null
+    notes: "storage sums the Content-Length of the two linked checkpoints (kaztts_male2_tacotron2_train.loss.ave.zip acoustic model + parallelwavegan_male2_checkpoint.zip vocoder). Params not reported anywhere in the repo/paper, so left null."
 
   - id: piper-kazakh-voices
     name: Piper Kazakh Voices
@@ -2300,6 +2924,9 @@ models:
     params:
       display: null
       variants: ["kk_KZ-iseke-x_low", "kk_KZ-issai-high", "kk_KZ-raya-x_low"]
+    storage:
+      value: 184.1
+      unit: MB
     languages: [kk]
     access: open
     license: CC-BY-4.0
@@ -2318,7 +2945,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "Exact release date could not be pinned to a month or year from a primary source; a third-party ONNX mirror already existed by 2023-11, indicating the voices were public by then at the latest, but the true first-release date is unverified so 'Unknown' is used per policy."
+    notes: "Exact release date could not be pinned to a month or year from a primary source; a third-party ONNX mirror already existed by 2023-11, indicating the voices were public by then at the latest, but the true first-release date is unverified so 'Unknown' is used per policy. storage sums all three voices' .onnx files (iseke + issai + raya) per the HF tree API. Piper/VITS per-voice parameter counts are not published, so params is left null."
 
   - id: spark-tts-kazakh
     name: Spark-TTS Kazakh
@@ -2337,6 +2964,9 @@ models:
     params:
       display: null
       variants: []
+    storage:
+      value: 3.1
+      unit: GB
     languages: [kk]
     access: open
     license: CC-BY-NC-SA-4.0
@@ -2355,7 +2985,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: null
+    notes: "storage sums the three weight files needed to run this repo's pipeline (BiCodec/model.safetensors + LLM/model.safetensors + wav2vec2-large-xlsr-53/pytorch_model.bin, per the HF API). Params left null: the repo has no root-level safetensors metadata across these bundled subcomponents, and dividing by an assumed dtype would be a guess rather than a reported figure."
 
   - id: kazakhtts-omnivoice
     name: KazakhTTS OmniVoice
@@ -2374,6 +3004,9 @@ models:
     params:
       display: "612.6M"
       variants: []
+    storage:
+      value: 2.5
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -2411,6 +3044,9 @@ models:
     params:
       display: "≈244M"
       variants: []
+    storage:
+      value: 967.0
+      unit: MB
     languages: [kk]
     access: gated
     license: CC-BY-NC-4.0
@@ -2447,8 +3083,11 @@ models:
     architecture: VITS (per-language checkpoint)
     base_model: null
     params:
-      display: null
+      display: "≈36.3M"
       variants: []
+    storage:
+      value: 145.2
+      unit: MB
     languages: [kk]
     access: open
     license: CC-BY-NC-4.0
@@ -2467,7 +3106,47 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-20"
     last_verified: "2026-08-20"
-    notes: "Moved from Watchlist after primary-source verification: public (non-gated) Hugging Face repo with real weights (pytorch_model.bin + safetensors), confirmed CC-BY-NC-4.0 license, and a linked MMS paper (arXiv:2305.13516), independently checked via the model card and Hugging Face API."
+    notes: "Moved from Watchlist after primary-source verification: public (non-gated) Hugging Face repo with real weights (pytorch_model.bin + safetensors), confirmed CC-BY-NC-4.0 license, and a linked MMS paper (arXiv:2305.13516), independently checked via the model card and Hugging Face API. Params filled from null using the HF API's safetensors metadata (36,285,552 params)."
+
+  - id: estimin3n
+    name: Estimin3n
+    released: "2025-09"
+    section: "Speech and audio"
+    description: Gemma 3n audio-text-to-text fine-tune for Kazakh speech transcription and Kazakh/Russian conversational response generation.
+    tasks: [Automatic speech recognition, Large language model]
+    tier: A
+    kind: speech
+    authors:
+      - name: Bekzat Uteulin
+        url: https://huggingface.co/govnejri
+    organization: []
+    architecture: Gemma 3n (LoRA SFT, audio + text submodules)
+    base_model: unsloth/gemma-3n-E4B-it
+    params:
+      display: "≈8B"
+      variants: []
+    storage:
+      value: 15.7
+      unit: GB
+    languages: [kk, ru, en]
+    access: open
+    license: Gemma
+    links:
+      model: https://huggingface.co/govnejri/Estimin3n
+      paper: null
+      code: https://github.com/govnejri/Estimin3n
+      project: null
+    training:
+      summary: LoRA SFT (via Unsloth/TRL) of unsloth/gemma-3n-E4B-it on a custom Kazakh audio corpus (FLAC recordings + transcripts) and KazMMLU benchmark data.
+      datasets: []
+    kazakh_evidence: Purpose-built Kazakh speech-and-text assistant fine-tuned on a dedicated Kazakh audio corpus, evaluated with WER/CER against ISSAI KSC2-test and KazMMLU, and citing the KSC2 Kazakh speech corpus paper.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-21"
+    last_verified: "2026-08-21"
+    notes: "released uses the Hugging Face createdAt date (2025-09-22) per CONTRIBUTING.md; the repo's lastModified (2026-07-28) reflects later updates, not the original release. License recorded as Gemma (Google's Gemma Terms of Use); HF API reports gated=false."
 
   # ---------------------------------------------------------------------
   # Vision, OCR, and multimodal
@@ -2492,6 +3171,9 @@ models:
     params:
       display: "≈35M"
       variants: []
+    storage:
+      value: 88.5
+      unit: MB
     languages: [kk, ky, ru]
     access: open
     license: Apache-2.0
@@ -2529,6 +3211,9 @@ models:
     params:
       display: "≈334M"
       variants: []
+    storage:
+      value: 1.3
+      unit: GB
     languages: [kk]
     access: open
     license: Apache-2.0
@@ -2566,6 +3251,9 @@ models:
     params:
       display: "≈4.3B"
       variants: []
+    storage:
+      value: 8.7
+      unit: GB
     languages: [kk, ru, en]
     access: open
     license: Apache-2.0
@@ -2603,6 +3291,9 @@ models:
     params:
       display: "5B / 9B / 34B"
       variants: ["5B (5.11B params)", "9B (9.49B params)", "34B (34.13B params)"]
+    storage:
+      value: null
+      unit: null
     languages: [kk, ru, en]
     access: open
     license: Apache-2.0
@@ -2621,7 +3312,7 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "One family entry covering three size variants (same architecture/recipe at different scales): issai/Qolda-AVL-5B, issai/Qolda-AVL-9B, issai/Qolda-AVL-34B. A GGUF conversion of the 5B variant also exists and is excluded as a format duplicate."
+    notes: "One family entry covering three size variants (same architecture/recipe at different scales): issai/Qolda-AVL-5B, issai/Qolda-AVL-9B, issai/Qolda-AVL-34B. A GGUF conversion of the 5B variant also exists and is excluded as a format duplicate. storage left null: per-variant checkpoint sizes differ too much for one figure to be meaningful (5B ≈10.2GB, 9B ≈19.0GB, 34B ≈68.3GB, all per the HF API's safetensors file sizes)."
 
   - id: hordevision
     name: HordeVision
@@ -2648,6 +3339,9 @@ models:
     params:
       display: "≈8.8B (4-bit quantized)"
       variants: []
+    storage:
+      value: 6.4
+      unit: GB
     languages: [kk]
     access: gated
     license: Apache-2.0
@@ -2693,6 +3387,9 @@ models:
     params:
       display: "≈2.6B"
       variants: []
+    storage:
+      value: 16.0
+      unit: GB
     languages: [kk, en]
     access: open
     license: Apache-2.0
@@ -2738,6 +3435,9 @@ models:
     params:
       display: "Not reported"
       variants: []
+    storage:
+      value: 2.7
+      unit: GB
     languages: [kk]
     access: open
     license: "Not reported"
@@ -2756,4 +3456,4 @@ models:
     base_model_id: null
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
-    notes: "GitHub repo has no LICENSE file, so license is 'Not reported' rather than guessed. released uses the GitHub repo's creation date (2023-02), not its later push date or the TechRxiv preprint date. The TensorRT .engine export is a format conversion of the same model, not a separate row."
+    notes: "GitHub repo has no LICENSE file, so license is 'Not reported' rather than guessed. released uses the GitHub repo's creation date (2023-02), not its later push date or the TechRxiv preprint date. The TensorRT .engine export is a format conversion of the same model, not a separate row. storage is the Pytorch checkpoint size ('model size:2.7GB') the README itself reports (vs. 986MB for the TensorRT FP32 export)."

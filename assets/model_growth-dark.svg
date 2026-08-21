@@ -1,32 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="830" height="370" viewBox="0 0 830 370">
-<rect width="830" height="370" fill="#1a1a19"/>
-<style>text{font-family:"Segoe UI",Inter,Arial,sans-serif;fill:#ffffff}.title{font-size:22px;font-weight:700}.sub{font-size:12px;fill:#c3c2b7}.muted{font-size:11px;fill:#898781}.stat-label{font-size:12px;fill:#c3c2b7;font-weight:600}.stat-value{font-size:28px;font-weight:700}.axis{font-size:12px;fill:#898781}.grid{stroke:#2c2c2a;stroke-width:1}.legend{font-size:12px;fill:#c3c2b7}.endlabel{font-size:12px;font-weight:700}</style>
-<line x1="50" y1="330.0" x2="680" y2="330.0" class="grid"/>
-<text x="40" y="334.0" text-anchor="end" class="axis">0</text>
-<line x1="50" y1="258.57142857142856" x2="680" y2="258.57142857142856" class="grid"/>
-<text x="40" y="262.57142857142856" text-anchor="end" class="axis">10</text>
-<line x1="50" y1="180.0" x2="680" y2="180.0" class="grid"/>
-<text x="40" y="184.0" text-anchor="end" class="axis">21</text>
-<line x1="50" y1="101.42857142857144" x2="680" y2="101.42857142857144" class="grid"/>
-<text x="40" y="105.42857142857144" text-anchor="end" class="axis">32</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="830" height="330" viewBox="0 0 830 330">
+<rect width="830" height="330" fill="#1a1a19"/>
+<style>text{font-family:"Segoe UI",Inter,Arial,sans-serif;fill:#ffffff}.title{font-size:22px;font-weight:700}.sub{font-size:12px;fill:#c3c2b7}.muted{font-size:11px;fill:#898781}.axis{font-size:12px;fill:#898781}.grid{stroke:#2c2c2a;stroke-width:1}.legend{font-size:12px;fill:#c3c2b7}.endlabel{font-size:12px;font-weight:700}</style>
+<line x1="50" y1="290.0" x2="680" y2="290.0" class="grid"/>
+<text x="40" y="294.0" text-anchor="end" class="axis">0</text>
+<line x1="50" y1="226.22641509433961" x2="680" y2="226.22641509433961" class="grid"/>
+<text x="40" y="230.22641509433961" text-anchor="end" class="axis">13</text>
+<line x1="50" y1="162.45283018867923" x2="680" y2="162.45283018867923" class="grid"/>
+<text x="40" y="166.45283018867923" text-anchor="end" class="axis">26</text>
+<line x1="50" y1="93.77358490566036" x2="680" y2="93.77358490566036" class="grid"/>
+<text x="40" y="97.77358490566036" text-anchor="end" class="axis">40</text>
 <line x1="50" y1="30.0" x2="680" y2="30.0" class="grid"/>
-<text x="40" y="34.0" text-anchor="end" class="axis">42</text>
-<text x="50.0" y="352" text-anchor="middle" class="axis">2018</text>
-<text x="128.75" y="352" text-anchor="middle" class="axis">2019</text>
-<text x="207.5" y="352" text-anchor="middle" class="axis">2020</text>
-<text x="286.25" y="352" text-anchor="middle" class="axis">2021</text>
-<text x="365.0" y="352" text-anchor="middle" class="axis">2022</text>
-<text x="443.75" y="352" text-anchor="middle" class="axis">2023</text>
-<text x="522.5" y="352" text-anchor="middle" class="axis">2024</text>
-<text x="601.25" y="352" text-anchor="middle" class="axis">2025</text>
-<text x="680.0" y="352" text-anchor="middle" class="axis">2026</text>
-<polyline points="50.0,322.85714285714283 128.75,322.85714285714283 207.5,322.85714285714283 286.25,322.85714285714283 365.0,322.85714285714283 443.75,287.14285714285717 522.5,230.0 601.25,137.14285714285714 680.0,30.0" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="40" y="34.0" text-anchor="end" class="axis">53</text>
+<text x="50.0" y="312" text-anchor="middle" class="axis">2018</text>
+<text x="128.75" y="312" text-anchor="middle" class="axis">2019</text>
+<text x="207.5" y="312" text-anchor="middle" class="axis">2020</text>
+<text x="286.25" y="312" text-anchor="middle" class="axis">2021</text>
+<text x="365.0" y="312" text-anchor="middle" class="axis">2022</text>
+<text x="443.75" y="312" text-anchor="middle" class="axis">2023</text>
+<text x="522.5" y="312" text-anchor="middle" class="axis">2024</text>
+<text x="601.25" y="312" text-anchor="middle" class="axis">2025</text>
+<text x="680.0" y="312" text-anchor="middle" class="axis">2026</text>
+<polyline points="50.0,285.0943396226415 128.75,285.0943396226415 207.5,285.0943396226415 286.25,285.0943396226415 365.0,280.188679245283 443.75,245.8490566037736 522.5,201.69811320754718 601.25,133.0188679245283 680.0,30.0" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="680.0" cy="30.0" r="4" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
-<text x="690.0" y="34.0" class="endlabel" fill="#3987e5">Text/NLP (42)</text>
-<polyline points="50.0,330.0 128.75,330.0 207.5,322.85714285714283 286.25,301.42857142857144 365.0,294.2857142857143 443.75,265.7142857142857 522.5,251.42857142857144 601.25,230.0 680.0,180.0" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="680.0" cy="180.0" r="4" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
-<text x="690.0" y="184.0" class="endlabel" fill="#d95926">Speech (21)</text>
-<polyline points="50.0,330.0 128.75,330.0 207.5,330.0 286.25,330.0 365.0,330.0 443.75,322.85714285714283 522.5,322.85714285714283 601.25,308.57142857142856 680.0,280.0" fill="none" stroke="#199e70" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="680.0" cy="280.0" r="4" fill="#199e70" stroke="#1a1a19" stroke-width="2"/>
-<text x="690.0" y="284.0" class="endlabel" fill="#199e70">Vision (7)</text>
+<text x="690.0" y="34.0" class="endlabel" fill="#3987e5">Text/NLP (53)</text>
+<polyline points="50.0,290.0 128.75,290.0 207.5,285.0943396226415 286.25,270.37735849056605 365.0,265.47169811320754 443.75,245.8490566037736 522.5,236.03773584905662 601.25,216.41509433962264 680.0,182.0754716981132" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="680.0" cy="182.0754716981132" r="4" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<text x="690.0" y="186.0754716981132" class="endlabel" fill="#d95926">Speech (22)</text>
+<polyline points="50.0,290.0 128.75,290.0 207.5,290.0 286.25,290.0 365.0,290.0 443.75,285.0943396226415 522.5,285.0943396226415 601.25,275.2830188679245 680.0,255.66037735849056" fill="none" stroke="#199e70" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="680.0" cy="255.66037735849056" r="4" fill="#199e70" stroke="#1a1a19" stroke-width="2"/>
+<text x="690.0" y="259.66037735849056" class="endlabel" fill="#199e70">Vision (7)</text>
 </svg>

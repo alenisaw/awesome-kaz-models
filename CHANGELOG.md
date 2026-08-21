@@ -2,6 +2,60 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-08-21 — README redesign, Estimin3n added
+
+### Changed — README presentation redesign
+
+Full rebuild of the README/visualization presentation, mirroring the
+sister repository's (awesome-kaz-datasets) 2026-08-20 redesign so the two
+catalogs read as one family:
+
+- Header made compact: the Kazakhstan flag sits either side of the `<h1>`
+  title instead of a full-width banner image above it; the long Background
+  narrative was cut down and the heading renamed to About, matching the
+  sister repo.
+- Added a reciprocal callout linking to
+  [awesome-kaz-datasets](https://github.com/Allessyer/awesome-kaz-datasets)
+  under the nav links.
+- The separate "Model landscape" heading was dropped — its growth chart now
+  sits directly in About, with a one-line caption instead of a heading and a
+  wall-of-text "Models per task" chip list.
+- Badges trimmed to Stars / Models / Open weights / Last verified (dropped
+  the License badge from the top; License stays as its own section at the
+  bottom).
+- `overview_dashboard.svg` and the three per-section `*_overview.svg`
+  stat-tile images, plus the dense name-in-cell release calendars, were
+  removed. `scripts/generate_visualizations.py` now generates compact year x
+  month release **heatmaps** (`nlp_release_heatmap`, `speech_release_heatmap`,
+  `cv_release_heatmap`) using the same palette/legend design as the sister
+  repo, though they are not yet embedded in a README section (matching the
+  sister repo's current state).
+- Model tables restructured to `ID | Released | Model | Task | Description |
+  Storage | Parameters`: a stable per-section row number added; author moved
+  under the model name (organization/affiliation dropped from display except
+  when there's no named author); task tags broken out into their own column;
+  license dropped from the visible table (stays recorded in
+  `data/models.yaml`); the old combined "Properties" cell split into
+  `Storage` (checkpoint download size — a new `storage` field in
+  `data/models.yaml`) and `Parameters` (parameter count + architecture/base,
+  as before).
+- The three per-section abbreviation glossaries consolidated into one
+  Abbreviations section near the bottom.
+- Removed the "Inclusion and maintenance" section — its exclusion criteria
+  were a shorter preview of the same rules already spelled out in
+  [CONTRIBUTING.md](CONTRIBUTING.md), which About already links to.
+- Removed the "Acknowledgements" section (the two catalogs are maintained
+  together now, not "inspired by").
+- Added a Contributors section (contrib.rocks avatar grid) above License.
+
+### Added
+
+- **Estimin3n** (`govnejri/Estimin3n`) — Gemma 3n audio-text-to-text LoRA
+  fine-tune for Kazakh speech transcription and Kazakh/Russian conversational
+  response generation, trained on a custom Kazakh audio corpus and KazMMLU;
+  ≈8B params, 15.7 GB, open (Gemma license). `released` uses the HF
+  `createdAt` date (2025-09-22), not the later `lastModified`.
+
 ## 2026-08-20 — Watchlist verification pass + license
 
 ### Added

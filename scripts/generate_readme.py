@@ -16,28 +16,15 @@ so the two catalogs share one generation philosophy.
 """
 
 import sys
-from collections import Counter
 from pathlib import Path
 
 import yaml
-
-from generate_visualizations import calendar_stems  # noqa: E402 (same directory, keeps chunking logic in one place)
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "models.yaml"
 README = ROOT / "README.md"
 
 SECTIONS = ["Text, NLP, and LLM", "Speech and audio", "Vision, OCR, and multimodal"]
-SECTION_CALENDAR = {
-    "Text, NLP, and LLM": "nlp_release_calendar",
-    "Speech and audio": "speech_release_calendar",
-    "Vision, OCR, and multimodal": "cv_release_calendar",
-}
-SECTION_OVERVIEW_IMG = {
-    "Text, NLP, and LLM": "nlp_overview",
-    "Speech and audio": "speech_overview",
-    "Vision, OCR, and multimodal": "vision_overview",
-}
 
 # Hand-maintained: a short list of candidates independently confirmed to be
 # REAL projects/organizations with a genuine, specific reason they aren't in
@@ -58,11 +45,6 @@ WATCHLIST = [
      "to a 404. The official ISSAI project page links the code and a companion dataset but "
      "no model under the `issai` org — currently training-code-only, the same pattern "
      "as the official KazNERD repository."),
-    ("Tencent Kazakh 7B Adapter (HY-MT1.5-7B LoRA)",
-     "A real paper — \"Script Correction and Synthetic Pivoting: Adapting Tencent HY-MT for "
-     "Low-Resource Turkic Translation\" (LoResMT 2026, ru-kk track) — describes a LoRA "
-     "fine-tune of Tencent HY-MT1.5-7B, but no public download for the trained LoRA weights "
-     "could be found in the paper or via search."),
     ("AIT-Syn Kazakh TTS",
      "A Qwen3-TTS-12Hz-1.7B-Base fine-tune for Kazakh/Russian/English/Uzbek voice cloning "
      "(`nur-dev/ait-syn-4L`) is real and was indexed with a full model card (confirmed via "
@@ -89,6 +71,7 @@ TASK_ABBREV = {
     "Transliteration": "TR",
     "POS tagging": "POS",
     "Dependency parsing": "DEP",
+    "Morphological analysis": "MORPH",
     "Embeddings / dense retrieval": "EMB",
     "Machine translation": "MT",
     "Automatic speech recognition": "ASR",
@@ -110,47 +93,50 @@ def task_tag(task):
     return TASK_ABBREV.get(task, task)
 
 
-def task_glossary(rows, cols=4):
-    used = sorted({t for m in rows for t in m.get("tasks", [])}, key=lambda t: task_tag(t).lower())
+def task_glossary(rows, cols=6, label=True):
+    used = sorted(
+        {t for m in rows for t in m.get("tasks", [])},
+        key=lambda t: (task_tag(t).lower(), t.lower()),
+    )
     # <strong>, not **bold** — this table is a multi-line HTML block, which GitHub
-    # does not run markdown-inline parsing over.
-    entries = [f"<strong>{task_tag(t)}</strong> — {t}" for t in used]
+    # does not run markdown-inline parsing over (see the earlier badges bug).
+    task_expansions = {"OCR": "Optical character recognition"}
+    entries = [
+        f"<strong>{task_tag(t)}</strong> — {task_expansions.get(t, t)}" for t in used
+    ]
     rows_of_cells = [entries[i : i + cols] for i in range(0, len(entries), cols)]
     table_rows = []
     for row_cells in rows_of_cells:
         padded = row_cells + [""] * (cols - len(row_cells))
         table_rows.append("<tr>" + "".join(f'<td align="center" valign="middle">{c}</td>' for c in padded) + "</tr>")
-    return "**Abbreviations:**\n\n<table width=\"100%\">\n" + "\n".join(table_rows) + "\n</table>"
+    prefix = "**Abbreviations:**\n\n" if label else ""
+    return prefix + '<table width="100%">\n' + "\n".join(table_rows) + "\n</table>"
 
 
-def picture(alt, base):
+def picture(alt, base, width="100%"):
     return (
         '<picture>\n'
         f'  <source media="(prefers-color-scheme: dark)" srcset="assets/{base}-dark.svg">\n'
-        f'  <img src="assets/{base}.svg" alt="{alt}" width="100%">\n'
+        f'  <img src="assets/{base}.svg" alt="{alt}" width="{width}">\n'
         '</picture>'
     )
 
 
-DEFAULT_SKELETON = """<p align="center">
-  <img src="https://emojiassets.saruwakakun.design/a/lg/1f1f0_1f1ff_1o53s.webp"
-       width="120"
-       alt="Kazakhstan 🇰🇿">
-</p>
-
-<h1 align="center">Awesome Kazakh Models</h1>
+DEFAULT_SKELETON = """<h1 align="center">
+  <img src="https://emojiassets.saruwakakun.design/a/lg/1f1f0_1f1ff_1o53s.webp" width="34" valign="middle" alt="Kazakhstan flag">
+  Awesome Kazakh Models
+  <img src="https://emojiassets.saruwakakun.design/a/lg/1f1f0_1f1ff_1o53s.webp" width="34" valign="middle" alt="Kazakhstan flag">
+</h1>
 
 <p align="center">
-  A curated, research-grade catalog of public AI models with substantial
-  support for the Kazakh language.
+  A curated, research-grade catalog of public AI models with substantial support for the Kazakh language.
 </p>
 
 <!-- BADGES:START -->
 <!-- BADGES:END -->
 
 <p align="center">
-  <a href="#background">Background</a> ·
-  <a href="#model-landscape">Model landscape</a> ·
+  <a href="#about">About</a> ·
   <a href="#text-nlp-and-llm">Text &amp; NLP</a> ·
   <a href="#speech-and-audio">Speech</a> ·
   <a href="#vision-ocr-and-multimodal">Vision &amp; OCR</a> ·
@@ -159,45 +145,24 @@ DEFAULT_SKELETON = """<p align="center">
   <a href="#license">License</a>
 </p>
 
+> ### ✨ Explore Kazakh datasets across every domain — [awesome-kaz-datasets](https://github.com/Allessyer/awesome-kaz-datasets)
+
 ---
 
-## Background
+## About
 
-Public Kazakh-capable models are scattered across Hugging Face, GitHub,
-institutional pages, and old research repositories, with no single map of what
-exists and what is actually obtainable. A search for "Kazakh" on Hugging Face mixes
-genuinely Kazakh-trained models with generic multilingual foundations that merely
-list `kk` in a tokenizer, quantization/format clones of the same underlying
-model, and paper-only experiments with no published weights.
+Public Kazakh-capable models are scattered across Hugging Face, GitHub, and
+institutional pages, with no reliable map of what's actually obtainable
+today. A search for "Kazakh" mixes genuinely Kazakh-trained models with
+generic multilingual foundations, packaging clones of the same checkpoint,
+and paper-only experiments with no published weights.
 
-This repository tries to fix that: every entry below is checked against its
-primary source (the model's own hosting platform, its official project
-repository, or the paper that introduced it), and its release date, license,
-access terms, and evidence of Kazakh training or adaptation are recorded rather
-than assumed. Quantizations, GGUF/AWQ/GPTQ conversions, and ONNX exports of a
-model already listed are not treated as separate entries — the catalog counts
-learned model families, not packaging artifacts. Generic multilingual
-foundations (mBERT, XLM-R, mT5, vanilla Whisper, NLLB-200, and similar) are
-excluded from the main catalog unless Kazakh is a meaningful, identifiable
-target of training or adaptation. Resources that are announced, paper-only, or
-not yet independently verifiable go in the
-[Watchlist](#watchlist--announced-resources) instead of the main tables, so
-"listed here" reliably means "you can currently obtain these weights." See
-[CHANGELOG.md](CHANGELOG.md) for what's new and what was corrected and why.
-
-In each table, the **Model** name links to the model card or repository, and
-the **Author** name links to the paper (or project page, if there's no paper)
-when one is available. **Properties** lists parameter count, followed by
-architecture/base model. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full
-inclusion policy, including the exact meaning of **released**, the access
-classification, and family-level deduplication rules.
-
-### Catalog overview
-
-<!-- DASHBOARD:START -->
-<!-- DASHBOARD:END -->
-
-## Model landscape
+Every entry below is checked against its primary source, with release date,
+license, access terms, and evidence of Kazakh training recorded rather than
+assumed. Resources that are announced or not yet independently verifiable go
+in the [Watchlist](#watchlist--announced-resources) instead of the main
+tables. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full inclusion policy
+and [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 <!-- LANDSCAPE:START -->
 <!-- LANDSCAPE:END -->
@@ -227,15 +192,10 @@ above, but could plausibly still qualify once verification succeeds.
 <!-- WATCHLIST:START -->
 <!-- WATCHLIST:END -->
 
-## Inclusion and maintenance
+## Abbreviations
 
-Main-catalog inclusion requires a currently obtainable trained model artifact
-and identifiable evidence that Kazakh is a meaningful training or evaluation
-target — not just a listed tokenizer language. Generic multilingual
-foundations are excluded unless a Kazakh-specific adaptation exists.
-Quantizations, format conversions, and deployment exports of an already-listed
-model are not counted as separate entries. Full inclusion, exclusion, and
-verification rules are in [CONTRIBUTING.md](CONTRIBUTING.md).
+<!-- ABBREVIATIONS:START -->
+<!-- ABBREVIATIONS:END -->
 
 ## Contributing
 
@@ -251,9 +211,13 @@ Missing a Kazakh model, or spotted outdated metadata? Contributions are welcome:
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full inclusion criteria, required
 metadata, and PR format.
 
-## Acknowledgements
+## Contributors
 
-This project was inspired by [Allessyer/awesome-kaz-datasets](https://github.com/Allessyer/awesome-kaz-datasets). Thanks to its author and contributors for helping establish a public catalog of Kazakh-language AI resources.
+<p align="center">
+  <a href="https://github.com/REPO_PLACEHOLDER/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=REPO_PLACEHOLDER" alt="Contributors to awesome-kaz-models">
+  </a>
+</p>
 
 ## License
 
@@ -262,6 +226,8 @@ tables, and scripts — is released under the [MIT License](LICENSE). Models
 linked from this catalog remain under their own respective licenses (recorded
 per entry above); this MIT license does not extend to their contents.
 """
+
+DEFAULT_SKELETON = DEFAULT_SKELETON.replace("REPO_PLACEHOLDER", REPO)
 
 
 def load_models():
@@ -297,7 +263,37 @@ def author_and_org(m):
     return author_str, org_str
 
 
-def format_properties(m):
+def author_line(m):
+    # Individual/group author when known; falls back to the organization name
+    # only when no author is recorded at all (e.g. an org-attributed release
+    # like the HPLT project or MMS project team). Affiliation is not shown
+    # alongside a named author — keeps the Model cell to name + one
+    # attribution line, not name + author + affiliation.
+    author_str, org_str = author_and_org(m)
+    name = author_str or org_str
+    if not name:
+        return None
+    author_link = (m.get("links") or {}).get("paper") or (m.get("links") or {}).get("project")
+    display = f"[{name}]({author_link})" if author_link and author_str else name
+    return f"<sub>{display}</sub>"
+
+
+def format_access(m):
+    # License is intentionally not surfaced in the table — it stays in
+    # data/models.yaml rather than in the display.
+    return (m.get("access") or "unavailable").capitalize()
+
+
+def format_storage(m):
+    storage = m.get("storage") or {}
+    value = storage.get("value")
+    if value is None:
+        return "Not reported"
+    unit = storage.get("unit") or ""
+    return f"{value} {unit}".strip()
+
+
+def format_parameters(m):
     # Parameter count first, then architecture/base — stacked, dash-prefixed.
     params = m.get("params") or {}
     pieces = []
@@ -317,96 +313,58 @@ def format_properties(m):
     return "<br>".join(f"– {p}" for p in pieces)
 
 
-def format_access_license(m):
-    access = (m.get("access") or "unavailable").capitalize()
-    license_ = m.get("license") or "Not reported"
-    return f"{access} · {license_}"
-
-
-def model_row(m):
+def model_row(m, idx):
     tags = " · ".join(task_tag(t) for t in (m.get("tasks") or [])) or "Not reported"
     model_url = (m.get("links") or {}).get("model")
     display_name = f"[{m['name']}]({model_url})" if model_url else m["name"]
-    name_cell = f"**{display_name}**<br><sub>{tags}</sub><br><sub>{format_access_license(m)}</sub>"
 
-    author_str, org_str = author_and_org(m)
-    author_link = (m.get("links") or {}).get("paper") or (m.get("links") or {}).get("project")
-    if author_str:
-        author_display = f"[{author_str}]({author_link})" if author_link else author_str
-        author_cell = f"**{author_display}**"
-        if org_str:
-            author_cell += f"<br><sub>{org_str}</sub>"
-    elif org_str:
-        author_cell = f"**{org_str}**"
-    else:
-        author_cell = "Not reported"
+    name_lines = [f"**{display_name}**"]
+    al = author_line(m)
+    if al:
+        name_lines.append(al)
+    name_lines.append(f"<sub>{format_access(m)}</sub>")
+    name_cell = "<br>".join(name_lines)
 
     released = m.get("released") or "Unknown"
-    return "| {released} | {name} | {desc} | {author} | {props} |".format(
+    return "| {idx} | {released} | {name} | {task} | {desc} | {storage} | {params} |".format(
+        idx=idx,
         released=released,
         name=name_cell,
+        task=tags,
         desc=m.get("description") or "",
-        author=author_cell,
-        props=format_properties(m),
+        storage=format_storage(m),
+        params=format_parameters(m),
     )
 
 
 def model_table(rows):
     header = (
-        "| Released | Model | Description | Author | Properties |\n"
-        "|---|---|---|---|---|"
+        "| ID | Released | Model | Task | Description | Storage | Parameters |\n"
+        "|---:|---|---|---|---|---|---|"
     )
     ordered = sorted(rows, key=released_sort_key, reverse=True)
-    body = "\n".join(model_row(m) for m in ordered)
+    body = "\n".join(model_row(m, i + 1) for i, m in enumerate(ordered))
     return header + "\n" + body
 
 
 def build_section(models, section):
     rows = [m for m in models if m["section"] == section]
-    overview_base = SECTION_OVERVIEW_IMG[section]
-    lines = [picture(f"{section} model overview", overview_base), ""]
-
-    for stem, years in calendar_stems(rows, SECTION_CALENDAR[section]):
-        year_range = f"{years[0]}" if len(years) == 1 else f"{years[0]}-{years[-1]}"
-        lines.append(
-            picture(
-                f"Calendar map of {section} model releases, {year_range}, with year on the "
-                "x-axis and month on the y-axis",
-                stem,
-            )
-        )
-        lines.append("")
-
-    lines.append(task_glossary(rows))
-    lines.append("")
-    lines.append(model_table(rows))
-    return "\n".join(lines)
-
-
-def build_dashboard(models):
-    return picture(
-        "Catalog overview: model count, open-weight rate, documentation coverage, "
-        "task count, Tier A share, and per-section breakdown",
-        "overview_dashboard",
-    )
-
-
-def build_task_summary(models):
-    counts = Counter(t for m in models for t in m.get("tasks", []))
-    chips = " · ".join(f"{task} ({count})" for task, count in counts.most_common())
-    return f"<sub>**Models per task** — {chips}</sub>"
+    return model_table(rows)
 
 
 def build_landscape(models):
-    lines = [
-        picture("Cumulative Kazakh model-family releases over time, by section", "model_growth"),
-        "",
-        build_task_summary(models),
-    ]
-    return "\n".join(lines)
+    caption = "<sub>Cumulative Kazakh model-family releases over time, by section.</sub>"
+    return picture("Cumulative Kazakh model-family releases over time, by section", "model_growth") + "\n\n" + caption
+
+
+def build_abbreviations(models):
+    return task_glossary(models, cols=6, label=False)
 
 
 def build_badges(models):
+    # Markdown image syntax is not parsed inside a multi-line HTML block, so these
+    # are plain <img> tags rather than ![]() — otherwise GitHub renders the literal
+    # "![Models](...)" text instead of the badge.
     n = len(models)
     open_n = sum(1 for m in models if m["access"] == "open")
     open_pct = round(100 * open_n / n)
@@ -416,9 +374,8 @@ def build_badges(models):
     )
     badges = [
         ("Models", str(n), "2a78d6"),
-        ("Last verified", "2026--08--19", "1baf7a"),
         ("Open weights", f"{open_pct}%25", "2ea44f"),
-        ("License", "MIT", "blue"),
+        ("Last verified", "2026--08--21", "1baf7a"),
     ]
     parts = [stars] + [
         f'<img alt="{label}" src="https://img.shields.io/badge/{label.replace(" ", "_")}-{value}-{color}">'
@@ -433,12 +390,12 @@ def build_watchlist():
 
 BLOCKS = {
     "BADGES": build_badges,
-    "DASHBOARD": build_dashboard,
     "LANDSCAPE": build_landscape,
     "NLP_SECTION": lambda models: build_section(models, "Text, NLP, and LLM"),
     "SPEECH_SECTION": lambda models: build_section(models, "Speech and audio"),
     "VISION_SECTION": lambda models: build_section(models, "Vision, OCR, and multimodal"),
     "WATCHLIST": lambda models: build_watchlist(),
+    "ABBREVIATIONS": lambda models: build_abbreviations(models),
 }
 
 
@@ -460,7 +417,9 @@ def main():
     models = load_models()
 
     base = README.read_text(encoding="utf-8") if README.exists() else DEFAULT_SKELETON
-    if "<!-- DASHBOARD:START -->" not in base:
+    # If the existing file predates this marker set (e.g. the pre-redesign layout
+    # with DASHBOARD/per-section overview cards), fall back to the skeleton.
+    if "<!-- ABBREVIATIONS:START -->" not in base:
         base = DEFAULT_SKELETON
 
     new_content = apply_blocks(base, models)

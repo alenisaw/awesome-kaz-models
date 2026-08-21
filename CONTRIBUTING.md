@@ -179,8 +179,13 @@ Required: `id`, `name`, `released`, `section`, `description`, `tasks`, `tier`,
 `kind`, `access`, `license`, `links.model`.
 
 Strongly encouraged when available: `authors`, `organization`, `architecture`,
-`base_model`, `params`, `languages`, `links.paper`, `links.code`,
+`base_model`, `params`, `storage`, `languages`, `links.paper`, `links.code`,
 `links.project`, `kazakh_evidence`, `training.summary`.
+
+`storage` (`value` + `unit`, e.g. `{value: 15.7, unit: GB}`) records the
+checkpoint/weights download size from the primary source (Hugging Face's
+"Files and versions" size total, or a GitHub release asset size) — never
+estimated. Leave `value: null` when it can't be independently confirmed.
 
 `id` must be a stable, kebab-case slug (`kazllm-1-0-8b`, not
 `KazLLM_1.0_8B`) — it is used as the join key for `derivative_of` /
