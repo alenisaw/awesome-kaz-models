@@ -278,7 +278,7 @@ models:
       value: 2.2
       unit: GB
     languages: [kk, en]
-    access: open
+    access: gated
     license: MIT
     links:
       model: https://huggingface.co/stukenov/sozkz-core-llama-1b-kk-base-v1
@@ -294,8 +294,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "Represents a large sprawl of near-identical iterative models (v1-v4 of several sizes; GPT2/Pythia/T5 sibling architectures also exist in the same collection). Only the largest Llama base model (1.08B) is catalogued as the flagship; dozens of smaller/instruct/gec/sentiment/balanced siblings under the same collection are not separately catalogued. storage reflects only this linked 1.08B flagship checkpoint, not the whole size family."
+    last_verified: "2026-08-22"
+    notes: "Represents a large sprawl of near-identical iterative models (v1-v4 of several sizes; GPT2/Pythia/T5 sibling architectures also exist in the same collection). Only the largest Llama base model (1.08B) is catalogued as the flagship; dozens of smaller/instruct/gec/sentiment/balanced siblings under the same collection are not separately catalogued. storage reflects only this linked 1.08B flagship checkpoint, not the whole size family. 2026-08-22: access corrected open→gated — the author gated this and its sibling repos behind a contact-info-approval banner sometime after 2026-08-19."
 
   - id: sozkz-core-qwen-500m-kk-base
     name: SozKZ Core Qwen 500M (kk base)
@@ -318,7 +318,7 @@ models:
       value: 895.0
       unit: MB
     languages: [kk]
-    access: open
+    access: gated
     license: MIT
     links:
       model: https://huggingface.co/stukenov/sozkz-core-qwen-500m-kk-base-v1
@@ -334,8 +334,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "An instruct sibling (sozkz-core-qwen-500m-kk-instruct-v1) also exists, not separately catalogued here."
+    last_verified: "2026-08-22"
+    notes: "An instruct sibling (sozkz-core-qwen-500m-kk-instruct-v1) also exists, not separately catalogued here. 2026-08-22: access corrected open→gated — the author gated this and its sibling repos behind a contact-info-approval banner sometime after 2026-08-19."
 
   - id: sozkz-core-tinyllama-1b-kk-ru
     name: SozKZ Core TinyLlama kk-ru
@@ -358,7 +358,7 @@ models:
       value: 2.3
       unit: GB
     languages: [kk, ru, en]
-    access: open
+    access: gated
     license: Apache-2.0
     links:
       model: https://huggingface.co/stukenov/sozkz-core-tinyllama-1b-kk-ru-v1
@@ -374,8 +374,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "The candidate list's URL (stukenov/sozkz-tinyllama-1b-kk-ru) does not exist; corrected to the real repo stukenov/sozkz-core-tinyllama-1b-kk-ru-v1."
+    last_verified: "2026-08-22"
+    notes: "The candidate list's URL (stukenov/sozkz-tinyllama-1b-kk-ru) does not exist; corrected to the real repo stukenov/sozkz-core-tinyllama-1b-kk-ru-v1. 2026-08-22: access corrected open→gated — the author gated this and its sibling repos behind a contact-info-approval banner sometime after 2026-08-19."
 
   - id: mgpt-1-3b-kazakh
     name: mGPT 1.3B Kazakh
@@ -440,7 +440,7 @@ models:
       value: 2.7
       unit: GB
     languages: [kk, ru]
-    access: open
+    access: gated
     license: MIT
     links:
       model: https://huggingface.co/stukenov/ekitil-core-qwen3-600m-kkru-base-v1
@@ -456,8 +456,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "A translation-tuned sibling (ekitil-core-qwen3-600m-kkru-translate-v1) also exists in the same collection, not separately catalogued here. storage reflects only the linked 600M (673.8M actual) checkpoint, not the whole size family."
+    last_verified: "2026-08-22"
+    notes: "A translation-tuned sibling (ekitil-core-qwen3-600m-kkru-translate-v1) also exists in the same collection, not separately catalogued here. storage reflects only the linked 600M (673.8M actual) checkpoint, not the whole size family. 2026-08-22: access corrected open→gated — the author gated this and its sibling repos behind a contact-info-approval banner sometime after 2026-08-19."
 
   - id: tilqazyna-llama-kaz-instruct-8b-1
     name: llama-kaz-instruct-8B-1
@@ -520,7 +520,7 @@ models:
       value: 7.8
       unit: GB
     languages: [kk]
-    access: open
+    access: gated
     license: AFL-3.0
     links:
       model: https://huggingface.co/nur-dev/llama-1.9B-kaz
@@ -536,8 +536,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "An instruction-tuned sibling nur-dev/llama-1.9B-kaz-instruct also exists and could be added as a separate task-finetune row in a future PR."
+    last_verified: "2026-08-22"
+    notes: "An instruction-tuned sibling nur-dev/llama-1.9B-kaz-instruct also exists and could be added as a separate task-finetune row in a future PR. 2026-08-22: access corrected open→gated — the repo now shows a contact-info-approval banner."
 
   - id: darmm-text-generation-kazakh-v1
     name: Darmm Text Generation (v1, mT5)
@@ -684,7 +684,7 @@ models:
       value: 2.3
       unit: GB
     languages: [kk]
-    access: open
+    access: gated
     license: CC-BY-4.0
     links:
       model: https://huggingface.co/issai/rembert-sentiment-analysis-polarity-classification-kazakh
@@ -700,8 +700,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "Parameter count not disclosed in the model card or safetensors metadata; not guessed. storage is the pytorch_model.bin size per the HF API (no safetensors file exists in this repo)."
+    last_verified: "2026-08-22"
+    notes: "Parameter count not disclosed in the model card or safetensors metadata; not guessed. storage is the pytorch_model.bin size per the HF API (no safetensors file exists in this repo). 2026-08-22: access corrected open→gated — HF API reports gated:\"auto\" with a click-to-agree contact-info banner (auto-approved, but still HF-style gating, not a bare-open download)."
 
   - id: kazbert-nerd
     name: KazBERT-NERD
@@ -1124,7 +1124,7 @@ models:
       value: 895.0
       unit: MB
     languages: [kk]
-    access: open
+    access: gated
     license: MIT
     links:
       model: https://huggingface.co/stukenov/sozkz-fix-qwen-500m-kk-gec-v4
@@ -1140,8 +1140,8 @@ models:
     derivative_of: sozkz-core-qwen-500m-kk-base
     base_model_id: sozkz-core-qwen-500m-kk-base
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "The v1-v4 iterative chain plus earlier mT5-based GEC models in the same account are not catalogued separately; only the latest model (v4) is."
+    last_verified: "2026-08-22"
+    notes: "The v1-v4 iterative chain plus earlier mT5-based GEC models in the same account are not catalogued separately; only the latest model (v4) is. 2026-08-22: access corrected open→gated — the author gated this and its sibling repos behind a contact-info-approval banner sometime after 2026-08-19."
 
   - id: kazakh-sentiment-bert-r3iwan
     name: Kazakh Sentiment BERT
@@ -1606,7 +1606,7 @@ models:
       value: 2.8
       unit: GB
     languages: [kk, ru]
-    access: open
+    access: gated
     license: MIT
     links:
       model: https://huggingface.co/stukenov/sozkz-mgpt-1.3b-translate-kkru-v1
@@ -1622,8 +1622,8 @@ models:
     derivative_of: mgpt-1-3b-kazakh
     base_model_id: mgpt-1-3b-kazakh
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "Base model is ai-forever/mGPT-1.3B-kazakh. A non-translation instruct sibling also exists and is not catalogued here."
+    last_verified: "2026-08-22"
+    notes: "Base model is ai-forever/mGPT-1.3B-kazakh. A non-translation instruct sibling also exists and is not catalogued here. 2026-08-22: access corrected open→gated — HF API reports gated:\"manual\" and unauthenticated weight downloads now return HTTP 401."
 
   - id: hplt-translate-kk-en
     name: HPLT Kazakh-English MT
@@ -1924,7 +1924,7 @@ models:
     architecture: "Kimi K3 (hybrid KDA + MLA + MoE, 8 layers, 8 routed experts top-2 + 1 shared expert)"
     base_model: inference-optimization/Kimi-K3-0.40B
     params:
-      display: "388.6M"
+      display: "395.6M"
       variants: []
     storage:
       value: 791.2
@@ -1946,8 +1946,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-21"
-    last_verified: "2026-08-21"
-    notes: "Immediate parent checkpoint (per cardData base_model) is the author's own prior step, Eraly-ml/Kimi-K3-0.40B-Kazakh-CPT-step200, part of an iterative same-account CPT chain; base_model here instead records the ultimate upstream architecture (inference-optimization/Kimi-K3-0.40B) per the model card's own framing. Marked experimental by the author; not a compressed/distilled version of a production Kimi K3 model."
+    last_verified: "2026-08-22"
+    notes: "Immediate parent checkpoint (per cardData base_model) is the author's own prior step, Eraly-ml/Kimi-K3-0.40B-Kazakh-CPT-step200, part of an iterative same-account CPT chain; base_model here instead records the ultimate upstream architecture (inference-optimization/Kimi-K3-0.40B) per the model card's own framing. Marked experimental by the author; not a compressed/distilled version of a production Kimi K3 model. 2026-08-22: params corrected 388.6M→395.6M — HF API safetensors.total is 395,567,400, corroborated by model.safetensors byte size ÷ 2 bytes/param (F16)."
 
   - id: tencent-kazakh-7b-adapter
     name: Tencent Kazakh 7B Adapter
@@ -2189,6 +2189,46 @@ models:
     last_verified: "2026-08-21"
     notes: "Gated repo; both the API and direct raw-file requests return HTTP 401 for the README, and no license or base_model tag is exposed even in the public repo metadata, so license is recorded as Not reported rather than guessed. Sibling repos in the same family: qwen38-27b-kazakh-tool and qwen38-27b-kazakh-tool-grpo (same createdAt window, 2026-08-19). Params estimated from the safetensors total size (53,792,110,192 bytes) assuming bf16/fp16 (2 bytes/param)."
 
+  - id: sozkz-nllb-1b-kk-gec
+    name: SozKZ NLLB-1B Kazakh GEC
+    released: "2026-04"
+    section: "Text, NLP, and LLM"
+    description: NLLB-200-1.3B fine-tuned for Kazakh grammatical error correction (spelling, morphology, punctuation, word order), trained in a two-stage pretrain-then-finetune pipeline on synthetic and mixed GEC corpora.
+    tasks: [Grammar correction]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Saken Tukenov
+        url: https://huggingface.co/stukenov
+    organization: []
+    architecture: NLLB-200-1.3B (M2M100ForConditionalGeneration)
+    base_model: facebook/nllb-200-1.3B
+    params:
+      display: "1.37B"
+      variants: []
+    storage:
+      value: 2.78
+      unit: GB
+    languages: [kk]
+    access: gated
+    license: MIT
+    links:
+      model: https://huggingface.co/stukenov/sozkz-nllb-1b-kk-gec-v1
+      paper: null
+      code: null
+      project: https://huggingface.co/collections/stukenov/sozkz-core-kazakh-language-models
+    training:
+      summary: "Two-stage training on 1x H100 (bf16): pretrain on stukenov/sozkz-corpus-pretrain-gec-mix-v1 (1.77M pairs, 2 epochs, lr 2e-5), then fine-tune on stukenov/sozkz-corpus-synthetic-kk-gec-v1 (19K pairs, 3 epochs, lr 5e-6)."
+      datasets: [stukenov/sozkz-corpus-pretrain-gec-mix-v1, stukenov/sozkz-corpus-synthetic-kk-gec-v1]
+    kazakh_evidence: Dedicated Kazakh GEC fine-tune from the same verified stukenov/sozkz family already represented in the catalog (e.g. sozkz-fix-qwen-500m-kk-gec), on an architecture (NLLB) not otherwise used among that author's cataloged entries.
+    metrics:
+      summary: "200-example canonical benchmark: Exact Match 44.0%, CER 0.2447, Word F0.5 0.264, Identity Preservation 61.5% (self-reported, not independently verified; a separate 100-example benchmark reports Exact Match 100%, inconsistent with the canonical one)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "Added in the 2026-08-22 re-verification pass. Access is gated (contact-info approval required)."
+
   # ---------------------------------------------------------------------
   # Speech and audio
   # ---------------------------------------------------------------------
@@ -2267,7 +2307,7 @@ models:
       unit: MB
     languages: [kk]
     access: open
-    license: "Not reported"
+    license: CC-BY-4.0
     links:
       model: https://github.com/IS2AI/Kazakh_ASR
       paper: https://www.isca-archive.org/interspeech_2022/mussakhojayeva22_interspeech.pdf
@@ -2282,8 +2322,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "storage is the best-performing checkpoint linked from the README (Google Drive, listed there as 544M) — an approximate figure as displayed by Google Drive, not an exact byte count. Params not reported anywhere in the repo/paper, so left null."
+    last_verified: "2026-08-22"
+    notes: "storage is the best-performing checkpoint linked from the README (Google Drive, listed there as 544M) — an approximate figure as displayed by Google Drive, not an exact byte count. Params not reported anywhere in the repo/paper, so left null. 2026-08-22: license corrected \"Not reported\"→CC-BY-4.0 — the GitHub repo carries an SPDX CC-BY-4.0 LICENSE file, same as its sibling SAIDA and TurkicASR repos."
 
   - id: multilingual-asr-kz-ru-en
     name: IS2AI Multilingual ASR (Kazakh-Russian-English)
@@ -2754,7 +2794,7 @@ models:
       value: 278.4
       unit: MB
     languages: [kk]
-    access: open
+    access: gated
     license: MIT
     links:
       model: https://huggingface.co/stukenov/sozkz-core-omniaudio-70m-kk-asr-v1
@@ -2770,8 +2810,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "Independent single-researcher project (not ISSAI/IS2AI). Represented as one family entry covering the omniaudio-50m through omniaudio-1b size variants (CTC and encoder-decoder ASR), since these are genuinely different-scale training runs of the same architecture rather than format conversions. storage reflects only the linked ~70M (69.6M actual) checkpoint, not the whole size family."
+    last_verified: "2026-08-22"
+    notes: "Independent single-researcher project (not ISSAI/IS2AI). Represented as one family entry covering the omniaudio-50m through omniaudio-1b size variants (CTC and encoder-decoder ASR), since these are genuinely different-scale training runs of the same architecture rather than format conversions. storage reflects only the linked ~70M (69.6M actual) checkpoint, not the whole size family. 2026-08-22: access corrected open→gated — HF API reports gated:\"manual\" with a contact-info-approval banner. 2026-08-22: flagship reconsidered — the family's larger repos (300m-ctc, 600m-ctc, 600m-asr, 1b-ctc) ship no README/cardData/license and have file sizes inconsistent with their claimed parameter counts (e.g. the \"1b\" checkpoint is smaller on disk than the \"600m-asr\" one), and read as undocumented/abandoned training runs rather than finished larger flagships; among documented variants, scaling isn't even monotonic (300m-asr scores worse than 150m-asr on the same FLEURS eval). Kept 70m-asr-v1 as flagship — the only variant with a complete model card, published source code, and a reported evaluation."
 
   - id: kazakhtts
     name: KazakhTTS
@@ -3009,7 +3049,7 @@ models:
       unit: GB
     languages: [kk]
     access: open
-    license: Apache-2.0
+    license: "Not reported"
     links:
       model: https://huggingface.co/shyngys879/KazakhTTS-OmniVoice
       paper: null
@@ -3024,8 +3064,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: null
+    last_verified: "2026-08-22"
+    notes: "2026-08-22: license corrected Apache-2.0→\"Not reported\" — neither the HF API's cardData/tags nor the rendered model card actually declare a license; the prior Apache-2.0 value could not be re-confirmed from the primary source."
 
   - id: ait-asr
     name: AIT-ASR
@@ -3148,6 +3188,330 @@ models:
     last_verified: "2026-08-21"
     notes: "released uses the Hugging Face createdAt date (2025-09-22) per CONTRIBUTING.md; the repo's lastModified (2026-07-28) reflects later updates, not the original release. License recorded as Gemma (Google's Gemma Terms of Use); HF API reports gated=false."
 
+  - id: chatterbox-mtl-kazakh
+    name: Chatterbox Multilingual Kazakh (t3 fine-tune)
+    released: "2026-08"
+    section: "Speech and audio"
+    description: Fine-tune of the t3 text-to-speech-token transformer of Chatterbox Multilingual for Kazakh Cyrillic voice cloning, with the s3gen and voice-encoder components frozen from the base model.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: Saidzoda Lab
+        url: null
+    organization: []
+    architecture: "Chatterbox Multilingual (t3 text-token transformer fine-tuned; s3gen + voice encoder frozen from base)"
+    base_model: ResembleAI/chatterbox
+    params:
+      display: "Not reported"
+      variants: []
+    storage:
+      value: 3.21
+      unit: GB
+    languages: [kk]
+    access: gated
+    license: MIT
+    links:
+      model: https://huggingface.co/Tohirju/chatterbox-mtl-kazakh
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Fine-tuned the t3 component only (fp32, lr 1e-5, 12,500 steps, shipped checkpoint at step 6,000) on 100k utterances (183.7h) from the Kazakh Speech Corpus 2 (KSC2), with FLEURS-kk held out for evaluation."
+      datasets: []
+    kazakh_evidence: Dedicated fine-tune of the t3 transformer specifically for Kazakh Cyrillic voice synthesis, trained on 183.7h of Kazakh speech.
+    metrics:
+      summary: "Median CER 7.4%, mean CER 10.2% via round-trip Whisper-large-v3 transcription on FLEURS-kk (n=60), per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "Part of a multi-language (Tajik/Uzbek/Kazakh/Kyrgyz) Chatterbox fine-tune series by the same author, similar in pattern to their already-cataloged qwen38-27b-kazakh-sft."
+
+  - id: cosyvoice3-kazakh-499k
+    name: CosyVoice3 Kazakh (499k-sample fine-tune)
+    released: "2026-08"
+    section: "Speech and audio"
+    description: Fine-tune of the CosyVoice3-0.5B LLM component for Kazakh zero-shot text-to-speech, trained on 499,627 curated Kazakh audio clips with the flow/vocoder components retained from the base model.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: Saidzoda Lab
+        url: null
+    organization: []
+    architecture: "CosyVoice3 (LLM component fine-tuned; flow/vocoder components unchanged from base)"
+    base_model: FunAudioLLM/CosyVoice3-0.5B
+    params:
+      display: "Not reported"
+      variants: []
+    storage:
+      value: 5.42
+      unit: GB
+    languages: [kk]
+    access: gated
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Tohirju/cosyvoice3-kazakh-499k
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "LLM-only fine-tuning (3 epochs, lr 1e-5) on 499,627 clips sourced from quality-filtered KSC2 and FLEURS-kk train/val splits (16kHz mono); best checkpoint selected at step 40,000 by round-trip WER, with FLEURS-kk test held out."
+      datasets: []
+    kazakh_evidence: Dedicated LLM-component fine-tune of CosyVoice3 trained specifically on roughly 500k Kazakh audio clips.
+    metrics:
+      summary: "Round-trip WER (Whisper-large-v3, kk) of 37.6% mean at the selected checkpoint vs. 43.6% at the final step, per the model card."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "Same author/series as chatterbox-mtl-kazakh; a distinct architecture (CosyVoice3 vs. Chatterbox), so catalogued as a separate entry."
+
+  - id: qwen3-tts-kazakh-emotional
+    name: Qwen3-TTS Kazakh Emotional
+    released: "2026-03"
+    section: "Speech and audio"
+    description: Qwen3-TTS-12Hz-1.7B-Base fine-tune for emotional Kazakh speech synthesis, trained on a single female speaker with six emotion categories.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: futureDoctor
+        url: https://huggingface.co/futureDoctor
+    organization: []
+    architecture: Qwen3-TTS (Qwen3TTSForConditionalGeneration, includes bundled speech tokenizer)
+    base_model: Qwen/Qwen3-TTS-12Hz-1.7B-Base
+    params:
+      display: "1.92B"
+      variants: []
+    storage:
+      value: 3.1
+      unit: GB
+    languages: [kk]
+    access: open
+    license: CC-BY-4.0
+    links:
+      model: https://huggingface.co/futureDoctor/qwen3-tts-kazakh-emotional
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "Fine-tuned on the KazEmoTTS dataset — a single female speaker (kaz_aru), 34 hours of audio, across neutral/happy/sad/angry/fear/surprise emotion labels."
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh emotional-TTS fine-tune trained on a 34-hour Kazakh emotional speech corpus (the already-cataloged KazEmoTTS dataset/model's underlying corpus).
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "License (CC-BY-4.0) is stated in the model card's prose only, not present in the repo's structured cardData/tags — recorded as-is per the author's own documentation, but not independently confirmable via repo metadata."
+
+  - id: voxcpm-kazakhtts-lora
+    name: VoxCPM Kazakh TTS LoRA
+    released: "2026-02"
+    section: "Speech and audio"
+    description: LoRA adapter (rank 32, alpha 16) for VoxCPM1.5 that adds Kazakh text-to-speech and zero-shot voice cloning while retaining the base model's Chinese/English capability.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: ErnarBahat
+        url: https://huggingface.co/ErnarBahat
+    organization: []
+    architecture: "VoxCPM1.5 + LoRA adapter (rank 32, alpha 16)"
+    base_model: openbmb/VoxCPM1.5
+    params:
+      display: "LoRA adapter (rank 32) over openbmb/VoxCPM1.5"
+      variants: []
+    storage:
+      value: 98.6
+      unit: MB
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/ErnarBahat/VoxCPM-KazakhTTS-Lora
+      paper: null
+      code: https://github.com/allssai/voxcpm-kazakh-tts
+      project: null
+    training:
+      summary: LoRA fine-tuning (4,160 steps, 1.84 epochs) on 66.1 hours of Kazakh speech from the issai/KazakhTTS dataset, supporting the nine Kazakh-specific Cyrillic characters (ә, ғ, қ, ң, ө, ұ, ү, һ, і).
+      datasets: [issai/KazakhTTS]
+    kazakh_evidence: Dedicated LoRA fine-tune of VoxCPM for Kazakh TTS trained on 66.1h of ISSAI's KazakhTTS corpus, with explicit Kazakh Cyrillic phoneme support.
+    metrics:
+      summary: "loss/diff ~0.644, loss/stop ~0.004 at end of training, per the model card (no WER/CER reported)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "Different architecture (VoxCPM) from this author's already-cataloged spark-tts-kazakh entry."
+
+  - id: indextts2-kazakh
+    name: IndexTTS2 Kazakh (GPT fine-tune)
+    released: "2026-05"
+    section: "Speech and audio"
+    description: Fine-tune of the GPT component of IndexTTS-2 for Kazakh speech synthesis, trained on a single-speaker 4.8GB subset of the ISSAI-KSC2-Structured dataset; voice cloning does not generalize beyond the training speaker.
+    tasks: [Text-to-speech]
+    tier: A
+    kind: speech
+    authors:
+      - name: AnuarSv
+        url: https://huggingface.co/AnuarSv
+    organization: []
+    architecture: "IndexTTS-2 GPT component fine-tune (2,000-token Kazakh-specific BPE vocabulary)"
+    base_model: IndexTeam/IndexTTS-2
+    params:
+      display: "Not reported"
+      variants: []
+    storage:
+      value: 16.62
+      unit: GB
+    languages: [kk]
+    access: open
+    license: "Other (bilibili-indextts-license)"
+    links:
+      model: https://huggingface.co/AnuarSv/IndexTTS2-Kazakh
+      paper: null
+      code: https://github.com/JarodMica/index-tts
+      project: null
+    training:
+      summary: 3 epochs (912 steps) fine-tuning the GPT component on a single-speaker, 4.8GB subset of InflexionLab/ISSAI-KSC2-Structured, using a dedicated 2,000-token Kazakh BPE vocabulary.
+      datasets: [InflexionLab/ISSAI-KSC2-Structured]
+    kazakh_evidence: Dedicated GPT-component fine-tune of IndexTTS-2 trained specifically on Kazakh speech data, with a purpose-built Kazakh tokenizer.
+    metrics:
+      summary: null
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "Base model (IndexTTS-2) is released under a custom restrictive license (bilibili-indextts-license), not a standard open-source license — recorded as-is rather than mapped to a permissive SPDX id. Weights are directly downloadable without HF gating (access: open refers to download mechanics, not license permissiveness)."
+
+  - id: krasr-whisper-small-kkru
+    name: KRASR Kazakh-Russian Whisper-Small (full fine-tune)
+    released: "2026-05"
+    section: "Speech and audio"
+    description: Fully fine-tuned Whisper-small model for Kazakh and Kazakh-Russian code-switched automatic speech recognition, developed as Astana IT University thesis research.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Mukhambet Madiyar
+        url: null
+      - name: Makhmud Danial
+        url: null
+    organization:
+      - name: Astana IT University
+        url: null
+    architecture: Whisper-small full fine-tune (WhisperForConditionalGeneration)
+    base_model: openai/whisper-small
+    params:
+      display: "241.7M"
+      variants: []
+    storage:
+      value: 967.0
+      unit: MB
+    languages: [kk, ru]
+    access: open
+    license: "Not reported"
+    links:
+      model: https://huggingface.co/KRASR/kazakh-russian-asr-whisper-small-full-ft
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Full fine-tuning (8 epochs, lr 1e-5, effective batch 32) on KRASR/kazakh-russian-asr-dataset, containing Kazakh-dominant speech with natural Russian code-switching insertions.
+      datasets: [KRASR/kazakh-russian-asr-dataset]
+    kazakh_evidence: Dedicated full fine-tune on a purpose-built Kazakh-Russian code-switching ASR dataset, with separate Kazakh-only and Russian-only evaluation splits reported.
+    metrics:
+      summary: "Test-MIXED: WER 55.81%/CER 32.19% (beam3); Test-KK (Kazakh-only): WER 53.93%; FLEURS-kk: WER 76.09% — vs. Whisper-Small baseline WER 82.56%/CER 92.54% (self-reported, not independently verified)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "cardData.license is the unspecific tag \"other\" with no accompanying license text in the card, so license is recorded as Not reported rather than guessed. A LoRA-only sibling repo (same account, \"-lora\" suffix) also exists and is not catalogued separately."
+
+  - id: vibevoice-asr-kazakh
+    name: VibeVoice ASR Kazakh
+    released: "2026-03"
+    section: "Speech and audio"
+    description: LoRA fine-tune (merged weights) of Microsoft's VibeVoice-ASR model for Kazakh speech recognition, trained on roughly 1,200 hours of Kazakh speech spanning six domains.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors: []
+    organization:
+      - name: InflexionLab
+        url: null
+    architecture: VibeVoice-ASR, LoRA fine-tuned with merged weights (VibeVoiceForASRTraining)
+    base_model: microsoft/VibeVoice-ASR
+    params:
+      display: "8.67B"
+      variants: []
+    storage:
+      value: 17.35
+      unit: GB
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/InflexionLab/VibeVoice-ASR-Kazakh
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: "LoRA fine-tuning of microsoft/VibeVoice-ASR on InflexionLab/ISSAI-KSC2-Structured (~1,200h across TV News, Crowdsourced, Parliament, Talkshow, Podcasts, and Radio domains); punctuation/capitalization restored using Gemma 27B."
+      datasets: [InflexionLab/ISSAI-KSC2-Structured]
+    kazakh_evidence: Dedicated LoRA fine-tune of a foundation ASR model on roughly 1,200 hours of domain-diverse Kazakh speech, with a formal model-index WER result on ISSAI KSC2.
+    metrics:
+      summary: "22% WER / 9.6% CER on ISSAI_KSC2 test; 17.6% WER / 4.25% CER on farabi-lab/kazakh-stt (self-reported, not independently verified)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: null
+
+  - id: musa505-whisper-asr-kazakh
+    name: Musa505 Kazakh Whisper ASR
+    released: "2026-04"
+    section: "Speech and audio"
+    description: "Despite the repository name \"kazakh-tts,\" this is a Whisper-small fine-tune for Kazakh automatic speech recognition, not a text-to-speech model — pipeline_tag, architecture, and the model card all describe ASR."
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Musa505
+        url: https://huggingface.co/Musa505
+    organization: []
+    architecture: Whisper-small full fine-tune (WhisperForConditionalGeneration)
+    base_model: openai/whisper-small
+    params:
+      display: "241.7M"
+      variants: []
+    storage:
+      value: 967.0
+      unit: MB
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Musa505/kazakh-tts
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Full fine-tuning (3 epochs, batch size 8, lr 1e-5) on farabi-lab/kazakh-stt (142,266 train / 30,493 validation samples).
+      datasets: [farabi-lab/kazakh-stt]
+    kazakh_evidence: Dedicated full fine-tune of Whisper-small on a 142k-sample Kazakh ASR dataset.
+    metrics:
+      summary: "Final eval loss 0.0776; no WER explicitly reported despite a metrics:[wer] tag in cardData."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-22"
+    last_verified: "2026-08-22"
+    notes: "Repository name (\"kazakh-tts\") is misleading — confirmed via pipeline_tag, config.architectures, and model card that this is an ASR model, not TTS. Same base model and params as krasr-whisper-small-kkru (both full fine-tunes of openai/whisper-small), but a distinct training run on a different dataset."
+
   # ---------------------------------------------------------------------
   # Vision, OCR, and multimodal
   # ---------------------------------------------------------------------
@@ -3172,7 +3536,7 @@ models:
       display: "≈35M"
       variants: []
     storage:
-      value: 88.5
+      value: 90.1
       unit: MB
     languages: [kk, ky, ru]
     access: open
@@ -3191,8 +3555,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "Separate ONNX FP32 (alenisaw/turkicocr-svtrv2-b-onnx) and ONNX INT8 (alenisaw/turkicocr-svtrv2-b-int8) repos are format-only exports of this same model — intentionally not listed as separate rows."
+    last_verified: "2026-08-22"
+    notes: "Separate ONNX FP32 (alenisaw/turkicocr-svtrv2-b-onnx) and ONNX INT8 (alenisaw/turkicocr-svtrv2-b-int8) repos are format-only exports of this same model — intentionally not listed as separate rows. 2026-08-22: storage corrected 88.5MB→90.1MB against HF API usedStorage (90,102,504 bytes)."
 
   - id: kazakh-trocr-fine-tuned
     name: Kazakh TrOCR (fine-tuned)
@@ -3388,7 +3752,7 @@ models:
       display: "≈2.6B"
       variants: []
     storage:
-      value: 16.0
+      value: 26.5
       unit: GB
     languages: [kk, en]
     access: open
@@ -3407,8 +3771,8 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "Cited paper (Aikyn et al. 2026) is a pre-release manuscript with no resolvable published link yet — left null rather than guessed. The project link initially reported (beynele.nu.edu.kz) returns HTTP 404 on link-check and was removed rather than left broken."
+    last_verified: "2026-08-22"
+    notes: "Cited paper (Aikyn et al. 2026) is a pre-release manuscript with no resolvable published link yet — left null rather than guessed. The project link initially reported (beynele.nu.edu.kz) returns HTTP 404 on link-check and was removed rather than left broken. 2026-08-22: storage corrected 16.0GB→26.5GB against HF API usedStorage (26,473,722,131 bytes) — the prior figure significantly undercounted the repo (text_encoder + transformer + VAE shards)."
 
   - id: kaz-image-captioning
     name: Kazakh Image Captioning (ExpansionNet v2)
@@ -3443,7 +3807,7 @@ models:
     license: "Not reported"
     links:
       model: https://github.com/IS2AI/kaz-image-captioning
-      paper: https://www.techrxiv.org/articles/preprint/Image_Captioning_for_the_Visually_Impaired_and_Blind_A_Recipe_for_Low-Resource_Languages/22133894
+      paper: https://ieeexplore.ieee.org/document/10340575
       code: https://github.com/IS2AI/kaz-image-captioning
       project: null
     training:
@@ -3455,5 +3819,5 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
-    notes: "GitHub repo has no LICENSE file, so license is 'Not reported' rather than guessed. released uses the GitHub repo's creation date (2023-02), not its later push date or the TechRxiv preprint date. The TensorRT .engine export is a format conversion of the same model, not a separate row. storage is the Pytorch checkpoint size ('model size:2.7GB') the README itself reports (vs. 986MB for the TensorRT FP32 export)."
+    last_verified: "2026-08-22"
+    notes: "GitHub repo has no LICENSE file, so license is 'Not reported' rather than guessed. released uses the GitHub repo's creation date (2023-02), not its later push date or the TechRxiv preprint date. The TensorRT .engine export is a format conversion of the same model, not a separate row. storage is the Pytorch checkpoint size ('model size:2.7GB') the README itself reports (vs. 986MB for the TensorRT FP32 export). 2026-08-22: paper link corrected — the old TechRxiv preprint URL (.../articles/preprint/.../22133894) now 404s; replaced with the peer-reviewed IEEE EMBC 2023 publication of the same paper, ranked above the preprint per CONTRIBUTING.md's source-preference order (a working TechRxiv mirror also exists at techrxiv.org/doi/full/10.36227/techrxiv.22133894.v1 if preferred)."
