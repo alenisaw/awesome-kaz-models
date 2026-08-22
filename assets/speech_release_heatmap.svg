@@ -93,13 +93,13 @@
 <rect x="782" y="190" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
 <text x="46" y="239.0" text-anchor="end" class="axis-strong">2026</text>
 <rect x="56" y="222" width="60" height="26" rx="5" fill="#c6dbef"/>
-<rect x="122" y="222" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
-<rect x="188" y="222" width="60" height="26" rx="5" fill="#9ecae1"/>
-<rect x="254" y="222" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
-<rect x="320" y="222" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="122" y="222" width="60" height="26" rx="5" fill="#c6dbef"/>
+<rect x="188" y="222" width="60" height="26" rx="5" fill="#3182bd"/>
+<rect x="254" y="222" width="60" height="26" rx="5" fill="#c6dbef"/>
+<rect x="320" y="222" width="60" height="26" rx="5" fill="#9ecae1"/>
 <rect x="386" y="222" width="60" height="26" rx="5" fill="#9ecae1"/>
 <rect x="452" y="222" width="60" height="26" rx="5" fill="#9ecae1"/>
-<rect x="518" y="222" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="518" y="222" width="60" height="26" rx="5" fill="#9ecae1"/>
 <rect x="584" y="222" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
 <rect x="650" y="222" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
 <rect x="716" y="222" width="60" height="26" rx="5" fill="#f3f2ee" stroke="#e1e0d9" stroke-width="1"/>
@@ -109,4 +109,8 @@
 <text x="155" y="304" text-anchor="middle" class="legend">1</text>
 <rect x="171" y="272" width="16" height="16" rx="4" fill="#9ecae1"/>
 <text x="179" y="304" text-anchor="middle" class="legend">2</text>
+<rect x="195" y="272" width="16" height="16" rx="4" fill="#6baed6"/>
+<text x="203" y="304" text-anchor="middle" class="legend">3</text>
+<rect x="219" y="272" width="16" height="16" rx="4" fill="#3182bd"/>
+<text x="227" y="304" text-anchor="middle" class="legend">4</text>
 </svg>

@@ -42,7 +42,8 @@ WATCHLIST = [
     ("Söyle",
      "The IS2AI GitHub repository and its ICAIIC 2024 paper are real, but the only "
      "pretrained-model link in the README (`dhcppc0/soyle_onnx` on Hugging Face) resolves "
-     "to a 404. The official ISSAI project page links the code and a companion dataset but "
+     "to HTTP 401 (invalid credentials) for anonymous access — not independently obtainable. "
+     "The official ISSAI project page links the code and a companion dataset but "
      "no model under the `issai` org — currently training-code-only, the same pattern "
      "as the official KazNERD repository."),
     ("AIT-Syn Kazakh TTS",
@@ -52,6 +53,28 @@ WATCHLIST = [
      "anonymous access at both the API and page level — unlike the org's other gated repos "
      "(e.g. `nur-dev/ait-asr`), whose cards remain publicly readable. Could not be "
      "independently re-verified this pass."),
+    ("Darmm Kazakh Cyrillic OCR",
+     "A VisionEncoderDecoderModel with real, downloadable safetensors weights (333.9M F32 "
+     "params) exists at `Darmm/darmm-ocr-kazakh-cyrillic-model` and is presumably a Kazakh "
+     "Cyrillic OCR model based on its name and architecture, but the repository carries no "
+     "model card, no license, no stated training data, and no evaluation metrics — there is "
+     "currently no primary-source basis to confirm its architecture details, training "
+     "corpus, or actual OCR performance."),
+    ("Kazakh HTR model",
+     "A VisionEncoderDecoderModel with real, downloadable safetensors weights (61.6M F32 "
+     "params, size consistent with the claimed parameter count) exists at "
+     "`abacoding/kazakh-htr-model` and is presumably a Kazakh handwriting-recognition model "
+     "based on its name, but the repository has no model card, no license, and no "
+     "documented training data or evaluation — its task, training corpus, and accuracy "
+     "cannot currently be independently verified."),
+    ("TilQazyna Kazakh morphology (Qwen LoRA)",
+     "A LoRA adapter for structured Kazakh morphological analysis "
+     "(`TilQazyna/kazakh-morpho-qwen-unified`) has real downloadable weights behind a "
+     "manual-approval gate, but its documented base model is internally inconsistent — the "
+     "adapter directory name (`qwen_2.5_05B_model`) implies Qwen2.5-0.5B while the model "
+     "card prose states Qwen2.5-4B-Instruct, and `cardData.base_model` is left as the "
+     "unresolved string `qwen` — and no evaluation metrics are published despite an "
+     "evaluation-metrics image file being present in the repository."),
 ]
 
 REPO = "alenisaw/awesome-kaz-models"
@@ -375,7 +398,7 @@ def build_badges(models):
     badges = [
         ("Models", str(n), "2a78d6"),
         ("Open weights", f"{open_pct}%25", "2ea44f"),
-        ("Last verified", "2026--08--21", "1baf7a"),
+        ("Last verified", "2026--08--22", "1baf7a"),
     ]
     parts = [stars] + [
         f'<img alt="{label}" src="https://img.shields.io/badge/{label.replace(" ", "_")}-{value}-{color}">'
