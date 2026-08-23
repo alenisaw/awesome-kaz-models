@@ -38,9 +38,9 @@ SECTION_SHORT = {
     "Vision, OCR, and multimodal": "Vision / multimodal",
 }
 COLORS = {
-    "Text, NLP, and LLM": "#2563eb",
-    "Speech and audio": "#f97316",
-    "Vision, OCR, and multimodal": "#10b981",
+    "Text, NLP, and LLM": "#b7791f",
+    "Speech and audio": "#3f8f6b",
+    "Vision, OCR, and multimodal": "#4c78a8",
 }
 
 
@@ -182,15 +182,16 @@ def plot_release_history(models_df: pd.DataFrame) -> None:
         ax.bar(years, vals, bottom=bottom, color=COLORS[section], label=SECTION_SHORT[section], width=0.72)
         bottom += vals
     ax2 = ax.twinx()
-    ax2.plot(years, cumulative, color="#111827", marker="o", linewidth=2.2, label="Cumulative")
+    ax2.plot(years, cumulative, color="#374151", marker="o", linewidth=2.2, label="Cumulative")
     for x, total in zip(years, totals):
         if total:
             ax.text(x, total + 0.7, str(int(total)), ha="center", va="bottom", fontsize=9)
-    ax.axvspan(2025.65, 2026.35, color="#fde68a", alpha=0.22, zorder=0)
-    ax.text(2026, max(totals) * 0.88, "2026 YTD\n(to Aug 23)", ha="center", fontsize=9, color="#92400e")
-    ax.set_title("Kazakh model-family releases accelerated sharply after 2023", loc="left", weight="bold", fontsize=16)
-    ax.set_ylabel("New catalog entries released")
-    ax2.set_ylabel("Cumulative entries with known year")
+    ax.axvspan(2025.65, 2026.35, color="#f3e4bd", alpha=0.30, zorder=0)
+    ax.text(2026, max(totals) * 0.88, "2026 YTD\n(to Aug 23)", ha="center", fontsize=9, color="#7c5b20")
+    ax.set_title("Kazakh language based models overview", loc="left", weight="bold", fontsize=16)
+    ax.set_xlabel("Year")
+    ax.set_ylabel("Number of models")
+    ax2.set_ylabel("Cumulative number of models")
     ax.set_xticks(years)
     ax.set_ylim(0, max(totals) * 1.18)
     ax2.set_ylim(0, max(cumulative) * 1.12)
