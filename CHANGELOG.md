@@ -2,6 +2,15 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-08-23 — TTS evaluation evidence added
+
+### Changed
+
+- Added the paper-reported MOS and related quality measures that were missing
+  from the structured entries for KazakhTTS, TurkicTTS, and KazEmoTTS. The
+  summaries explicitly limit comparisons to their original evaluation
+  protocols; the three studies do not constitute a shared leaderboard.
+
 ## 2026-08-23 — GigaAM Multilingual added
 
 ### Added
