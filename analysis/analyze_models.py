@@ -448,33 +448,211 @@ def plot_mt_metrics(mt: pd.DataFrame) -> None:
     save_figure(fig, "06_tilmash_mt_comparison")
 
 
-def plot_qwen_metrics() -> None:
-    rows = [
-        ("4B", "KazMMLU", "Base", 72.5), ("4B", "KazMMLU", "Kazakh-adapted", 78.5),
-        ("4B", "KazCulture", "Base", 42.3), ("4B", "KazCulture", "Kazakh-adapted", 55.4),
-        ("35B-A3B", "KazMMLU", "Base", 82.6), ("35B-A3B", "KazMMLU", "Kazakh-adapted", 84.0),
-        ("35B-A3B", "KazCulture", "Base", 60.3), ("35B-A3B", "KazCulture", "Kazakh-adapted", 68.7),
+def kazakh_benchmark_rows() -> pd.DataFrame:
+    """Transcribe public KazMMLU/KazCulture results with protocol provenance."""
+    rows: list[dict] = []
+
+    def add(
+        benchmark: str,
+        protocol: str,
+        protocol_title: str,
+        model: str,
+        score: float,
+        source_url: str,
+        kazakh_specific: bool,
+        notes: str,
+    ) -> None:
+        rows.append(
+            {
+                "benchmark": benchmark,
+                "protocol": protocol,
+                "protocol_title": protocol_title,
+                "model": model,
+                "score": score,
+                "source_url": source_url,
+                "kazakh_specific": kazakh_specific,
+                "notes": notes,
+            }
+        )
+
+    kazmmlu_paper = {
+        "Mistral-7B-Instruct-v0.3": 41.0,
+        "Mistral-7B-v0.3": 34.6,
+        "Vikhr-Nemo-12B-Instruct": 44.5,
+        "Aya-23-35B": 35.9,
+        "Aya-23-8B": 31.0,
+        "BLOOM-1.1B": 22.1,
+        "BLOOMZ-1.7B": 23.4,
+        "BLOOMZ-3B": 23.7,
+        "BLOOMZ-7B": 23.8,
+        "Gemma-2-27B": 55.7,
+        "Gemma-2-27B-IT": 57.4,
+        "Gemma-2-9B": 52.3,
+        "Gemma-2-9B-IT": 49.1,
+        "KazakhLLM-8B": 41.7,
+        "Llama-3.1-70B": 56.2,
+        "Llama-3.1-70B-Instruct": 48.3,
+        "Llama-3.1-8B": 39.7,
+        "Llama-3.1-8B-Instruct": 44.6,
+        "mT0-Large": 24.0,
+        "mT0-XL": 32.8,
+        "mT0-XXL": 34.4,
+        "Qwen2.5-7B": 42.5,
+        "Qwen2.5-7B-Instruct": 47.8,
+        "Sherkala-Chat-8B": 45.6,
+        "GPT-4o": 76.6,
+        "DeepSeek V3": 76.9,
+        "YandexGPT": 60.2,
+    }
+    for model, score in kazmmlu_paper.items():
+        add(
+            "KazMMLU",
+            "kazmmlu-paper-en-zero-shot",
+            "KazMMLU paper — English prompt, zero-shot",
+            model,
+            score,
+            "https://aclanthology.org/2025.acl-long.701/",
+            model in {"KazakhLLM-8B", "Sherkala-Chat-8B"},
+            "Table 4 average across all KazMMLU subject areas; English prompt.",
+        )
+
+    sherkala_report = {
+        "BLOOM 7.1B": 29.3,
+        "BLOOMZ 7.1B": 29.2,
+        "Gemma-2 9B": 26.1,
+        "Gemma-2-IT 9B": 31.4,
+        "Qwen2.5 7B": 35.1,
+        "Qwen2.5-Instruct 7B": 37.8,
+        "Llama-3.1 8B": 38.3,
+        "Llama-3.1-Instruct 8B": 38.9,
+        "KazLLM-1.0 8B": 37.0,
+        "Irbis-7B-v0.1": 29.5,
+        "mGPT-13B": 28.5,
+        "Sherkala 8B": 51.6,
+        "Sherkala-Chat 8B": 41.4,
+    }
+    for model, score in sherkala_report.items():
+        add(
+            "KazMMLU",
+            "sherkala-report-zero-shot",
+            "Sherkala report — lm-evaluation-harness, zero-shot",
+            model,
+            score,
+            "https://arxiv.org/abs/2503.01493",
+            model in {"KazLLM-1.0 8B", "Irbis-7B-v0.1", "Sherkala 8B", "Sherkala-Chat 8B"},
+            "Kazakh downstream-evaluation table; zero-shot lm-evaluation-harness.",
+        )
+
+    qolda = {
+        "Qolda 4B (no-think)": {"KazMMLU": 58.11, "KazCulture": 53.00},
+        "Qolda 4B (think)": {"KazMMLU": 66.14, "KazCulture": 47.45},
+        "Qolda-AVL 5B": {"KazMMLU": 69.27, "KazCulture": 44.75},
+        "Qolda-AVL 9B": {"KazMMLU": 73.04, "KazCulture": 56.39},
+        "Qolda-AVL 34B": {"KazMMLU": 78.98, "KazCulture": 62.37},
+    }
+    for model, scores in qolda.items():
+        for benchmark, score in scores.items():
+            add(
+                benchmark,
+                "qolda-family-card",
+                "Qolda family card — shared evaluation table",
+                model,
+                score,
+                "https://huggingface.co/issai/Qolda",
+                True,
+                "Shared official Qolda family table; higher is better.",
+            )
+
+    qwen35 = {
+        "Qwen3.5 4B": {"KazMMLU": 72.5, "KazCulture": 42.3},
+        "Qwen3.5 4B Kazakh": {"KazMMLU": 78.5, "KazCulture": 55.4},
+        "Qwen3.5 9B": {"KazMMLU": 77.0, "KazCulture": 49.5},
+        "Qwen3.5 9B Kazakh": {"KazMMLU": 83.1, "KazCulture": 63.4},
+        "Qwen3.5 35B-A3B": {"KazMMLU": 82.6, "KazCulture": 60.3},
+        "Qwen3.5 35B-A3B Kazakh": {"KazMMLU": 84.0, "KazCulture": 68.7},
+    }
+    for model, scores in qwen35.items():
+        for benchmark, score in scores.items():
+            add(
+                benchmark,
+                "qwen35-thinking-model-cards",
+                "Qwen3.5 model cards — thinking mode",
+                model,
+                score,
+                "https://huggingface.co/issai/Qwen3.5-35B-A3B-Kazakh",
+                model.endswith("Kazakh"),
+                "Matched base/adapted self-reported model-card evaluation in thinking mode.",
+            )
+
+    return pd.DataFrame(rows)
+
+
+def plot_benchmark_panel(ax: plt.Axes, data: pd.DataFrame, title: str) -> None:
+    d = data.sort_values(["score", "model"], ascending=True)
+    colors = ["#2f6f9f" if value else "#a8b3c2" for value in d["kazakh_specific"]]
+    bars = ax.barh(d["model"], d["score"], color=colors, edgecolor="white", linewidth=0.7, zorder=3)
+    ax.bar_label(bars, labels=[f"{value:.1f}" for value in d["score"]], padding=3, fontsize=9.5)
+    ax.set_title(title, loc="left", weight="bold", fontsize=13, pad=9)
+    ax.set_xlim(0, 100)
+    ax.set_xlabel("Accuracy (%) — higher is better", fontsize=11)
+    ax.tick_params(axis="y", labelsize=10)
+    ax.tick_params(axis="x", labelsize=10)
+    ax.grid(axis="x", alpha=0.18, zorder=0)
+    ax.grid(axis="y", visible=False)
+    ax.set_axisbelow(True)
+
+
+def plot_kazakh_benchmarks(df: pd.DataFrame) -> None:
+    kazmmlu = df[df["benchmark"] == "KazMMLU"]
+    fig = plt.figure(figsize=(21, 15.5))
+    grid = fig.add_gridspec(3, 2, width_ratios=[1.28, 1], height_ratios=[13, 5, 6])
+    panels = [
+        (fig.add_subplot(grid[:, 0]), "kazmmlu-paper-en-zero-shot"),
+        (fig.add_subplot(grid[0, 1]), "sherkala-report-zero-shot"),
+        (fig.add_subplot(grid[1, 1]), "qolda-family-card"),
+        (fig.add_subplot(grid[2, 1]), "qwen35-thinking-model-cards"),
     ]
-    df = pd.DataFrame(rows, columns=["size", "benchmark", "variant", "score"])
-    df.to_csv(DATA_OUT / "qwen35_benchmarks.csv", index=False)
-    fig, axes = plt.subplots(1, 2, figsize=(11.5, 5.2), sharey=True)
-    for ax, size in zip(axes, ["4B", "35B-A3B"]):
-        d = df[df["size"] == size]
-        sns.barplot(data=d, x="benchmark", y="score", hue="variant", palette={"Base":"#94a3b8", "Kazakh-adapted":"#2563eb"}, ax=ax)
-        ax.set_title(size, weight="bold")
-        ax.set_xlabel("")
-        ax.set_ylabel("Accuracy / score (higher is better)" if size == "4B" else "")
-        ax.set_ylim(0, 100)
-        ax.grid(axis="y", alpha=0.22)
-        for container in ax.containers:
-            ax.bar_label(container, fmt="%.1f", padding=2, fontsize=9)
-        if size == "35B-A3B":
-            ax.legend_.remove()
-    axes[0].legend(frameon=False, loc="upper left")
-    fig.suptitle("ISSAI Qwen3.5 base and Kazakh-adapted benchmark scores", x=0.01, ha="left", weight="bold", fontsize=16)
-    fig.text(0.01, 0.01, "Self-reported model-card results in thinking mode; base and adapted variants are matched by size and benchmark.", fontsize=9, color="#4b5563")
-    fig.tight_layout(rect=(0, 0.05, 1, 0.93))
+    for ax, protocol in panels:
+        d = kazmmlu[kazmmlu["protocol"] == protocol]
+        plot_benchmark_panel(ax, d, d["protocol_title"].iloc[0])
+    fig.suptitle(
+        "KazMMLU model comparison by evaluation protocol",
+        x=0.01,
+        ha="left",
+        weight="bold",
+        fontsize=20,
+    )
+    fig.text(
+        0.01,
+        0.012,
+        "Blue bars are Kazakh-specific adaptations; grey bars are general baselines. Scores are comparable only within each panel.",
+        fontsize=11,
+        color="#4b5563",
+    )
+    fig.tight_layout(rect=(0, 0.035, 1, 0.965), h_pad=2.0, w_pad=4.0)
     save_figure(fig, "07_qwen35_kazakh_adaptation")
+
+    kazculture = df[df["benchmark"] == "KazCulture"]
+    fig, axes = plt.subplots(1, 2, figsize=(15.5, 7.2))
+    for ax, protocol in zip(axes, ["qolda-family-card", "qwen35-thinking-model-cards"]):
+        d = kazculture[kazculture["protocol"] == protocol]
+        plot_benchmark_panel(ax, d, d["protocol_title"].iloc[0])
+    fig.suptitle(
+        "KazCulture model comparison by evaluation protocol",
+        x=0.01,
+        ha="left",
+        weight="bold",
+        fontsize=20,
+    )
+    fig.text(
+        0.01,
+        0.018,
+        "Scores are comparable only within each panel; reasoning mode and evaluation setup differ between source groups.",
+        fontsize=11,
+        color="#4b5563",
+    )
+    fig.tight_layout(rect=(0, 0.065, 1, 0.94), w_pad=3.0)
+    save_figure(fig, "07b_kazculture_comparison")
 
 
 def plot_metric_coverage(models_df: pd.DataFrame) -> None:
@@ -513,6 +691,8 @@ def main() -> None:
     tts_quality_rows().to_csv(DATA_OUT / "tts_quality_evidence.csv", index=False)
     mt = mt_rows()
     mt.to_csv(DATA_OUT / "tilmash_mt_metrics.csv", index=False)
+    kazakh_benchmarks = kazakh_benchmark_rows()
+    kazakh_benchmarks.to_csv(DATA_OUT / "kazakh_benchmark_comparisons.csv", index=False)
 
     plot_release_history(models_df)
     plot_domain_mix(models_df)
@@ -520,7 +700,7 @@ def main() -> None:
     plot_task_heatmap(tasks_df)
     plot_asr_metrics(metrics)
     plot_mt_metrics(mt)
-    plot_qwen_metrics()
+    plot_kazakh_benchmarks(kazakh_benchmarks)
     plot_metric_coverage(models_df)
     print(json.dumps(summary, indent=2))
 
