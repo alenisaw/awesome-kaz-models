@@ -2,6 +2,16 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-08-23 — GigaAM Multilingual added
+
+### Added
+
+- Added **GigaAM Multilingual**, the open MIT-licensed 220M/600M Conformer
+  speech-foundation and CTC ASR family for Russian, English, Kazakh, Kyrgyz,
+  and Uzbek. The entry records its July 2026 public artifact date, Kazakh
+  training mix, and directly reported Kazakh WER on Common Voice, FLEURS,
+  and the authors' internal test set.
+
 ## 2026-08-21 — README redesign, Estimin3n added
 
 ### Changed — README presentation redesign
