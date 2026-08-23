@@ -2233,6 +2233,62 @@ models:
   # Speech and audio
   # ---------------------------------------------------------------------
 
+  - id: gigaam-multilingual
+    name: GigaAM Multilingual
+    released: "2026-07"
+    section: "Speech and audio"
+    description: Conformer-based multilingual speech foundation and CTC ASR family (220M/600M), pretrained on 2 million hours across more than 70 languages and fine-tuned for Russian, English, Kazakh, Kyrgyz, and Uzbek.
+    tasks: [Automatic speech recognition]
+    tier: B
+    kind: speech
+    authors:
+      - name: Andrei Kuzmenko
+        url: null
+      - name: Alexandr Maximenko
+        url: null
+      - name: Aleksandr Kutsakov
+        url: null
+      - name: Georgii Gospodinov
+        url: null
+      - name: Dmitrii Bolotov
+        url: null
+      - name: Oleg Kutuzov
+        url: null
+      - name: Pavel Bogomolov
+        url: null
+      - name: Fyodor Minkin
+        url: null
+    organization:
+      - name: SaluteDevelopers / AI SAGE
+        url: https://github.com/salute-developers
+    architecture: Conformer encoder + character-wise CTC
+    base_model: null
+    params:
+      display: 220M / 600M
+      variants: [ssl, ctc, large_ssl, large_ctc]
+    storage:
+      value: 2.3
+      unit: GB
+    languages: [ru, en, kk, ky, uz]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/ai-sage/GigaAM-Multilingual
+      paper: https://arxiv.org/abs/2607.10371
+      code: https://github.com/salute-developers/GigaAM
+      project: null
+    training:
+      summary: HuBERT-style self-supervised pretraining used 2 million hours spanning more than 70 languages, followed by CTC ASR fine-tuning on 50,000 hours; the reported Kazakh mix includes 1,031 hours of open-source, 876 hours of crowdsourced, 9 hours of weakly supervised, and 7,896 hours of synthetic speech.
+      datasets: []
+    kazakh_evidence: Kazakh is one of five central fine-tuning languages, with dedicated training volumes and Common Voice, FLEURS, and internal evaluations; the 600M Large CTC variant reports Kazakh WER of 13.8%, 4.4%, and 15.8% on those test sets, respectively.
+    metrics:
+      summary: "Reported Kazakh WER for the 600M Large CTC model: 13.8% on Common Voice, 4.4% on FLEURS, and 15.8% on an internal in-the-wild test set; the 220M CTC model reports 17.2%, 5.2%, and 18.8%, respectively."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-23"
+    last_verified: "2026-08-23"
+    notes: "The release date follows the public Hugging Face artifact's 2026-07-14 creation timestamp; the official GitHub news page labels the release 2026/06. Storage is the approximate size of the 600M large_ctc PyTorch checkpoint (2,341,592,643 bytes), while the main model link documents all four family variants. MLX ports are format conversions and are not cataloged as separate models."
+
   - id: saida-kazakh-asr
     name: SAIDA Kazakh ASR
     released: "2020-10"
