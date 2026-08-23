@@ -1,0 +1,41 @@
+benchmark,direction,model,metric,value
+FLoRes,EN→KK,NLLB base,BLEU,0.11
+FLoRes,EN→KK,KazParC-only,BLEU,0.14
+FLoRes,EN→KK,Tilmash,BLEU,0.2
+FLoRes,EN→KK,Yandex,BLEU,0.18
+FLoRes,EN→KK,Google,BLEU,0.2
+FLoRes,KK→EN,NLLB base,BLEU,0.28
+FLoRes,KK→EN,KazParC-only,BLEU,0.32
+FLoRes,KK→EN,Tilmash,BLEU,0.32
+FLoRes,KK→EN,Yandex,BLEU,0.3
+FLoRes,KK→EN,Google,BLEU,0.36
+FLoRes,KK→RU,NLLB base,BLEU,0.15
+FLoRes,KK→RU,KazParC-only,BLEU,0.17
+FLoRes,KK→RU,Tilmash,BLEU,0.18
+FLoRes,KK→RU,Yandex,BLEU,0.18
+FLoRes,KK→RU,Google,BLEU,0.2
+FLoRes,RU→KK,NLLB base,BLEU,0.08
+FLoRes,RU→KK,KazParC-only,BLEU,0.1
+FLoRes,RU→KK,Tilmash,BLEU,0.13
+FLoRes,RU→KK,Yandex,BLEU,0.12
+FLoRes,RU→KK,Google,BLEU,0.13
+KazParC,EN→KK,NLLB base,BLEU,0.12
+KazParC,EN→KK,KazParC-only,BLEU,0.18
+KazParC,EN→KK,Tilmash,BLEU,0.21
+KazParC,EN→KK,Yandex,BLEU,0.18
+KazParC,EN→KK,Google,BLEU,0.3
+KazParC,KK→EN,NLLB base,BLEU,0.24
+KazParC,KK→EN,KazParC-only,BLEU,0.33
+KazParC,KK→EN,Tilmash,BLEU,0.32
+KazParC,KK→EN,Yandex,BLEU,0.28
+KazParC,KK→EN,Google,BLEU,0.31
+KazParC,KK→RU,NLLB base,BLEU,0.22
+KazParC,KK→RU,KazParC-only,BLEU,0.29
+KazParC,KK→RU,Tilmash,BLEU,0.29
+KazParC,KK→RU,Yandex,BLEU,0.29
+KazParC,KK→RU,Google,BLEU,0.29
+KazParC,RU→KK,NLLB base,BLEU,0.15
+KazParC,RU→KK,KazParC-only,BLEU,0.21
+KazParC,RU→KK,Tilmash,BLEU,0.22
+KazParC,RU→KK,Yandex,BLEU,0.23
+KazParC,RU→KK,Google,BLEU,0.24

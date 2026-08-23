@@ -250,12 +250,54 @@ models:
       datasets: []
     kazakh_evidence: Explicitly marketed and evaluated as a Kazakh-language adaptation with dedicated Kazakh benchmark scores.
     metrics:
-      summary: null
+      summary: "KazMMLU accuracy 37.0 in the Sherkala report's zero-shot lm-evaluation-harness comparison (self-reported by that paper, not independently reproduced)."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "8B createdAt 2024-12-08; 70B createdAt 2024-12-07 — treated as one simultaneous release. storage reflects the linked 8B checkpoint (16.1GB); the 70B sibling (issai/LLama-3.1-KazLLM-1.0-70B) is ≈141.1GB per the HF API."
+
+  - id: sherkala-chat-8b
+    name: Sherkala-Chat 8B
+    released: "2025-02"
+    section: "Text, NLP, and LLM"
+    description: Kazakh-primary instruction-tuned Llama 3.1 adaptation continued-pretrained on 45.3B multilingual tokens and aligned with multilingual, Kazakhstan-specific, and Kazakh safety instructions.
+    tasks: [Large language model, Instruction following]
+    tier: A
+    kind: instruction
+    authors:
+      - name: Sherkala research team
+        url: https://arxiv.org/abs/2503.01493
+    organization:
+      - name: Inception, MBZUAI, and Cerebras Systems
+        url: https://www.inceptionai.ai/
+    architecture: Llama 3.1 (8B) with a Kazakh-balanced expanded tokenizer
+    base_model: meta-llama/Llama-3.1-8B
+    params:
+      display: "≈8.29B"
+      variants: ["Sherkala 8B base", "Sherkala-Chat 8B"]
+    storage:
+      value: 66.3
+      unit: GB
+    languages: [kk, en, ru, tr]
+    access: gated
+    license: CC-BY-NC-SA-4.0
+    links:
+      model: https://huggingface.co/inceptionai/Llama-3.1-Sherkala-8B-Chat
+      paper: https://arxiv.org/abs/2503.01493
+      code: null
+      project: null
+    training:
+      summary: Continued-pretrained from Llama 3.1 8B on 45.3B tokens (19.45B Kazakh, 19.45B English, and 6.4B Russian/Turkish), then instruction- and safety-aligned with multilingual and Kazakhstan-specific data.
+      datasets: []
+    kazakh_evidence: Kazakh is the primary target language; the tokenizer, continued-pretraining mixture, instruction data, cultural alignment, safety data, and evaluation are all explicitly adapted for Kazakh and Kazakhstan.
+    metrics:
+      summary: "Sherkala report zero-shot KazMMLU accuracy: 51.6 for the base Sherkala model and 41.4 for Sherkala-Chat; the report uses lm-evaluation-harness and is not directly comparable with later thinking-mode Qwen3.5/Qolda evaluations."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-23"
+    last_verified: "2026-08-23"
+    notes: "The public Hugging Face path was published as inceptionai/Llama-3.1-Sherkala-8B-Chat and currently resolves to inception42/Llama-3.1-Sherkala-8B-Chat. released uses the HF createdAt date (2025-02-07); storage uses the HF API usedStorage value for the gated repository. The paper evaluates both the continued-pretrained base and chat variants, but only the linked chat checkpoint is catalogued as the currently obtainable artifact."
 
   - id: sozkz-core-llama-kk
     name: SozKZ Core (Llama-family Kazakh base models)
@@ -1780,11 +1822,11 @@ models:
       datasets: []
     kazakh_evidence: Tokenizer-extension plus continued pretraining substantially on Kazakh text at every size, with dedicated KazMMLU/KazCulture evaluation reporting consistent gains over the un-adapted Qwen3.5 baseline at every scale.
     metrics:
-      summary: "Self-reported gains over base Qwen3.5 (thinking mode, not independently verified): 4B-Kazakh KazMMLU 72.5->78.5, KazCulture 42.3->55.4; 35B-A3B-Kazakh KazMMLU 82.6->84.0, KazCulture 60.3->68.7."
+      summary: "Self-reported gains over base Qwen3.5 (thinking mode, not independently verified): 4B-Kazakh KazMMLU 72.5->78.5, KazCulture 42.3->55.4; 9B-Kazakh 77.0->83.1 and 49.5->63.4; 35B-A3B-Kazakh 82.6->84.0 and 60.3->68.7."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-21"
-    last_verified: "2026-08-21"
+    last_verified: "2026-08-23"
     notes: "Six-repo family, all createdAt 2026-08-05: continued-pretraining checkpoints issai/Qwen3.5-4B-Base-Kazakh, issai/Qwen3.5-9B-Base-Kazakh, issai/Qwen3.5-35B-A3B-Base-Kazakh, and instruct-aligned issai/Qwen3.5-4B-Kazakh, issai/Qwen3.5-9B-Kazakh, issai/Qwen3.5-35B-A3B-Kazakh. links.model points to the largest instruct variant (35B-A3B, ~70.3GB per the HF API); the 4B instruct checkpoint is ~9.2GB and the 9B instruct is ~19.1GB. Distinct from the existing kazllm-1-0 entry (a Llama 3.1-based ISSAI model) — a separate, newer ISSAI flagship family, not a replacement."
 
   - id: irbis-7b
@@ -1820,11 +1862,11 @@ models:
       datasets: []
     kazakh_evidence: Dedicated tokenizer expansion for Kazakh plus continued pretraining on a predominantly-Kazakh corpus.
     metrics:
-      summary: null
+      summary: "KazMMLU accuracy 29.5 in the Sherkala report's zero-shot lm-evaluation-harness comparison (reported by that paper, not independently reproduced)."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-21"
-    last_verified: "2026-08-21"
+    last_verified: "2026-08-23"
     notes: "Originally published under the IrbisAI account/name (huggingface.co/IrbisAI/Irbis-7b-v0.1, per the candidate list); that path now 307-redirects to the current canonical repo Gen2B/Irbis-7b-v0.1 (same createdAt 2024-03-31), used here as links.model. Exact upstream Mistral checkpoint (e.g. v0.1 vs v0.2) is not stated on the card, so base_model is left null rather than guessed; architecture is confirmed via the repo's own 'mistral' config/tag, and params are computed from the safetensors total size (14,947,328,784 bytes) divided by 2 bytes/param (bfloat16, per config.json). A separate quantized mirror (NikolayKozloff/Irbis-7b-v0.1-Kazakh-Q8_0-GGUF) exists and is intentionally not catalogued (format-only duplicate)."
 
   - id: llama2-kazakh-7b-ver2
@@ -2232,6 +2274,62 @@ models:
   # ---------------------------------------------------------------------
   # Speech and audio
   # ---------------------------------------------------------------------
+
+  - id: gigaam-multilingual
+    name: GigaAM Multilingual
+    released: "2026-07"
+    section: "Speech and audio"
+    description: Conformer-based multilingual speech foundation and CTC ASR family (220M/600M), pretrained on 2 million hours across more than 70 languages and fine-tuned for Russian, English, Kazakh, Kyrgyz, and Uzbek.
+    tasks: [Automatic speech recognition]
+    tier: B
+    kind: speech
+    authors:
+      - name: Andrei Kuzmenko
+        url: null
+      - name: Alexandr Maximenko
+        url: null
+      - name: Aleksandr Kutsakov
+        url: null
+      - name: Georgii Gospodinov
+        url: null
+      - name: Dmitrii Bolotov
+        url: null
+      - name: Oleg Kutuzov
+        url: null
+      - name: Pavel Bogomolov
+        url: null
+      - name: Fyodor Minkin
+        url: null
+    organization:
+      - name: SaluteDevelopers / AI SAGE
+        url: https://github.com/salute-developers
+    architecture: Conformer encoder + character-wise CTC
+    base_model: null
+    params:
+      display: 220M / 600M
+      variants: [ssl, ctc, large_ssl, large_ctc]
+    storage:
+      value: 2.3
+      unit: GB
+    languages: [ru, en, kk, ky, uz]
+    access: open
+    license: MIT
+    links:
+      model: https://huggingface.co/ai-sage/GigaAM-Multilingual
+      paper: https://arxiv.org/abs/2607.10371
+      code: https://github.com/salute-developers/GigaAM
+      project: null
+    training:
+      summary: HuBERT-style self-supervised pretraining used 2 million hours spanning more than 70 languages, followed by CTC ASR fine-tuning on 50,000 hours; the reported Kazakh mix includes 1,031 hours of open-source, 876 hours of crowdsourced, 9 hours of weakly supervised, and 7,896 hours of synthetic speech.
+      datasets: []
+    kazakh_evidence: Kazakh is one of five central fine-tuning languages, with dedicated training volumes and Common Voice, FLEURS, and internal evaluations; the 600M Large CTC variant reports Kazakh WER of 13.8%, 4.4%, and 15.8% on those test sets, respectively.
+    metrics:
+      summary: "Reported Kazakh WER for the 600M Large CTC model: 13.8% on Common Voice, 4.4% on FLEURS, and 15.8% on an internal in-the-wild test set; the 220M CTC model reports 17.2%, 5.2%, and 18.8%, respectively."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-23"
+    last_verified: "2026-08-23"
+    notes: "The release date follows the public Hugging Face artifact's 2026-07-14 creation timestamp; the official GitHub news page labels the release 2026/06. Storage is the approximate size of the 600M large_ctc PyTorch checkpoint (2,341,592,643 bytes), while the main model link documents all four family variants. MLX ports are format conversions and are not cataloged as separate models."
 
   - id: saida-kazakh-asr
     name: SAIDA Kazakh ASR
@@ -2856,11 +2954,11 @@ models:
       datasets: []
     kazakh_evidence: Dedicated Kazakh-only TTS project with a Kazakh-only training corpus.
     metrics:
-      summary: null
+      summary: "Original 2021 listening study (50 native listeners per speaker, 50 held-out sentences): Tacotron 2 MOS 4.535 ± 0.049 for female F1 and 4.144 ± 0.063 for male M1; Transformer MOS 4.436 ± 0.057 and 3.907 ± 0.076, respectively. Comparisons are valid within that study only."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "storage sums the Content-Length of all 10 released checkpoint archives (5 Tacotron2 acoustic models, ≈107.3MB each; 5 Parallel WaveGAN vocoders, ≈15.6-15.8MB each) linked from the README. Params not reported anywhere in the repo/paper, so left null."
 
   - id: kazemotts
@@ -2896,11 +2994,11 @@ models:
       datasets: []
     kazakh_evidence: Dedicated Kazakh-only emotional TTS corpus and model.
     metrics:
-      summary: null
+      summary: "The 2024 paper reports synthesized-speech MOS of 3.55 (female F1), 3.51 (male M1), and 3.57 (male M2), with average mel-cepstral distortion of 6.02, 7.67, and 7.24, respectively; 64 people participated in the subjective evaluation."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "storage sums the Content-Length of the two checkpoint archives linked from the README (pt_10000.zip TTS checkpoint + pre_trained_hf.zip vocoder checkpoint). Params not reported anywhere in the repo/paper, so left null."
 
   - id: turkictts
@@ -2942,11 +3040,11 @@ models:
       datasets: []
     kazakh_evidence: The underlying acoustic/vocoder model is trained exclusively on Kazakh speech data; other Turkic languages are reached only via transliteration onto this Kazakh-trained model.
     metrics:
-      summary: null
+      summary: "The 2023 subjective survey reports Kazakh MOS 4.18, comprehensibility 97%, and intelligibility 80%, based on 151 Kazakh raters; its protocol differs from the KazakhTTS and KazEmoTTS studies."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "storage sums the Content-Length of the two linked checkpoints (kaztts_male2_tacotron2_train.loss.ave.zip acoustic model + parallelwavegan_male2_checkpoint.zip vocoder). Params not reported anywhere in the repo/paper, so left null."
 
   - id: piper-kazakh-voices
@@ -3631,11 +3729,11 @@ models:
       datasets: []
     kazakh_evidence: Dedicated Kazakh-specific benchmark suites and a `kk` language tag; part of ISSAI's Qolda family targeting Kazakh users specifically.
     metrics:
-      summary: null
+      summary: "Official Qolda family-card accuracy: KazMMLU 58.11 without thinking / 66.14 with thinking; KazCulture 53.00 without thinking / 47.45 with thinking."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "License is asserted via a README badge but is not present in the HF cardData/tags metadata — flagged for a maintainer re-check."
 
   - id: qolda-avl
@@ -3671,11 +3769,11 @@ models:
       datasets: []
     kazakh_evidence: All three modalities explicitly adapted to Kazakh with dedicated Kazakh text/vision/audio benchmark suites; documented as the first open tri-modal (audio+vision+language) model for Kazakh.
     metrics:
-      summary: null
+      summary: "Official Qolda family-card accuracy for 5B/9B/34B: KazMMLU 69.27/73.04/78.98; KazCulture 44.75/56.39/62.37. These shared-table values are used for the cross-family comparison; individual Qolda-AVL cards also report a later alternate evaluation."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "One family entry covering three size variants (same architecture/recipe at different scales): issai/Qolda-AVL-5B, issai/Qolda-AVL-9B, issai/Qolda-AVL-34B. A GGUF conversion of the 5B variant also exists and is excluded as a format duplicate. storage left null: per-variant checkpoint sizes differ too much for one figure to be meaningful (5B ≈10.2GB, 9B ≈19.0GB, 34B ≈68.3GB, all per the HF API's safetensors file sizes)."
 
   - id: hordevision

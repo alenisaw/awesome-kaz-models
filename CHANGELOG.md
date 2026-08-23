@@ -2,6 +2,43 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-08-23 — Sherkala and Kazakh benchmark comparisons
+
+### Added
+
+- Added **Sherkala-Chat 8B**, the gated Kazakh-primary Llama 3.1 adaptation
+  continued-pretrained on 45.3B multilingual tokens and instruction/safety
+  aligned for Kazakhstan.
+- Added a protocol-labelled CSV and separate KazMMLU/KazCulture comparison
+  plots covering the KazMMLU benchmark paper, Sherkala report, Qolda family,
+  and Qwen3.5 model-card evaluations.
+
+### Changed
+
+- Recorded the public KazMMLU/KazCulture values for Qolda, Qolda-AVL,
+  Qwen3.5 Kazakh, KazLLM 1.0, and Irbis-7B in their catalog metric summaries.
+- Added the previously omitted Qwen3.5 9B base/adapted results and kept
+  incompatible prompt/reasoning protocols in separate plot panels.
+
+## 2026-08-23 — TTS evaluation evidence added
+
+### Changed
+
+- Added the paper-reported MOS and related quality measures that were missing
+  from the structured entries for KazakhTTS, TurkicTTS, and KazEmoTTS. The
+  summaries explicitly limit comparisons to their original evaluation
+  protocols; the three studies do not constitute a shared leaderboard.
+
+## 2026-08-23 — GigaAM Multilingual added
+
+### Added
+
+- Added **GigaAM Multilingual**, the open MIT-licensed 220M/600M Conformer
+  speech-foundation and CTC ASR family for Russian, English, Kazakh, Kyrgyz,
+  and Uzbek. The entry records its July 2026 public artifact date, Kazakh
+  training mix, and directly reported Kazakh WER on Common Voice, FLEURS,
+  and the authors' internal test set.
+
 ## 2026-08-21 — README redesign, Estimin3n added
 
 ### Changed — README presentation redesign

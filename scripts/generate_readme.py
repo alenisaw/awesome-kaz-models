@@ -398,7 +398,7 @@ def build_badges(models):
     badges = [
         ("Models", str(n), "2a78d6"),
         ("Open weights", f"{open_pct}%25", "2ea44f"),
-        ("Last verified", "2026--08--22", "1baf7a"),
+        ("Last verified", "2026--08--23", "1baf7a"),
     ]
     parts = [stars] + [
         f'<img alt="{label}" src="https://img.shields.io/badge/{label.replace(" ", "_")}-{value}-{color}">'
