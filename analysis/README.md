@@ -1,10 +1,10 @@
 # Deep analytics: Awesome Kazakh Models
 
-Snapshot: **2026-08-23** · repository commit: **`893958c`** · analysis unit: **one catalog row / model family**
+Snapshot: **2026-08-23** · source: **`data/models.yaml` on branch `allessyer`** · analysis unit: **one catalog row / model family**
 
 ## Executive findings
 
-The catalog contains **94 verified model-family entries**: 92 have a known release year and two do not. Publication activity has accelerated sharply. The annual count rose from 1 in 2018 to 12 in 2023, 20 in 2025, and **42 in 2026 year-to-date through 23 August**. The 2026 YTD count is already 2.10 times the entire 2025 count and 3.50 times the January–August 2025 count (12). This is growth in publicly released catalog entries, not necessarily growth in research papers, users, or commercial adoption.
+The catalog contains **95 verified model-family entries**: 93 have a known release year and two do not. Publication activity has accelerated sharply. The annual count rose from 1 in 2018 to 12 in 2023, 21 in 2025, and **42 in 2026 year-to-date through 23 August**. The 2026 YTD count is already 2.00 times the entire 2025 count and 3.50 times the January–August 2025 count (12). This is growth in publicly released catalog entries, not necessarily growth in research papers, users, or commercial adoption.
 
 | Release year | Text/NLP/LLM | Speech/audio | Vision/multimodal | Total | Cumulative known-year entries |
 |---:|---:|---:|---:|---:|---:|
@@ -15,22 +15,22 @@ The catalog contains **94 verified model-family entries**: 92 have a known relea
 | 2022 | 1 | 1 | 0 | 2 | 7 |
 | 2023 | 7 | 4 | 1 | 12 | 19 |
 | 2024 | 9 | 2 | 0 | 11 | 30 |
-| 2025 | 14 | 4 | 2 | 20 | 50 |
-| 2026 YTD | 22 | 16 | 4 | 42 | 92 |
+| 2025 | 15 | 4 | 2 | 21 | 51 |
+| 2026 YTD | 22 | 16 | 4 | 42 | 93 |
 
 ![Model releases by year](figures/01_releases_by_year.png)
 
-The dominant domain is **text/NLP/LLM: 55 of 94 entries (58.5%)**, followed by speech/audio with 32 (34.0%) and vision/multimodal with 7 (7.4%). Text is therefore the cumulative leader, but the mix is broadening. Vision/multimodal grew from one entry before 2025 to six releases in 2025–2026, reaching 9.7% of releases in that recent period. Speech remains structurally important: it accounts for nearly one-third of recent releases and has much better metric coverage than text.
+The dominant domain is **text/NLP/LLM: 56 of 95 entries (58.9%)**, followed by speech/audio with 32 (33.7%) and vision/multimodal with 7 (7.4%). Text is therefore the cumulative leader, but the mix is broadening. Vision/multimodal grew from one entry before 2025 to six releases in 2025–2026, reaching 9.5% of releases in that recent period. Speech remains structurally important: it accounts for nearly one-third of recent releases and has much better metric coverage than text.
 
 ![Domain mix](figures/02_domain_mix.png)
 
 The best proxy for “what society is interested in now” available in this repository is **what model creators are releasing**, not survey or usage evidence. On that proxy, 2025–2026 activity is led by:
 
 1. Automatic speech recognition (ASR): 11 task-labelled families.
-2. LLMs and TTS: 7 each.
-3. Embeddings/retrieval and machine translation: 5 each.
-4. Question answering and OCR: 4 each.
-5. Instruction following: 3.
+2. LLMs: 8.
+3. TTS: 7.
+4. Embeddings/retrieval and machine translation: 5 each.
+5. Question answering, instruction following, and OCR: 4 each.
 
 The especially revealing 2026 YTD pattern is eight new ASR families, seven TTS families, six LLM families, three instruction-following families, and three embedding families. This suggests current creator attention is moving from basic language resources toward deployable voice interfaces, generative models, RAG/retrieval, and multimodal/OCR applications.
 
@@ -81,13 +81,29 @@ The KazParC paper offers a strong same-test-set comparison of NLLB base, KazParC
 
 Source: [KazParC paper, Table 6](https://arxiv.org/pdf/2403.19399). Transcribed values are in [`data/tilmash_mt_metrics.csv`](data/tilmash_mt_metrics.csv).
 
-### LLM adaptation: ISSAI Qwen3.5 Kazakh
+### KazMMLU and KazCulture model comparisons
 
-The matched base-versus-adapted comparison is consistently positive. At 4B, Kazakh adaptation improves KazMMLU from 72.5 to 78.5 (+6.0 points) and KazCulture from 42.3 to 55.4 (+13.1). At 35B-A3B, the gains are smaller on KazMMLU, 82.6 to 84.0 (+1.4), but remain large on KazCulture, 60.3 to 68.7 (+8.4). The main signal is that continued Kazakh adaptation adds more cultural knowledge than general multiple-choice ability, especially once the base model is already large.
+Sherkala-Chat was missing from the main catalog and is now included. Qolda, Qolda-AVL, KazLLM 1.0, Irbis-7B, Estimin3n, and ISSAI Qwen3.5 Kazakh were already catalogued; their benchmark evidence is now recorded in their structured metric summaries.
 
-![Qwen3.5 adaptation](figures/07_qwen35_kazakh_adaptation.png)
+| Catalog family | KazMMLU evidence | KazCulture evidence | Comparison scope |
+|---|---:|---:|---|
+| ISSAI Qwen3.5 Kazakh | 4B 78.5; 9B 83.1; 35B-A3B 84.0 | 4B 55.4; 9B 63.4; 35B-A3B 68.7 | Thinking-mode model-card results; each adapted model has a matched base. |
+| Qolda 4B | 58.11 no-think; 66.14 think | 53.00 no-think; 47.45 think | Shared Qolda family-card table. |
+| Qolda-AVL | 69.27 / 73.04 / 78.98 for 5B / 9B / 34B | 44.75 / 56.39 / 62.37 | Shared Qolda family-card table. |
+| Sherkala family | 51.6 base; 41.4 chat | — | Sherkala report's zero-shot `lm-evaluation-harness` table. |
+| KazLLM 1.0 8B | 37.0 | — | Sherkala report only. |
+| Irbis-7B-v0.1 | 29.5 | — | Sherkala report only. |
+| Estimin3n | Evaluation scripts exist; score not public | — | Listed but excluded from numerical plots. |
 
-Source: [ISSAI Qwen3.5 Kazakh model card](https://huggingface.co/issai/Qwen3.5-35B-A3B-Kazakh). These are self-reported thinking-mode scores; values are in [`data/qwen35_benchmarks.csv`](data/qwen35_benchmarks.csv).
+The KazMMLU figure shows all 51 reported model results in the four audited primary-source comparison groups: 27 from the benchmark paper's English-prompt zero-shot table, 13 from the Sherkala report, five from the Qolda family card, and six from the Qwen3.5 cards. Repeated model families remain in separate panels when their evaluation protocols differ.
+
+![KazMMLU model comparison](figures/07_qwen35_kazakh_adaptation.png)
+
+The KazCulture figure shows all 11 reported results from the two public shared-table groups. Within Qwen3.5, Kazakh adaptation improves every matched size: 42.3→55.4 at 4B, 49.5→63.4 at 9B, and 60.3→68.7 at 35B-A3B. Qolda's thinking result is lower than its no-thinking result on KazCulture, illustrating why reasoning mode must remain visible rather than being silently mixed.
+
+![KazCulture model comparison](figures/07b_kazculture_comparison.png)
+
+Primary evidence: [KazMMLU benchmark paper, Table 4](https://aclanthology.org/2025.acl-long.701/), [Sherkala technical report](https://arxiv.org/abs/2503.01493), [Qolda model card](https://huggingface.co/issai/Qolda), [Qwen3.5 4B Kazakh](https://huggingface.co/issai/Qwen3.5-4B-Kazakh), [Qwen3.5 9B Kazakh](https://huggingface.co/issai/Qwen3.5-9B-Kazakh), [Qwen3.5 35B-A3B Kazakh](https://huggingface.co/issai/Qwen3.5-35B-A3B-Kazakh), and [Estimin3n model card](https://huggingface.co/govnejri/Estimin3n). The complete protocol-labelled transcription is in [`data/kazakh_benchmark_comparisons.csv`](data/kazakh_benchmark_comparisons.csv).
 
 ### Other paper/model-card metrics not placed on a shared leaderboard
 
@@ -97,14 +113,14 @@ Source: [ISSAI Qwen3.5 Kazakh model card](https://huggingface.co/issai/Qwen3.5-3
 
 ## Evidence quality and limitations
 
-Only **30 of 94 families (31.9%)** have a numeric metric summary in the structured catalog. Coverage is 19/32 (59%) for speech, 9/55 (16%) for text, and 2/7 (29%) for vision/multimodal. Recording the previously omitted TTS results improves evidence coverage, but not cross-family comparability: missing standardized evaluation remains the main obstacle to a trustworthy ranking.
+Only **35 of 95 families (36.8%)** have a numeric metric summary in the structured catalog. Coverage is 19/32 (59%) for speech, 12/56 (21%) for text, and 4/7 (57%) for vision/multimodal. Recording the previously omitted benchmark results improves evidence coverage, but not cross-protocol comparability: missing standardized evaluation remains the main obstacle to a trustworthy ranking.
 
 ![Metric coverage](figures/08_metric_coverage.png)
 
 Important interpretation constraints:
 
 - A catalog row can bundle several model sizes or variants. Counts are families, not raw checkpoints.
-- Multi-task families count once under every task they list, so task totals exceed 94.
+- Multi-task families count once under every task they list, so task totals exceed 95.
 - Release date means public artifact release, not necessarily paper publication.
 - Two entries have unknown release years and are excluded from time plots but included in overall totals.
 - 2026 is incomplete through 23 August and should not be treated as a full calendar year.
@@ -122,4 +138,4 @@ python3 -m venv .venv
 .venv/bin/python analysis/analyze_models.py
 ```
 
-The script regenerates all CSV/JSON tables under [`analysis/data`](data/) and all PNG/SVG plots under [`analysis/figures`](figures/). The flattened catalog used for audit is [`data/catalog_snapshot.csv`](data/catalog_snapshot.csv), the protocol-aware TTS evidence is [`data/tts_quality_evidence.csv`](data/tts_quality_evidence.csv), and the compact machine-readable summary is [`data/summary.json`](data/summary.json).
+The script regenerates all CSV/JSON tables under [`analysis/data`](data/) and all PNG/SVG plots under [`analysis/figures`](figures/). The flattened catalog used for audit is [`data/catalog_snapshot.csv`](data/catalog_snapshot.csv), the protocol-aware KazMMLU/KazCulture evidence is [`data/kazakh_benchmark_comparisons.csv`](data/kazakh_benchmark_comparisons.csv), the TTS evidence is [`data/tts_quality_evidence.csv`](data/tts_quality_evidence.csv), and the compact machine-readable summary is [`data/summary.json`](data/summary.json).

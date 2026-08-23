@@ -1,9 +1,0 @@
-size,benchmark,variant,score
-4B,KazMMLU,Base,72.5
-4B,KazMMLU,Kazakh-adapted,78.5
-4B,KazCulture,Base,42.3
-4B,KazCulture,Kazakh-adapted,55.4
-35B-A3B,KazMMLU,Base,82.6
-35B-A3B,KazMMLU,Kazakh-adapted,84.0
-35B-A3B,KazCulture,Base,60.3
-35B-A3B,KazCulture,Kazakh-adapted,68.7

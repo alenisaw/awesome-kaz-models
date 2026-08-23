@@ -1,18 +1,18 @@
 {
   "snapshot_date": "2026-08-23",
-  "catalog_rows_model_families": 94,
-  "known_release_year": 92,
+  "catalog_rows_model_families": 95,
+  "known_release_year": 93,
   "unknown_release_year": 2,
-  "metric_summary_available": 30,
-  "metric_summary_coverage_percent": 31.9,
+  "metric_summary_available": 35,
+  "metric_summary_coverage_percent": 36.8,
   "sections": {
-    "Text / NLP / LLM": 55,
+    "Text / NLP / LLM": 56,
     "Speech / audio": 32,
     "Vision / multimodal": 7
   },
   "access": {
     "open": 74,
-    "gated": 20
+    "gated": 21
   },
   "year_counts": {
     "2018": 1,
@@ -21,9 +21,9 @@
     "2022": 2,
     "2023": 12,
     "2024": 11,
-    "2025": 20,
+    "2025": 21,
     "2026": 42
   },
-  "recent_2025_2026": 62,
-  "recent_share_percent": 67.4
+  "recent_2025_2026": 63,
+  "recent_share_percent": 67.7
 }
