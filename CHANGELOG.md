@@ -2,13 +2,18 @@
 
 This changelog starts from the repository's initial curated release.
 
-## 2026-08-23 — Sherkala and Kazakh benchmark comparisons
+## 2026-08-23 — GigaAM, Sherkala benchmarks & TTS metrics pass
 
 ### Added
 
 - Added **Sherkala-Chat 8B**, the gated Kazakh-primary Llama 3.1 adaptation
   continued-pretrained on 45.3B multilingual tokens and instruction/safety
   aligned for Kazakhstan.
+- Added **GigaAM Multilingual**, the open MIT-licensed 220M/600M Conformer
+  speech-foundation and CTC ASR family for Russian, English, Kazakh, Kyrgyz,
+  and Uzbek. The entry records its July 2026 public artifact date, Kazakh
+  training mix, and directly reported Kazakh WER on Common Voice, FLEURS,
+  and the authors' internal test set.
 - Added a protocol-labelled CSV and separate KazMMLU/KazCulture comparison
   plots covering the KazMMLU benchmark paper, Sherkala report, Qolda family,
   and Qwen3.5 model-card evaluations.
@@ -19,25 +24,41 @@ This changelog starts from the repository's initial curated release.
   Qwen3.5 Kazakh, KazLLM 1.0, and Irbis-7B in their catalog metric summaries.
 - Added the previously omitted Qwen3.5 9B base/adapted results and kept
   incompatible prompt/reasoning protocols in separate plot panels.
+- Added paper-reported MOS and related quality measures for KazakhTTS,
+  TurkicTTS, and KazEmoTTS. The summaries explicitly limit comparisons to
+  their original evaluation protocols; the three studies do not constitute a
+  shared leaderboard.
+- Replaced the dynamic contrib.rocks widget with static contributor cards linking
+  directly to contributors' LinkedIn profiles.
 
-## 2026-08-23 — TTS evaluation evidence added
-
-### Changed
-
-- Added the paper-reported MOS and related quality measures that were missing
-  from the structured entries for KazakhTTS, TurkicTTS, and KazEmoTTS. The
-  summaries explicitly limit comparisons to their original evaluation
-  protocols; the three studies do not constitute a shared leaderboard.
-
-## 2026-08-23 — GigaAM Multilingual added
+## 2026-08-22 — Re-verification pass: 9 models added, 12 stale fields corrected
 
 ### Added
 
-- Added **GigaAM Multilingual**, the open MIT-licensed 220M/600M Conformer
-  speech-foundation and CTC ASR family for Russian, English, Kazakh, Kyrgyz,
-  and Uzbek. The entry records its July 2026 public artifact date, Kazakh
-  training mix, and directly reported Kazakh WER on Common Voice, FLEURS,
-  and the authors' internal test set.
+- Added 9 newly-verified Kazakh models across speech and NLP:
+  - 8 speech fine-tunes: Chatterbox, CosyVoice3, Qwen3-TTS, VoxCPM, and
+    IndexTTS2 Kazakh adaptations, plus 3 new ASR fine-tunes.
+  - 1 NLP model: **SozKZ NLLB-1B Kazakh GEC**, Facebook NLLB-200-1.3B
+    fine-tuned for Kazakh grammatical error correction in a two-stage pipeline.
+
+### Changed
+
+- Full re-verification pass across all existing entries against primary
+  sources (Hugging Face API, GitHub):
+  - Corrected 12 stale fields: 9 models whose access flipped from open to
+    gated (including the stukenov/SozKZ collection), 2 license corrections,
+    1 parameter count correction, and 2 storage-size corrections.
+  - Replaced dead preprint paper link for `kaz-image-captioning` with the
+    peer-reviewed IEEE EMBC publication.
+  - Reconsidered the SozKZ OmniAudio flagship checkpoint vs. larger variants;
+    retained the documented 70M checkpoint.
+
+### Watchlist
+
+- Expanded Watchlist from 2 to 5 entries with 3 models that have real
+  downloadable weights but insufficient documentation to verify against
+  inclusion criteria: **Darmm Kazakh Cyrillic OCR**, **Kazakh HTR model**,
+  and **TilQazyna Kazakh morphology (Qwen LoRA)**.
 
 ## 2026-08-21 — README redesign, Estimin3n added
 
