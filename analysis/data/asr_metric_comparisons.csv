@@ -1,0 +1,15 @@
+year,model,benchmark,metric,value,comparability,source_type,source_url,notes,lower_is_better
+2020,SAIDA Kazakh ASR,KSC,WER,8.7,benchmark-family,paper,https://arxiv.org/abs/2009.10334,Original KSC test; paper reports 2.8 CER / 8.7 WER.,True
+2021,Wav2Vec2 XLSR-53 Kazakh,KSC,WER,19.65,benchmark-family,model card,https://huggingface.co/aismlv/wav2vec2-large-xlsr-kazakh,KSC v1.1 test partition.,True
+2021,IS2AI Multilingual ASR,KSC,WER,7.9,benchmark-family,paper,https://arxiv.org/abs/2108.01280,Best multilingual result on the standard KSC test split; best monolingual was 8.0.,True
+2022,KSC2 ASR,KSC,WER,6.3,benchmark-family,paper,https://www.isca-archive.org/interspeech_2022/mussakhojayeva22_interspeech.pdf,"KSC subset test, model trained on full KSC2; not the KSC2 overall result.",True
+2026,Whisper Large v3 Tulpar,KSC,WER,10.62,benchmark-family,model card,https://huggingface.co/olzhasAl/whisper-large-v3-tulpar,Card calls this ISSAI KSC test; decoding/normalization may differ from papers.,True
+2022,KSC2 ASR,KSC2,WER,15.6,benchmark-family,paper,https://www.isca-archive.org/interspeech_2022/mussakhojayeva22_interspeech.pdf,Overall six-source KSC2 test set.,True
+2024,Whisper Base Kazakh,KSC2,WER,15.36,benchmark-family,model card,https://huggingface.co/akuzdeuov/whisper-base.kk,Reported KSC2 test.,True
+2025,Whisper Turbo KSC2,KSC2,WER,9.16,benchmark-family,model card,https://huggingface.co/abilmansplus/whisper-turbo-ksc2,Official issai/Kazakh_Speech_Corpus_2 test partition.,True
+2025,AIT-ASR,KSC2,WER,36.05,benchmark-family,model card,https://huggingface.co/nur-dev/ait-asr,"Independently measured 1,000-utterance KSC2 sample with uniform Whisper normalization.",True
+2026,VibeVoice ASR Kazakh,KSC2,WER,22.0,benchmark-family,model card,https://huggingface.co/InflexionLab/VibeVoice-ASR-Kazakh,Self-reported ISSAI_KSC2 test.,True
+2025,AIT-ASR,FLEURS kk,WER,17.1,same-named-benchmark,model card,https://huggingface.co/nur-dev/ait-asr,"Independently measured FLEURS kk_kz test, 500 utterances.",True
+2026,GigaAM Multilingual Large,FLEURS kk,WER,4.4,same-named-benchmark,paper/model card,https://huggingface.co/ai-sage/GigaAM-Multilingual,Reported for the 600M Large CTC model on the FLEURS Kazakh test set.,True
+2026,Kazakh Whisper Large-v3 Turbo,FLEURS kk,WER,11.8,same-named-benchmark,model card,https://huggingface.co/shyngys879/kazakh-whisper-large-v3-turbo,Reported FLEURS Kazakh test.,True
+2026,KRASR Whisper Small,FLEURS kk,WER,76.09,same-named-benchmark,model card,https://huggingface.co/KRASR/kazakh-russian-asr-whisper-small-full-ft,Self-reported FLEURS kk test.,True
