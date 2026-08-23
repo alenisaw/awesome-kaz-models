@@ -959,8 +959,8 @@ z
    </g>
    <g id="patch_4">
     <path d="M 108.809531 192.451199
-L 255.781167 192.451199
-L 255.781167 122.736223
+L 283.338348 192.451199
+L 283.338348 122.736223
 L 108.809531 122.736223
 z
 " clip-path="url(#pd239d99133)" style="fill: #16a34a; stroke: #ffffff; stroke-linejoin: miter"/>
@@ -982,10 +982,10 @@ z
 " clip-path="url(#pd239d99133)" style="fill: #e5e7eb; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
-    <path d="M 255.781167 192.451199
+    <path d="M 283.338348 192.451199
 L 402.752802 192.451199
 L 402.752802 122.736223
-L 255.781167 122.736223
+L 283.338348 122.736223
 z
 " clip-path="url(#pd239d99133)" style="fill: #e5e7eb; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
@@ -1166,17 +1166,17 @@ z
     </g>
    </g>
    <g id="text_12">
-    <!-- 16/32 (50%) -->
+    <!-- 19/32 (59%) -->
     <g style="fill: #262626" transform="translate(407.345666 160.181504) scale(0.1 -0.1)">
      <use xlink:href="#ArialMT-14"/>
-     <use xlink:href="#ArialMT-19" transform="translate(55.609375 0)"/>
+     <use xlink:href="#ArialMT-1c" transform="translate(55.609375 0)"/>
      <use xlink:href="#ArialMT-12" transform="translate(111.21875 0)"/>
      <use xlink:href="#ArialMT-16" transform="translate(139 0)"/>
      <use xlink:href="#ArialMT-15" transform="translate(194.609375 0)"/>
      <use xlink:href="#ArialMT-3" transform="translate(250.21875 0)"/>
      <use xlink:href="#ArialMT-b" transform="translate(278 0)"/>
      <use xlink:href="#ArialMT-18" transform="translate(311.296875 0)"/>
-     <use xlink:href="#ArialMT-13" transform="translate(366.90625 0)"/>
+     <use xlink:href="#ArialMT-1c" transform="translate(366.90625 0)"/>
      <use xlink:href="#ArialMT-8" transform="translate(422.515625 0)"/>
      <use xlink:href="#ArialMT-c" transform="translate(511.4375 0)"/>
     </g>

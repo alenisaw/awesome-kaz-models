@@ -3,8 +3,8 @@
   "catalog_rows_model_families": 94,
   "known_release_year": 92,
   "unknown_release_year": 2,
-  "metric_summary_available": 27,
-  "metric_summary_coverage_percent": 28.7,
+  "metric_summary_available": 30,
+  "metric_summary_coverage_percent": 31.9,
   "sections": {
     "Text / NLP / LLM": 55,
     "Speech / audio": 32,

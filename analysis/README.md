@@ -1,6 +1,6 @@
 # Deep analytics: Awesome Kazakh Models
 
-Snapshot: **2026-08-23** · repository commit: **`e59d5a2`** · analysis unit: **one catalog row / model family**
+Snapshot: **2026-08-23** · repository commit: **`893958c`** · analysis unit: **one catalog row / model family**
 
 ## Executive findings
 
@@ -54,6 +54,20 @@ FLEURS-kk is the cleanest named cross-model group in the catalog: **GigaAM Multi
 
 Primary evidence: [SAIDA/KSC paper](https://arxiv.org/abs/2009.10334), [2021 multilingual ASR paper](https://arxiv.org/abs/2108.01280), [KSC2 paper](https://www.isca-archive.org/interspeech_2022/mussakhojayeva22_interspeech.pdf), [GigaAM paper](https://arxiv.org/abs/2607.10371) and [model card](https://huggingface.co/ai-sage/GigaAM-Multilingual), [Whisper Turbo KSC2 card](https://huggingface.co/abilmansplus/whisper-turbo-ksc2), [AIT-ASR card](https://huggingface.co/nur-dev/ait-asr), and [Tulpar card](https://huggingface.co/olzhasAl/whisper-large-v3-tulpar). Exact values and comparability notes are in [`data/asr_metric_comparisons.csv`](data/asr_metric_comparisons.csv).
 
+### TTS quality: evidence exists, but no valid shared plot
+
+All five TTS families below are already present in the main catalog. Their quality evidence is now recorded in the structured analysis, but a cross-family comparison plot is intentionally omitted: the studies do not share the same metric, speakers, sentences, listeners, synthesizer task, or evaluation protocol. Plotting the reported numbers together would imply a ranking that the evidence cannot support.
+
+| Model | Reported Kazakh quality evidence | Valid comparison scope |
+|---|---|---|
+| KazakhTTS (2021) | Tacotron 2 MOS: 4.535 (female F1), 4.144 (male M1); Transformer MOS: 4.436 and 3.907 | Tacotron 2 versus Transformer is comparable only within the original matched listening study. |
+| TurkicTTS (2023) | MOS 4.18; comprehensibility 97%; intelligibility 80% | Its multilingual survey and listening tasks differ from the other studies. |
+| KazEmoTTS (2024) | Synthesized-speech MOS 3.51–3.57; average MCD 6.02–7.67 across three voices | Emotional synthesis, different voices, stimuli, and listener protocol. |
+| Chatterbox Multilingual Kazakh (2026) | Median round-trip CER 7.4%, mean CER 10.2%, using Whisper-large-v3 on 60 synthesized FLEURS-kk samples | ASR-based intelligibility proxy; not human naturalness and not interchangeable with WER. |
+| CosyVoice3 Kazakh (2026) | Mean round-trip WER 37.6% at the selected checkpoint, versus 43.6% at the final step | Supports checkpoint selection within this training run only. |
+
+Primary evidence: [KazakhTTS paper, Table 3](https://arxiv.org/abs/2104.08459), [TurkicTTS paper, Table 3](https://arxiv.org/abs/2305.15749), [KazEmoTTS paper, Tables 3–5](https://arxiv.org/abs/2404.01033), [Chatterbox model card](https://huggingface.co/Tohirju/chatterbox-mtl-kazakh), and [CosyVoice3 model card](https://huggingface.co/Tohirju/cosyvoice3-kazakh-499k). The transcribed values, evaluation scopes, and explicit cross-family-comparability flags are in [`data/tts_quality_evidence.csv`](data/tts_quality_evidence.csv).
+
 ### Machine translation: Tilmash
 
 The KazParC paper offers a strong same-test-set comparison of NLLB base, KazParC-only fine-tuning, Tilmash (the paper's `parsync` checkpoint), Yandex, and Google. Averaged over the four directions involving Kazakh shown below:
@@ -77,15 +91,13 @@ Source: [ISSAI Qwen3.5 Kazakh model card](https://huggingface.co/issai/Qwen3.5-3
 
 ### Other paper/model-card metrics not placed on a shared leaderboard
 
-- KazakhTTS (2021) reports Tacotron 2 MOS of 4.535 for its female voice and 4.144 for its male voice; Transformer scores are 4.436 and 3.907. The same listening study supports comparisons within that paper only. [Paper, Table 3](https://www.isca-archive.org/interspeech_2021/mussakhojayeva21_interspeech.pdf).
-- TurkicTTS (2023) reports Kazakh MOS 4.18, 97% comprehensibility, and 80% intelligibility. Its evaluation protocol differs from KazakhTTS, so the two MOS numbers are not a clean time series. [Paper, Table 3](https://www.isca-archive.org/interspeech_2023/yeshpanov23_interspeech.pdf).
 - TurkicOCR-SVTRv2-B reports Kazakh CER 1.71%, while Kazakh TrOCR reports 3.7%. Their test sets differ, so 1.71 cannot be interpreted as a head-to-head win.
 - e5-base-kazakh reports Kazakh SNLI R@1 0.887 versus 0.433 for its base and STS-B Pearson 0.817 versus 0.708. KazEmbed-V5 reports Hits@1 72%, Hits@5 96%, and MRR 0.835 on a different retrieval evaluation; the two embedding models cannot be ranked from those figures.
 - SozKZ OmniAudio reports 21.28% WER on only 50 in-domain `kzcalm-tts-kk-v1` samples. This is useful internal evidence but not comparable to the public ASR panels. [Model card](https://huggingface.co/stukenov/sozkz-core-omniaudio-70m-kk-asr-v1).
 
 ## Evidence quality and limitations
 
-Only **27 of 94 families (28.7%)** have a numeric metric summary in the structured catalog. Coverage is 16/32 (50%) for speech, 9/55 (16%) for text, and 2/7 (29%) for vision/multimodal. Older papers add several useful metrics that are not yet copied into the YAML, but the overall conclusion holds: missing standardized evaluation is the main obstacle to a trustworthy cross-model ranking.
+Only **30 of 94 families (31.9%)** have a numeric metric summary in the structured catalog. Coverage is 19/32 (59%) for speech, 9/55 (16%) for text, and 2/7 (29%) for vision/multimodal. Recording the previously omitted TTS results improves evidence coverage, but not cross-family comparability: missing standardized evaluation remains the main obstacle to a trustworthy ranking.
 
 ![Metric coverage](figures/08_metric_coverage.png)
 
@@ -110,4 +122,4 @@ python3 -m venv .venv
 .venv/bin/python analysis/analyze_models.py
 ```
 
-The script regenerates all CSV/JSON tables under [`analysis/data`](data/) and all PNG/SVG plots under [`analysis/figures`](figures/). The flattened catalog used for audit is [`data/catalog_snapshot.csv`](data/catalog_snapshot.csv), and the compact machine-readable summary is [`data/summary.json`](data/summary.json).
+The script regenerates all CSV/JSON tables under [`analysis/data`](data/) and all PNG/SVG plots under [`analysis/figures`](figures/). The flattened catalog used for audit is [`data/catalog_snapshot.csv`](data/catalog_snapshot.csv), the protocol-aware TTS evidence is [`data/tts_quality_evidence.csv`](data/tts_quality_evidence.csv), and the compact machine-readable summary is [`data/summary.json`](data/summary.json).
