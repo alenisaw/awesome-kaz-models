@@ -291,7 +291,7 @@ def plot_domain_mix(models_df: pd.DataFrame) -> None:
     axes[1].set_xlabel("Share of releases in era")
     axes[1].set_xlim(0, 100)
     axes[1].legend(frameon=False, ncol=3, bbox_to_anchor=(1, -0.12), loc="upper right")
-    fig.suptitle("Text dominates, but vision/multimodal broadened after 2024", x=0.01, ha="left", weight="bold", fontsize=16)
+    fig.suptitle("Kazakh model distribution by domain and release era", x=0.01, ha="left", weight="bold", fontsize=16)
     fig.subplots_adjust(left=0.14, right=0.98, bottom=0.18, top=0.80, wspace=0.46)
     save_figure(fig, "02_domain_mix")
 
@@ -307,7 +307,7 @@ def plot_task_interest(tasks_df: pd.DataFrame) -> None:
     ax.barh(table.index, table[2026], left=table[2025], color="#1d4ed8", label="2026 YTD (to Aug 23)")
     for i, (_, row) in enumerate(table.iterrows()):
         ax.text(row.total + 0.18, i, str(int(row.total)), va="center", fontsize=9)
-    ax.set_title("Recent publication activity concentrates on ASR, LLMs, TTS, embeddings, and MT", loc="left", weight="bold", fontsize=15)
+    ax.set_title("Kazakh model releases by task, 2025–2026", loc="left", weight="bold", fontsize=15)
     ax.set_xlabel("Task labels attached to 2025–2026 model-family releases")
     ax.grid(axis="x", alpha=0.22)
     ax.legend(frameon=False, loc="lower right")
@@ -325,7 +325,7 @@ def plot_task_heatmap(tasks_df: pd.DataFrame) -> None:
     heat = heat.loc[heat.sum(axis=1).sort_values().index]
     fig, ax = plt.subplots(figsize=(11.8, 7.2))
     sns.heatmap(heat, cmap="Blues", annot=True, fmt="g", linewidths=0.5, linecolor="white", cbar_kws={"label": "Releases"}, ax=ax)
-    ax.set_title("Task landscape: specialization broadened after 2023", loc="left", weight="bold", fontsize=15)
+    ax.set_title("Kazakh model releases by task and year", loc="left", weight="bold", fontsize=15)
     ax.set_xlabel("Release year (2026 is YTD)")
     ax.set_ylabel("")
     fig.tight_layout()
@@ -372,7 +372,7 @@ def plot_asr_metrics(metrics: pd.DataFrame) -> None:
         ax.set_ylim(0, max(d.value) * 1.18)
         for i, v in enumerate(d.value):
             ax.text(i, v + max(d.value)*0.025, f"{v:.2f}", ha="center", fontsize=9)
-    fig.suptitle("Reported Kazakh ASR quality over time — only within benchmark families", x=0.01, ha="left", weight="bold", fontsize=16)
+    fig.suptitle("Kazakh ASR WER by benchmark family and release year", x=0.01, ha="left", weight="bold", fontsize=16)
     fig.text(0.01, 0.01, "Green marks the lowest reported WER in each panel. Test subsets, normalization, decoding and reporting provenance still differ; bars are not a universal leaderboard.", fontsize=9, color="#4b5563")
     fig.tight_layout(rect=(0, 0.07, 1, 0.94))
     save_figure(fig, "05_asr_wer_over_time")
@@ -442,7 +442,7 @@ def plot_mt_metrics(mt: pd.DataFrame) -> None:
         ax.legend_.remove()
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, ncol=5, frameon=False, loc="lower center", bbox_to_anchor=(0.5, 0.045))
-    fig.suptitle("Tilmash is competitive, but not uniformly strongest across Kazakh MT directions", x=0.01, ha="left", weight="bold", fontsize=16)
+    fig.suptitle("Kazakh machine translation BLEU by benchmark and direction", x=0.01, ha="left", weight="bold", fontsize=16)
     fig.text(0.01, 0.015, "Same test sets and metric within each panel. Values from KazParC paper Table 6; Tilmash is the paper's parsync checkpoint.", fontsize=9, color="#4b5563")
     fig.tight_layout(rect=(0, 0.13, 1, 0.93))
     save_figure(fig, "06_tilmash_mt_comparison")
@@ -471,7 +471,7 @@ def plot_qwen_metrics() -> None:
         if size == "35B-A3B":
             ax.legend_.remove()
     axes[0].legend(frameon=False, loc="upper left")
-    fig.suptitle("Kazakh adaptation helps cultural knowledge more than KazMMLU at larger scale", x=0.01, ha="left", weight="bold", fontsize=16)
+    fig.suptitle("ISSAI Qwen3.5 base and Kazakh-adapted benchmark scores", x=0.01, ha="left", weight="bold", fontsize=16)
     fig.text(0.01, 0.01, "Self-reported model-card results in thinking mode; base and adapted variants are matched by size and benchmark.", fontsize=9, color="#4b5563")
     fig.tight_layout(rect=(0, 0.05, 1, 0.93))
     save_figure(fig, "07_qwen35_kazakh_adaptation")
@@ -486,7 +486,7 @@ def plot_metric_coverage(models_df: pd.DataFrame) -> None:
     ax.barh(labels, table["missing"], left=table["sum"], color="#e5e7eb", label="No numeric metric summary")
     for i, row in enumerate(table.itertuples()):
         ax.text(row.count + 0.5, i, f"{int(row.sum)}/{int(row.count)} ({100*row.sum/row.count:.0f}%)", va="center", fontsize=10)
-    ax.set_title("Comparable evidence is the bottleneck: most catalog entries lack numeric metrics", loc="left", weight="bold", fontsize=14)
+    ax.set_title("Numeric metric coverage by model domain", loc="left", weight="bold", fontsize=14)
     ax.set_xlabel("Model-family entries")
     ax.legend(frameon=False, loc="lower right")
     ax.grid(axis="x", alpha=0.2)
