@@ -83,8 +83,6 @@ Source: [KazParC paper, Table 6](https://arxiv.org/pdf/2403.19399). Transcribed 
 
 ### KazMMLU and KazCulture model comparisons
 
-Sherkala-Chat was missing from the main catalog and is now included. Qolda, Qolda-AVL, KazLLM 1.0, Irbis-7B, Estimin3n, and ISSAI Qwen3.5 Kazakh were already catalogued; their benchmark evidence is now recorded in their structured metric summaries.
-
 | Catalog family | KazMMLU evidence | KazCulture evidence | Comparison scope |
 |---|---:|---:|---|
 | ISSAI Qwen3.5 Kazakh | 4B 78.5; 9B 83.1; 35B-A3B 84.0 | 4B 55.4; 9B 63.4; 35B-A3B 68.7 | Thinking-mode model-card results; each adapted model has a matched base. |
