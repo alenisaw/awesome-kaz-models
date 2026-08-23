@@ -2912,11 +2912,11 @@ models:
       datasets: []
     kazakh_evidence: Dedicated Kazakh-only TTS project with a Kazakh-only training corpus.
     metrics:
-      summary: null
+      summary: "Original 2021 listening study (50 native listeners per speaker, 50 held-out sentences): Tacotron 2 MOS 4.535 ± 0.049 for female F1 and 4.144 ± 0.063 for male M1; Transformer MOS 4.436 ± 0.057 and 3.907 ± 0.076, respectively. Comparisons are valid within that study only."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "storage sums the Content-Length of all 10 released checkpoint archives (5 Tacotron2 acoustic models, ≈107.3MB each; 5 Parallel WaveGAN vocoders, ≈15.6-15.8MB each) linked from the README. Params not reported anywhere in the repo/paper, so left null."
 
   - id: kazemotts
@@ -2952,11 +2952,11 @@ models:
       datasets: []
     kazakh_evidence: Dedicated Kazakh-only emotional TTS corpus and model.
     metrics:
-      summary: null
+      summary: "The 2024 paper reports synthesized-speech MOS of 3.55 (female F1), 3.51 (male M1), and 3.57 (male M2), with average mel-cepstral distortion of 6.02, 7.67, and 7.24, respectively; 64 people participated in the subjective evaluation."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "storage sums the Content-Length of the two checkpoint archives linked from the README (pt_10000.zip TTS checkpoint + pre_trained_hf.zip vocoder checkpoint). Params not reported anywhere in the repo/paper, so left null."
 
   - id: turkictts
@@ -2998,11 +2998,11 @@ models:
       datasets: []
     kazakh_evidence: The underlying acoustic/vocoder model is trained exclusively on Kazakh speech data; other Turkic languages are reached only via transliteration onto this Kazakh-trained model.
     metrics:
-      summary: null
+      summary: "The 2023 subjective survey reports Kazakh MOS 4.18, comprehensibility 97%, and intelligibility 80%, based on 151 Kazakh raters; its protocol differs from the KazakhTTS and KazEmoTTS studies."
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-19"
+    last_verified: "2026-08-23"
     notes: "storage sums the Content-Length of the two linked checkpoints (kaztts_male2_tacotron2_train.loss.ave.zip acoustic model + parallelwavegan_male2_checkpoint.zip vocoder). Params not reported anywhere in the repo/paper, so left null."
 
   - id: piper-kazakh-voices
