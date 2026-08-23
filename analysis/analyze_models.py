@@ -175,32 +175,79 @@ def plot_release_history(models_df: pd.DataFrame) -> None:
     totals = table.sum(axis=1)
     cumulative = totals.cumsum()
 
-    fig, ax = plt.subplots(figsize=(12, 6.4))
+    fig, ax = plt.subplots(figsize=(13.5, 7.5))
     bottom = np.zeros(len(years))
     for section in SECTIONS:
         vals = table[section].to_numpy()
-        ax.bar(years, vals, bottom=bottom, color=COLORS[section], label=SECTION_SHORT[section], width=0.72)
+        ax.bar(
+            years,
+            vals,
+            bottom=bottom,
+            color=COLORS[section],
+            edgecolor="white",
+            linewidth=0.8,
+            label=SECTION_SHORT[section],
+            width=0.72,
+            zorder=3,
+        )
         bottom += vals
     ax2 = ax.twinx()
-    ax2.plot(years, cumulative, color="#374151", marker="o", linewidth=2.2, label="Cumulative")
+    ax2.plot(
+        years,
+        cumulative,
+        color="#374151",
+        marker="o",
+        markersize=7,
+        linewidth=2.5,
+        label="Cumulative",
+        zorder=5,
+    )
     for x, total in zip(years, totals):
         if total:
-            ax.text(x, total + 0.7, str(int(total)), ha="center", va="bottom", fontsize=9)
-    ax.axvspan(2025.65, 2026.35, color="#f3e4bd", alpha=0.30, zorder=0)
-    ax.text(2026, max(totals) * 0.88, "2026 YTD\n(to Aug 23)", ha="center", fontsize=9, color="#7c5b20")
-    ax.set_title("Kazakh language based models overview", loc="left", weight="bold", fontsize=16)
-    ax.set_xlabel("Year")
-    ax.set_ylabel("Number of models")
-    ax2.set_ylabel("Cumulative number of models")
-    ax.set_xticks(years)
+            inside_bar = total >= 8
+            ax.text(
+                x,
+                total - 0.8 if inside_bar else total + 0.55,
+                str(int(total)),
+                ha="center",
+                va="top" if inside_bar else "bottom",
+                fontsize=11,
+                weight="bold",
+                color="white" if inside_bar else "#374151",
+                zorder=6,
+            )
+    ax.set_title("Kazakh language based models overview", loc="left", weight="bold", fontsize=20, pad=14)
+    ax.set_xlabel("Year", fontsize=15, labelpad=8)
+    ax.set_ylabel("Number of models", fontsize=15, labelpad=8)
+    ax2.set_ylabel("Cumulative number of models", fontsize=15, labelpad=10)
+    year_labels = [str(year) for year in years]
+    year_labels[-1] = f"{years[-1]}\nYTD"
+    ax.set_xticks(years, year_labels)
     ax.set_ylim(0, max(totals) * 1.18)
     ax2.set_ylim(0, max(cumulative) * 1.12)
-    ax.grid(axis="y", alpha=0.22)
+    ax.tick_params(axis="both", labelsize=12)
+    ax2.tick_params(axis="y", labelsize=12)
+    ax.set_axisbelow(True)
+    ax.grid(axis="y", alpha=0.18, linewidth=0.8, zorder=0)
+    ax2.grid(False)
     handles, labels = ax.get_legend_handles_labels()
     handles2, labels2 = ax2.get_legend_handles_labels()
-    ax.legend(handles + handles2, labels + labels2, frameon=False, ncol=4, loc="upper left")
-    fig.text(0.01, 0.01, "Unit: catalog rows (model families), not individual checkpoints. Unknown-year entries excluded.", fontsize=9, color="#4b5563")
-    fig.tight_layout(rect=(0, 0.04, 1, 1))
+    ax.legend(
+        handles + handles2,
+        labels + labels2,
+        frameon=False,
+        ncol=4,
+        loc="upper left",
+        fontsize=12.5,
+    )
+    fig.text(
+        0.01,
+        0.01,
+        "Unit: catalog rows (model families), not individual checkpoints. 2026 is YTD through Aug 23; unknown-year entries excluded.",
+        fontsize=10.5,
+        color="#4b5563",
+    )
+    fig.tight_layout(rect=(0, 0.055, 1, 1))
     save_figure(fig, "01_releases_by_year")
 
 
