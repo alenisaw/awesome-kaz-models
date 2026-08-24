@@ -2,6 +2,14 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-08-24 — Qolda & Qolda-AVL paper publications & authors pass
+
+### Changed
+
+- Added full author attributions and linked peer-reviewed papers for **Qolda**
+  (IEEE Access) and **Qolda-AVL** (MDPI Big Data and Cognitive Computing)
+  following author submission ([#2](https://github.com/alenisaw/awesome-kaz-models/issues/2)).
+
 ## 2026-08-23 — GigaAM, Sherkala benchmarks & TTS metrics pass
 
 ### Added

@@ -3704,7 +3704,19 @@ models:
     tasks: [Vision-language modelling, OCR]
     tier: A
     kind: multimodal
-    authors: []
+    authors:
+      - name: Batyr Arystanbekov
+        url: null
+      - name: Aspandiyar Nurimanov
+        url: null
+      - name: Akylbek Maxutov
+        url: null
+      - name: Vladimir Albrekht
+        url: null
+      - name: Askat Kuzdeuov
+        url: null
+      - name: Huseyin Atakan Varol
+        url: null
     organization:
       - name: ISSAI, Nazarbayev University
         url: https://issai.nu.edu.kz/
@@ -3733,7 +3745,7 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-23"
+    last_verified: "2026-08-24"
     notes: "License is asserted via a README badge but is not present in the HF cardData/tags metadata — flagged for a maintainer re-check."
 
   - id: qolda-avl
@@ -3744,7 +3756,15 @@ models:
     tasks: [Audio-vision-language modelling]
     tier: A
     kind: multimodal
-    authors: []
+    authors:
+      - name: Batyr Arystanbekov
+        url: null
+      - name: Akylbek Maxutov
+        url: null
+      - name: Aspandiyar Nurimanov
+        url: null
+      - name: Huseyin Atakan Varol
+        url: null
     organization:
       - name: ISSAI, Nazarbayev University
         url: https://issai.nu.edu.kz/
@@ -3773,7 +3793,7 @@ models:
     derivative_of: null
     base_model_id: null
     added_to_catalog: "2026-08-19"
-    last_verified: "2026-08-23"
+    last_verified: "2026-08-24"
     notes: "One family entry covering three size variants (same architecture/recipe at different scales): issai/Qolda-AVL-5B, issai/Qolda-AVL-9B, issai/Qolda-AVL-34B. A GGUF conversion of the 5B variant also exists and is excluded as a format duplicate. storage left null: per-variant checkpoint sizes differ too much for one figure to be meaningful (5B ≈10.2GB, 9B ≈19.0GB, 34B ≈68.3GB, all per the HF API's safetensors file sizes)."
 
   - id: hordevision
