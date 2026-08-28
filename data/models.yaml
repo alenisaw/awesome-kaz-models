@@ -2271,6 +2271,54 @@ models:
     last_verified: "2026-08-22"
     notes: "Added in the 2026-08-22 re-verification pass. Access is gated (contact-info approval required)."
 
+  - id: apertium-kaz
+    name: Apertium Kazakh morphological transducer (apertium-kaz)
+    released: "2014-05"
+    section: "Text, NLP, and LLM"
+    description: Free and open-source rule-based finite-state morphological analyzer, generator, and constraint-grammar POS tagger for Kazakh with 22K+ lexical stems.
+    tasks:
+      - Morphological analysis
+      - POS tagging
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Jonathan North Washington
+        url: null
+      - name: Ilnar Salimzyanov
+        url: null
+      - name: Francis M. Tyers
+        url: null
+    organization:
+      - name: Apertium
+        url: https://apertium.org/
+    architecture: Finite-state transducer (HFST / lttoolbox / Constraint Grammar)
+    base_model: null
+    params:
+      display: null
+      variants: []
+    storage:
+      value: 14.5
+      unit: MB
+    languages: [kk]
+    access: open
+    license: GPL-3.0-or-later
+    links:
+      model: https://github.com/apertium/apertium-kaz
+      paper: https://aclanthology.org/L14-1143/
+      code: https://github.com/apertium/apertium-kaz
+      project: https://apertium.org/
+    training:
+      summary: Hand-crafted rule-based two-level morphology (TWOL / lexc / lexd) and Constraint Grammar disambiguation rules covering 22,000+ lemmas.
+      datasets: []
+    kazakh_evidence: Dedicated Kazakh morphological engine developed for Kazakh NLP and Apertium translation pairs.
+    metrics:
+      summary: "LREC 2014 evaluation: ~90% vocabulary coverage on corpora and high precision on manually verified test sets."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-08-28"
+    last_verified: "2026-08-28"
+    notes: "Foundational rule-based FST tool for Kazakh computational morphology. Widely used for silver-data generation and morphological annotation."
+
   # ---------------------------------------------------------------------
   # Speech and audio
   # ---------------------------------------------------------------------

@@ -11,7 +11,7 @@
 <!-- BADGES:START -->
 <p align="center">
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/alenisaw/awesome-kaz-models?style=flat&color=eda100">
-  <img alt="Models" src="https://img.shields.io/badge/Models-95-2a78d6">
+  <img alt="Models" src="https://img.shields.io/badge/Models-96-2a78d6">
   <img alt="Open weights" src="https://img.shields.io/badge/Open_weights-78%25-2ea44f">
   <img alt="Last verified" src="https://img.shields.io/badge/Last_verified-2026--08--23-1baf7a">
 </p>
@@ -115,7 +115,8 @@ and [CHANGELOG.md](CHANGELOG.md) for what's new.
 | 53 | 2023-04 | **[Kaz-RoBERTa Conversational](https://huggingface.co/kz-transformers/kaz-roberta-conversational)**<br><sub>kz-transformers</sub><br><sub>Open</sub> | MLM | RoBERTa-base trained from scratch on a 25GB multidomain Kazakh corpus spanning formal and conversational text. | 334.0 MB | – 83.5M<br>– RoBERTa |
 | 54 | 2022-09 | **[Uzbek-Kazakh Machine Translation](https://huggingface.co/Sanatbek/uzbek-kazakh-machine-translation)**<br><sub>Sanatbek Matlatipov</sub><br><sub>Open</sub> | MT | Transformer (JoeyNMT) machine translation model trained from scratch for Uzbek-to-Kazakh translation, released with training-step checkpoints and dev/test hypothesis files. | 174.0 MB | – Transformer (JoeyNMT toolkit; 6 encoder/decoder layers, 4 attention heads, 256-dim embeddings) |
 | 55 | 2018 | **[fastText Kazakh word vectors (cc.kk.300)](https://fasttext.cc/docs/en/crawl-vectors.html)**<br><sub>[E. Grave, P. Bojanowski, P. Gupta, A. Joulin, T. Mikolov](https://aclanthology.org/L18-1550/)</sub><br><sub>Open</sub> | EMB | CBOW word embeddings with character n-grams trained on Common Crawl and Wikipedia Kazakh text, part of Facebook AI's 157-language release. | 4.5 GB | – fastText CBOW + character n-grams |
-| 56 | Unknown | **[Stanza Kazakh pipeline (kk_ktb)](https://stanfordnlp.github.io/stanza/available_models.html)**<br><sub>Stanford NLP Group</sub><br><sub>Open</sub> | POS · DEP | Stanford Stanza's Kazakh Universal Dependencies pipeline (tokenize/POS/lemma/dependency parsing), trained on the KTB treebank. | 400.2 MB | – Stanza UD pipeline (biaffine parser + neural taggers) |
+| 56 | 2014-05 | **[Apertium Kazakh morphological transducer (apertium-kaz)](https://github.com/apertium/apertium-kaz)**<br><sub>[Washington et al.](https://aclanthology.org/L14-1143/)</sub><br><sub>Open</sub> | MORPH · POS | Free and open-source rule-based finite-state morphological analyzer, generator, and constraint-grammar POS tagger for Kazakh with 22K+ lexical stems. | 14.5 MB | – Finite-state transducer (HFST / lttoolbox / Constraint Grammar) |
+| 57 | Unknown | **[Stanza Kazakh pipeline (kk_ktb)](https://stanfordnlp.github.io/stanza/available_models.html)**<br><sub>Stanford NLP Group</sub><br><sub>Open</sub> | POS · DEP | Stanford Stanza's Kazakh Universal Dependencies pipeline (tokenize/POS/lemma/dependency parsing), trained on the KTB treebank. | 400.2 MB | – Stanza UD pipeline (biaffine parser + neural taggers) |
 <!-- NLP_SECTION:END -->
 
 ## Speech and audio

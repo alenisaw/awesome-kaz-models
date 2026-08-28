@@ -2,6 +2,12 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-08-28 — Apertium-kaz morphological transducer
+
+### Added
+
+- Added **Apertium Kazakh morphological transducer (apertium-kaz)** to the Text, NLP, and LLM section: open GPL-3.0 rule-based finite-state morphological analyzer, generator, and constraint-grammar POS tagger with 22K+ lexical stems, published at LREC 2014 by Washington, Salimzyanov, and Tyers.
+
 ## 2026-08-24 — Qolda & Qolda-AVL paper publications & authors pass
 
 ### Changed

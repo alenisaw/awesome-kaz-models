@@ -1,32 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="830" height="330" viewBox="0 0 830 330">
-<rect width="830" height="330" fill="#1a1a19"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1110" height="330" viewBox="0 0 1110 330">
+<rect width="1110" height="330" fill="#1a1a19"/>
 <style>text{font-family:"Segoe UI",Inter,Arial,sans-serif;fill:#ffffff}.title{font-size:22px;font-weight:700}.sub{font-size:12px;fill:#c3c2b7}.muted{font-size:11px;fill:#898781}.axis{font-size:12px;fill:#898781}.grid{stroke:#2c2c2a;stroke-width:1}.legend{font-size:12px;fill:#c3c2b7}.endlabel{font-size:12px;font-weight:700}</style>
-<line x1="50" y1="290.0" x2="680" y2="290.0" class="grid"/>
+<line x1="50" y1="290.0" x2="960" y2="290.0" class="grid"/>
 <text x="40" y="294.0" text-anchor="end" class="axis">0</text>
-<line x1="50" y1="223.8181818181818" x2="680" y2="223.8181818181818" class="grid"/>
-<text x="40" y="227.8181818181818" text-anchor="end" class="axis">14</text>
-<line x1="50" y1="157.63636363636365" x2="680" y2="157.63636363636365" class="grid"/>
-<text x="40" y="161.63636363636365" text-anchor="end" class="axis">28</text>
-<line x1="50" y1="96.18181818181819" x2="680" y2="96.18181818181819" class="grid"/>
-<text x="40" y="100.18181818181819" text-anchor="end" class="axis">41</text>
-<line x1="50" y1="30.0" x2="680" y2="30.0" class="grid"/>
-<text x="40" y="34.0" text-anchor="end" class="axis">55</text>
-<text x="50.0" y="312" text-anchor="middle" class="axis">2018</text>
-<text x="128.75" y="312" text-anchor="middle" class="axis">2019</text>
-<text x="207.5" y="312" text-anchor="middle" class="axis">2020</text>
-<text x="286.25" y="312" text-anchor="middle" class="axis">2021</text>
-<text x="365.0" y="312" text-anchor="middle" class="axis">2022</text>
-<text x="443.75" y="312" text-anchor="middle" class="axis">2023</text>
-<text x="522.5" y="312" text-anchor="middle" class="axis">2024</text>
-<text x="601.25" y="312" text-anchor="middle" class="axis">2025</text>
-<text x="680.0" y="312" text-anchor="middle" class="axis">2026</text>
-<polyline points="50.0,285.27272727272725 128.75,285.27272727272725 207.5,285.27272727272725 286.25,285.27272727272725 365.0,280.54545454545456 443.75,247.45454545454544 522.5,204.9090909090909 601.25,134.0 680.0,30.0" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="680.0" cy="30.0" r="4" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
-<text x="690.0" y="34.0" class="endlabel" fill="#3987e5">Text/NLP (55)</text>
-<polyline points="50.0,290.0 128.75,290.0 207.5,285.27272727272725 286.25,271.0909090909091 365.0,266.3636363636364 443.75,247.45454545454544 522.5,238.0 601.25,219.0909090909091 680.0,143.45454545454547" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="680.0" cy="143.45454545454547" r="4" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
-<text x="690.0" y="147.45454545454547" class="endlabel" fill="#d95926">Speech (31)</text>
-<polyline points="50.0,290.0 128.75,290.0 207.5,290.0 286.25,290.0 365.0,290.0 443.75,285.27272727272725 522.5,285.27272727272725 601.25,275.8181818181818 680.0,256.90909090909093" fill="none" stroke="#199e70" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="680.0" cy="256.90909090909093" r="4" fill="#199e70" stroke="#1a1a19" stroke-width="2"/>
-<text x="690.0" y="260.90909090909093" class="endlabel" fill="#199e70">Vision (7)</text>
+<line x1="50" y1="225.0" x2="960" y2="225.0" class="grid"/>
+<text x="40" y="229.0" text-anchor="end" class="axis">14</text>
+<line x1="50" y1="160.0" x2="960" y2="160.0" class="grid"/>
+<text x="40" y="164.0" text-anchor="end" class="axis">28</text>
+<line x1="50" y1="95.0" x2="960" y2="95.0" class="grid"/>
+<text x="40" y="99.0" text-anchor="end" class="axis">42</text>
+<line x1="50" y1="30.0" x2="960" y2="30.0" class="grid"/>
+<text x="40" y="34.0" text-anchor="end" class="axis">56</text>
+<text x="50.0" y="312" text-anchor="middle" class="axis">2014</text>
+<text x="125.83333333333333" y="312" text-anchor="middle" class="axis">2015</text>
+<text x="201.66666666666666" y="312" text-anchor="middle" class="axis">2016</text>
+<text x="277.5" y="312" text-anchor="middle" class="axis">2017</text>
+<text x="353.3333333333333" y="312" text-anchor="middle" class="axis">2018</text>
+<text x="429.1666666666667" y="312" text-anchor="middle" class="axis">2019</text>
+<text x="505.0" y="312" text-anchor="middle" class="axis">2020</text>
+<text x="580.8333333333334" y="312" text-anchor="middle" class="axis">2021</text>
+<text x="656.6666666666666" y="312" text-anchor="middle" class="axis">2022</text>
+<text x="732.5" y="312" text-anchor="middle" class="axis">2023</text>
+<text x="808.3333333333334" y="312" text-anchor="middle" class="axis">2024</text>
+<text x="884.1666666666666" y="312" text-anchor="middle" class="axis">2025</text>
+<text x="960.0" y="312" text-anchor="middle" class="axis">2026</text>
+<polyline points="50.0,285.35714285714283 125.83333333333333,285.35714285714283 201.66666666666666,285.35714285714283 277.5,285.35714285714283 353.3333333333333,280.7142857142857 429.1666666666667,280.7142857142857 505.0,280.7142857142857 580.8333333333334,280.7142857142857 656.6666666666666,276.07142857142856 732.5,243.57142857142856 808.3333333333334,201.78571428571428 884.1666666666666,132.14285714285717 960.0,30.0" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="960.0" cy="30.0" r="4" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<text x="970.0" y="34.0" class="endlabel" fill="#3987e5">Text/NLP (56)</text>
+<polyline points="50.0,290.0 125.83333333333333,290.0 201.66666666666666,290.0 277.5,290.0 353.3333333333333,290.0 429.1666666666667,290.0 505.0,285.35714285714283 580.8333333333334,271.42857142857144 656.6666666666666,266.7857142857143 732.5,248.21428571428572 808.3333333333334,238.92857142857144 884.1666666666666,220.35714285714286 960.0,146.07142857142856" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="960.0" cy="146.07142857142856" r="4" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<text x="970.0" y="150.07142857142856" class="endlabel" fill="#d95926">Speech (31)</text>
+<polyline points="50.0,290.0 125.83333333333333,290.0 201.66666666666666,290.0 277.5,290.0 353.3333333333333,290.0 429.1666666666667,290.0 505.0,290.0 580.8333333333334,290.0 656.6666666666666,290.0 732.5,285.35714285714283 808.3333333333334,285.35714285714283 884.1666666666666,276.07142857142856 960.0,257.5" fill="none" stroke="#199e70" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="960.0" cy="257.5" r="4" fill="#199e70" stroke="#1a1a19" stroke-width="2"/>
+<text x="970.0" y="261.5" class="endlabel" fill="#199e70">Vision (7)</text>
 </svg>
