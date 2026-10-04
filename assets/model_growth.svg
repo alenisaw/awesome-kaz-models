@@ -3,14 +3,14 @@
 <style>text{font-family:"Segoe UI",Inter,Arial,sans-serif;fill:#0b0b0b}.title{font-size:22px;font-weight:700}.sub{font-size:12px;fill:#52514e}.muted{font-size:11px;fill:#898781}.axis{font-size:12px;fill:#898781}.grid{stroke:#e1e0d9;stroke-width:1}.legend{font-size:12px;fill:#52514e}.endlabel{font-size:12px;font-weight:700}</style>
 <line x1="50" y1="290.0" x2="960" y2="290.0" class="grid"/>
 <text x="40" y="294.0" text-anchor="end" class="axis">0</text>
-<line x1="50" y1="225.0" x2="960" y2="225.0" class="grid"/>
-<text x="40" y="229.0" text-anchor="end" class="axis">14</text>
-<line x1="50" y1="160.0" x2="960" y2="160.0" class="grid"/>
-<text x="40" y="164.0" text-anchor="end" class="axis">28</text>
-<line x1="50" y1="95.0" x2="960" y2="95.0" class="grid"/>
-<text x="40" y="99.0" text-anchor="end" class="axis">42</text>
+<line x1="50" y1="223.89830508474577" x2="960" y2="223.89830508474577" class="grid"/>
+<text x="40" y="227.89830508474577" text-anchor="end" class="axis">15</text>
+<line x1="50" y1="157.79661016949154" x2="960" y2="157.79661016949154" class="grid"/>
+<text x="40" y="161.79661016949154" text-anchor="end" class="axis">30</text>
+<line x1="50" y1="96.10169491525423" x2="960" y2="96.10169491525423" class="grid"/>
+<text x="40" y="100.10169491525423" text-anchor="end" class="axis">44</text>
 <line x1="50" y1="30.0" x2="960" y2="30.0" class="grid"/>
-<text x="40" y="34.0" text-anchor="end" class="axis">56</text>
+<text x="40" y="34.0" text-anchor="end" class="axis">59</text>
 <text x="50.0" y="312" text-anchor="middle" class="axis">2014</text>
 <text x="125.83333333333333" y="312" text-anchor="middle" class="axis">2015</text>
 <text x="201.66666666666666" y="312" text-anchor="middle" class="axis">2016</text>
@@ -24,13 +24,13 @@
 <text x="808.3333333333334" y="312" text-anchor="middle" class="axis">2024</text>
 <text x="884.1666666666666" y="312" text-anchor="middle" class="axis">2025</text>
 <text x="960.0" y="312" text-anchor="middle" class="axis">2026</text>
-<polyline points="50.0,285.35714285714283 125.83333333333333,285.35714285714283 201.66666666666666,285.35714285714283 277.5,285.35714285714283 353.3333333333333,280.7142857142857 429.1666666666667,280.7142857142857 505.0,280.7142857142857 580.8333333333334,280.7142857142857 656.6666666666666,276.07142857142856 732.5,243.57142857142856 808.3333333333334,201.78571428571428 884.1666666666666,132.14285714285717 960.0,30.0" fill="none" stroke="#164a89" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="50.0,285.59322033898303 125.83333333333333,285.59322033898303 201.66666666666666,285.59322033898303 277.5,285.59322033898303 353.3333333333333,281.1864406779661 429.1666666666667,281.1864406779661 505.0,281.1864406779661 580.8333333333334,281.1864406779661 656.6666666666666,276.77966101694915 732.5,245.9322033898305 808.3333333333334,206.27118644067798 884.1666666666666,140.16949152542372 960.0,30.0" fill="none" stroke="#164a89" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="960.0" cy="30.0" r="4" fill="#164a89" stroke="#fcfcfb" stroke-width="2"/>
-<text x="970.0" y="34.0" class="endlabel" fill="#164a89">Text/NLP (56)</text>
-<polyline points="50.0,290.0 125.83333333333333,290.0 201.66666666666666,290.0 277.5,290.0 353.3333333333333,290.0 429.1666666666667,290.0 505.0,285.35714285714283 580.8333333333334,271.42857142857144 656.6666666666666,266.7857142857143 732.5,248.21428571428572 808.3333333333334,238.92857142857144 884.1666666666666,220.35714285714286 960.0,146.07142857142856" fill="none" stroke="#9a4422" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="960.0" cy="146.07142857142856" r="4" fill="#9a4422" stroke="#fcfcfb" stroke-width="2"/>
-<text x="970.0" y="150.07142857142856" class="endlabel" fill="#9a4422">Speech (31)</text>
-<polyline points="50.0,290.0 125.83333333333333,290.0 201.66666666666666,290.0 277.5,290.0 353.3333333333333,290.0 429.1666666666667,290.0 505.0,290.0 580.8333333333334,290.0 656.6666666666666,290.0 732.5,285.35714285714283 808.3333333333334,285.35714285714283 884.1666666666666,276.07142857142856 960.0,257.5" fill="none" stroke="#127250" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="960.0" cy="257.5" r="4" fill="#127250" stroke="#fcfcfb" stroke-width="2"/>
-<text x="970.0" y="261.5" class="endlabel" fill="#127250">Vision (7)</text>
+<text x="970.0" y="34.0" class="endlabel" fill="#164a89">Text/NLP (59)</text>
+<polyline points="50.0,290.0 125.83333333333333,290.0 201.66666666666666,290.0 277.5,290.0 353.3333333333333,290.0 429.1666666666667,290.0 505.0,285.59322033898303 580.8333333333334,272.3728813559322 656.6666666666666,267.96610169491527 732.5,250.33898305084745 808.3333333333334,241.52542372881356 884.1666666666666,223.89830508474577 960.0,148.98305084745763" fill="none" stroke="#9a4422" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="960.0" cy="148.98305084745763" r="4" fill="#9a4422" stroke="#fcfcfb" stroke-width="2"/>
+<text x="970.0" y="152.98305084745763" class="endlabel" fill="#9a4422">Speech (32)</text>
+<polyline points="50.0,290.0 125.83333333333333,290.0 201.66666666666666,290.0 277.5,290.0 353.3333333333333,290.0 429.1666666666667,290.0 505.0,290.0 580.8333333333334,290.0 656.6666666666666,290.0 732.5,285.59322033898303 808.3333333333334,285.59322033898303 884.1666666666666,276.77966101694915 960.0,254.74576271186442" fill="none" stroke="#127250" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="960.0" cy="254.74576271186442" r="4" fill="#127250" stroke="#fcfcfb" stroke-width="2"/>
+<text x="970.0" y="258.7457627118644" class="endlabel" fill="#127250">Vision (8)</text>
 </svg>

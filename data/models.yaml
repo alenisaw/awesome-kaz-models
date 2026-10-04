@@ -2319,6 +2319,126 @@ models:
     last_verified: "2026-08-28"
     notes: "Foundational rule-based FST tool for Kazakh computational morphology. Widely used for silver-data generation and morphological annotation."
 
+  - id: kazakh-trilingual-gliner
+    name: Kazakh Trilingual GLiNER
+    released: "2026-09"
+    section: "Text, NLP, and LLM"
+    description: Trilingual (Kazakh, Russian, English) zero-shot Named Entity Recognition model based on GLiNER (multilingual DeBERTa-v3), supporting open-vocabulary entity extraction without retraining.
+    tasks: [Named entity recognition]
+    tier: A
+    kind: task-finetune
+    authors:
+      - name: Ardak Shalkar
+        url: null
+    organization: []
+    architecture: GLiNER (Multilingual DeBERTa-v3)
+    base_model: urchade/gliner_multi-v2.1
+    params:
+      display: "≈209M"
+      variants: []
+    storage:
+      value: 2.17
+      unit: GB
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/ardakshalkar/kazakh-trilingual-gliner
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned on 34,000+ blended sentences from KazNERD and university administrative inquiry communications.
+      datasets: [issai/kaznerd]
+    kazakh_evidence: Fine-tuned on the KazNERD benchmark and Kazakh academic inquiries, reporting 90.0% micro F1 on held-out test data.
+    metrics:
+      summary: "Reported Micro F1: 90.0% (Recall 92.5%, Precision 87.6%) on held-out test split."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-10-04"
+    last_verified: "2026-10-04"
+    notes: "Quantized/pruned variant ardakshalkar/kazakh-trilingual-gliner-small exists as an export."
+
+  - id: darmm-chat-kazakh-8b
+    name: Darmm Chat Kazakh 8B
+    released: "2026-09"
+    section: "Text, NLP, and LLM"
+    description: Conversational assistant for Kazakh (retaining Russian and English), trained as a QLoRA instruction fine-tune of Qwen3-8B on 105k instruction pairs (65k Kazakh).
+    tasks: [Instruction following, Text generation]
+    tier: A
+    kind: instruction
+    authors:
+      - name: Rakhat Zhumabek
+        url: null
+    organization: []
+    architecture: Qwen3-8B + QLoRA
+    base_model: Qwen/Qwen3-8B
+    params:
+      display: "≈8.2B"
+      variants: []
+    storage:
+      value: 15.27
+      unit: GB
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Darmm/darmm-chat-kazakh-8b
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: QLoRA fine-tuning on 105k instruction pairs (65k Kazakh, 25k Russian, 15k English).
+      datasets: []
+    kazakh_evidence: Trained on 65k Kazakh instruction pairs with reported zero-shot gains on KazMMLU (38.3% vs 27.9% base) and Belebele (39.8% vs 27.2% base).
+    metrics:
+      summary: "Reported 38.3% on KazMMLU (Kazakh subjects) and 39.8% on Belebele (kaz_Cyrl)."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-10-04"
+    last_verified: "2026-10-04"
+    notes: "Supersedes the darmm-text-generation family. Standalone LoRA adapter weights also available at Darmm/darmm-chat-kazakh-8b-lora."
+
+  - id: darmm-embed-kazakh-v2
+    name: Darmm Embed Kazakh v2
+    released: "2026-09"
+    section: "Text, NLP, and LLM"
+    description: Second-generation dense retrieval and text embedding model for Kazakh, fine-tuned from BAAI/bge-m3 on 373k Kazakh structural and cross-lingual pairs.
+    tasks: [Embeddings / dense retrieval]
+    tier: A
+    kind: embedding
+    authors:
+      - name: Rakhat Zhumabek
+        url: null
+    organization: []
+    architecture: BGE-M3 (XLM-RoBERTa, 1024-dim)
+    base_model: BAAI/bge-m3
+    params:
+      display: "≈568M"
+      variants: []
+    storage:
+      value: 2.13
+      unit: GB
+    languages: [kk, ru, en]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Darmm/darmm-embed-kazakh-v2
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Fine-tuned with MultipleNegativesRankingLoss on 373k pairs from Darmm/darmm-kk-retrieval-pairs (Wikipedia structural pairs, WikiMatrix, NLLB, instruction QA).
+      datasets: [Darmm/darmm-kk-retrieval-pairs]
+    kazakh_evidence: Dedicated Kazakh retrieval fine-tuning and evaluation on 6,322 Kazakh article title-lead pairs, demonstrating 0.733 MRR@10 and 0.775 Recall@10.
+    metrics:
+      summary: "Reported Kazakh retrieval MRR@10 0.733, Recall@10 0.775; cross-lingual kk->ru Accuracy@1 0.668, kk->en 0.918."
+    derivative_of: darmm-embedding-multilingual
+    base_model_id: null
+    added_to_catalog: "2026-10-04"
+    last_verified: "2026-10-04"
+    notes: "Supersedes Darmm/darmm-embedding-multilingual."
+
   # ---------------------------------------------------------------------
   # Speech and audio
   # ---------------------------------------------------------------------
@@ -3658,6 +3778,45 @@ models:
     last_verified: "2026-08-22"
     notes: "Repository name (\"kazakh-tts\") is misleading — confirmed via pipeline_tag, config.architectures, and model card that this is an ASR model, not TTS. Same base model and params as krasr-whisper-small-kkru (both full fine-tunes of openai/whisper-small), but a distinct training run on a different dataset."
 
+  - id: kazakh-russian-mixed-stt
+    name: Kazakh-Russian Mixed STT
+    released: "2026-09"
+    section: "Speech and audio"
+    description: Acoustic speech recognition model tailored for mixed Kazakh-Russian conversational speech, telephony, and code-switching, built on Wav2Vec2 with CTC and KenLM decoding.
+    tasks: [Automatic speech recognition]
+    tier: A
+    kind: speech
+    authors:
+      - name: Alibi Serikbay
+        url: null
+    organization: []
+    architecture: Wav2Vec2 + CTC + KenLM
+    base_model: null
+    params:
+      display: "≈317M"
+      variants: []
+    storage:
+      value: 8.63
+      unit: GB
+    languages: [kk, ru]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/alibiserikbay/kazakh-russian-mixed-stt
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: Trained on ISSAI KSC2, YO-CPT-ru, and FLEURS across monolingual Kazakh, monolingual Russian, and code-switched audio.
+      datasets: [issai/Kazakh_Speech_Corpus_2, google/fleurs]
+    kazakh_evidence: Explicit training on ISSAI KSC2 and FLEURS kk_kz with published WER/CER evaluation.
+    metrics:
+      summary: "Reported FLEURS (kk_kz) test WER 12.78%, CER 4.88% with KenLM beam-1000."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-10-04"
+    last_verified: "2026-10-04"
+
   # ---------------------------------------------------------------------
   # Vision, OCR, and multimodal
   # ---------------------------------------------------------------------
@@ -3743,6 +3902,46 @@ models:
     added_to_catalog: "2026-08-19"
     last_verified: "2026-08-19"
     notes: null
+
+  - id: darmm-ocr-kazakh-vl-3b
+    name: Darmm Kazakh OCR VL-3B
+    released: "2026-09"
+    section: "Vision, OCR, and multimodal"
+    description: Vision-language OCR model fine-tuned from Qwen2.5-VL-3B-Instruct for printed Kazakh Cyrillic text, reading entire document pages and line/word crops directly without an external text detector.
+    tasks: [OCR]
+    tier: A
+    kind: multimodal
+    authors:
+      - name: Rakhat Zhumabek
+        url: null
+    organization: []
+    architecture: Qwen2.5-VL-3B-Instruct + LoRA
+    base_model: Qwen/Qwen2.5-VL-3B-Instruct
+    params:
+      display: "≈3.75B"
+      variants: []
+    storage:
+      value: 7.00
+      unit: GB
+    languages: [kk]
+    access: open
+    license: Apache-2.0
+    links:
+      model: https://huggingface.co/Darmm/darmm-ocr-kazakh-vl-3b
+      paper: null
+      code: null
+      project: null
+    training:
+      summary: LoRA fine-tuning (r=32) on 157k synthetic samples from Darmm/darmm-ocr-kazakh-v2 (clean crops, hard degraded crops, and multi-line full pages).
+      datasets: [Darmm/darmm-ocr-kazakh-v2]
+    kazakh_evidence: Trained on Kazakh Cyrillic synthetic texts with Kazakh-specific characters and evaluated on held-out test splits.
+    metrics:
+      summary: "Reported CER on test split: clean line crops 0.65%, hard line crops 0.54%, full pages 0.85%."
+    derivative_of: null
+    base_model_id: null
+    added_to_catalog: "2026-10-04"
+    last_verified: "2026-10-04"
+    notes: "Supersedes the unverified 0.3B TrOCR prototype (darmm-ocr-kazakh-cyrillic-model)."
 
   - id: qolda
     name: Qolda

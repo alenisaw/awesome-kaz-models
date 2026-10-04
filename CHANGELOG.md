@@ -2,6 +2,16 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-10-04 — Fall 2026 models addition pass
+
+### Added
+
+- Added **Kazakh Trilingual GLiNER** (`kazakh-trilingual-gliner`): open-vocabulary zero-shot NER model (DeBERTa-v3 backbone, ~209M) fine-tuned by Ardak Shalkar on KazNERD and academic inquiries (90.0% micro F1).
+- Added **Darmm Chat Kazakh 8B** (`darmm-chat-kazakh-8b`): QLoRA conversational assistant for Kazakh fine-tuned from Qwen3-8B on 105k instruction pairs.
+- Added **Darmm Embed Kazakh v2** (`darmm-embed-kazakh-v2`): second-generation dense retrieval and semantic search model fine-tuned from BAAI/bge-m3 on 373k Kazakh pairs.
+- Added **Kazakh-Russian Mixed STT** (`kazakh-russian-mixed-stt`): bilingual speech-to-text model by Alibi Serikbay built on Wav2Vec2 + CTC + KenLM for telephony and code-switched conversational speech.
+- Added **Darmm Kazakh OCR VL-3B** (`darmm-ocr-kazakh-vl-3b`): end-to-end vision-language OCR model fine-tuned from Qwen2.5-VL-3B-Instruct for printed Kazakh Cyrillic document pages and text crops.
+
 ## 2026-08-28 — Apertium-kaz morphological transducer
 
 ### Added
