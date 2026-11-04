@@ -2439,6 +2439,137 @@ models:
     last_verified: "2026-10-04"
     notes: "Supersedes Darmm/darmm-embedding-multilingual."
 
+  - id: qwen3-kazakh-text-to-sql
+    name: Qwen3-1.7B Kazakh Text-to-SQL (GRPO)
+    released: "2026-10"
+    section: "Text, NLP, and LLM"
+    description: "Kazakh natural-language to SQLite query translation model fine-tuned from Qwen3-1.7B-Base via a three-stage curriculum (SFT -> DPO -> GRPO with execution reward)."
+    tasks:
+      - Question answering
+    tier: A
+    kind: task-finetune
+    access: open
+    license: Apache-2.0
+    languages:
+      - kk
+    architecture: Qwen3-1.7B (QLoRA SFT + DPO + GRPO)
+    base_model: Qwen/Qwen3-1.7B-Base
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: Rakhat Masat
+        url: https://github.com/RakhatMM
+    organization: []
+    params:
+      display: "≈1.7B"
+      variants: []
+    storage:
+      unit: GB
+      value: 3.22
+    links:
+      model: https://huggingface.co/RakhatM/qwen3-1.7b-kazakh-text-to-sql-grpo
+      code: https://github.com/RakhatMM/llm-finetuning-course
+      paper: null
+      project: null
+    metrics:
+      summary: "Trained with GRPO execution reward on SQLite query match over 13 domain databases."
+    training:
+      datasets:
+        - RakhatM/kazakh-text-to-sql
+      summary: "Three-stage training on RakhatM/kazakh-text-to-sql: Stage 1 SFT on 3,744 question-SQL pairs; Stage 2 DPO+RPO on 1,568 preference pairs; Stage 3 GRPO on 1,650 prompts with execution reward."
+    kazakh_evidence: Kazakh-specific Text-to-SQL translation for relational databases with dedicated Kazakh prompt-query dataset.
+    last_verified: "2026-11-04"
+    added_to_catalog: "2026-11-04"
+
+  - id: kazroberta-spelling-detector
+    name: KazRoBERTa Spelling Detector
+    released: "2026-10"
+    section: "Text, NLP, and LLM"
+    description: Token classification model for detecting spelling and orthographic errors in Kazakh text, fine-tuned from kaz-roberta-conversational for the Turan Text Corrector.
+    tasks:
+      - Grammar correction
+      - Text classification
+    tier: A
+    kind: task-finetune
+    access: open
+    license: Apache-2.0
+    languages:
+      - kk
+    architecture: RoBERTa (token classification)
+    base_model: kz-transformers/kaz-roberta-conversational
+    base_model_id: kaz-roberta-conversational
+    derivative_of: null
+    authors:
+      - name: Daniyar
+        url: https://github.com/daniyar3348
+    organization: []
+    params:
+      display: "≈110M"
+      variants: []
+    storage:
+      unit: MB
+      value: 328.6
+    links:
+      model: https://huggingface.co/daniyar51/kazroberta-kazakh-spelling-detector
+      code: https://github.com/daniyar3348/text_corrector
+      paper: null
+      project: https://correctecor.kz
+    metrics:
+      summary: "Reported test F1 87.7% on misspelled words (KEEP/ERROR); 81.2% sentences fully corrected in combination with the bundled lexicon corrector."
+    training:
+      datasets: []
+      summary: "Fine-tuned from kaz-roberta-conversational on sentences with synthetic Kazakh orthographic noise (keyboard layout errors, vowel harmony violations, specific Kazakh letter substitutions)."
+    kazakh_evidence: Kazakh-specific spell-checking token classifier targeting Kazakh orthography and keyboard substitutions.
+    last_verified: "2026-11-04"
+    added_to_catalog: "2026-11-04"
+
+  - id: yandex-8b-wmt26
+    name: Yandex-8B-WMT26
+    released: "2026-10"
+    section: "Text, NLP, and LLM"
+    description: 8B causal language model fine-tuned for the WMT26 General Machine Translation shared task, translating English into Kazakh, Russian, Belarusian, and Armenian.
+    tasks:
+      - Machine translation
+    tier: B
+    kind: translation
+    access: open
+    license: Other
+    languages:
+      - en
+      - kk
+      - ru
+      - be
+      - hy
+    architecture: YandexGPT-5-Lite-8B
+    base_model: yandex/YandexGPT-5-Lite-8B-pretrain
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: Yandex researchers
+        url: https://yandex.com/company
+    organization:
+      - name: Yandex
+        url: https://yandex.com
+    params:
+      display: "≈8B"
+      variants: []
+    storage:
+      unit: GB
+      value: 14.97
+    links:
+      model: https://huggingface.co/yandex/Yandex-8B-WMT26
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "Submitted to WMT26 General MT shared task constrained track for English-to-Kazakh translation."
+    training:
+      datasets: []
+      summary: "Fine-tuned from YandexGPT-5-Lite-8B-pretrain under WMT26 constrained track rules on official parallel data for en->kk, en->ru, en->be, en->hy."
+    kazakh_evidence: Explicit target language in WMT26 translation submission with dedicated English-Kazakh parallel tuning.
+    last_verified: "2026-11-04"
+    added_to_catalog: "2026-11-04"
+
   # ---------------------------------------------------------------------
   # Speech and audio
   # ---------------------------------------------------------------------
@@ -3816,6 +3947,185 @@ models:
     base_model_id: null
     added_to_catalog: "2026-10-04"
     last_verified: "2026-10-04"
+
+  - id: k5-kazakh-russian-stt
+    name: k5 Kazakh-Russian STT (streaming, 600M)
+    released: "2026-10"
+    section: "Speech and audio"
+    description: Streaming Conformer-CTC speech-to-text model for Kazakh, Russian, and code-switched speech fine-tuned from GigaAM-Multilingual on 2,364 hours of speech with KenLM decoding and inverse text normalization.
+    tasks:
+      - Automatic speech recognition
+    tier: A
+    kind: speech
+    access: open
+    license: CC-BY-SA-4.0
+    languages:
+      - kk
+      - ru
+    architecture: Conformer-CTC (streaming) + KenLM
+    base_model: ai-sage/GigaAM-Multilingual (large_ctc)
+    base_model_id: gigaam-multilingual
+    derivative_of: null
+    authors:
+      - name: Alibi Serikbay
+        url: null
+    organization: []
+    params:
+      display: "600M"
+      variants: []
+    storage:
+      unit: GB
+      value: 11.81
+    links:
+      model: https://huggingface.co/alibiserikbay/k5-kazakh-russian-stt
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "Reported FLEURS kk test WER 9.14% (best among open models tested); KSC2 mixed kk-ru test WER 11.19%."
+    training:
+      datasets:
+        - issai/Kazakh_Speech_Corpus_2
+        - google/fleurs
+      summary: "Fine-tuned from GigaAM-Multilingual large_ctc on 2,364 h open speech (KSC2, KSD, FLEURS kk/ru, Golos, SOVA, LibriSpeech ru) with simulated telephony augmentation, KenLM 4-gram LM, and rule-based inverse text normalization."
+    kazakh_evidence: Dedicated fine-tune on Kazakh speech corpora with benchmark evaluations on FLEURS kk and KSC2.
+    last_verified: "2026-11-04"
+    added_to_catalog: "2026-11-04"
+
+  - id: k5-kazakh-omnivoice
+    name: k5 Kazakh OmniVoice
+    released: "2026-10"
+    section: "Speech and audio"
+    description: "Zero-shot text-to-speech and voice cloning model for Kazakh and Russian fine-tuned from OmniVoice (diffusion LM on Qwen3-0.6B backbone) on KazakhTTS2 and KazEmoTTS."
+    tasks:
+      - Text-to-speech
+    tier: A
+    kind: speech
+    access: open
+    license: CC-BY-NC-4.0
+    languages:
+      - kk
+      - ru
+    architecture: OmniVoice (diffusion LM on Qwen3-0.6B backbone)
+    base_model: k2-fsa/OmniVoice
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: Alibi Serikbay
+        url: null
+    organization: []
+    params:
+      display: "≈613M"
+      variants: []
+    storage:
+      unit: GB
+      value: 2.3
+    links:
+      model: https://huggingface.co/alibiserikbay/k5-kazakh-omnivoice
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: null
+    training:
+      datasets:
+        - ai4kazakh/ISSAI_KazakhTTS2
+        - kazemotts
+      summary: "Fine-tuned from k2-fsa/OmniVoice on KazakhTTS2, KazEmoTTS (emotional reference voices: happy, surprise, sad, angry), and Russian/mixed code-switching speech clips for zero-shot speaker cloning."
+    kazakh_evidence: Kazakh-focused zero-shot TTS fine-tuning on multiple Kazakh speech datasets.
+    last_verified: "2026-11-04"
+    added_to_catalog: "2026-11-04"
+
+  - id: kokoro-tts-kazakh
+    name: Kokoro TTS Kazakh (km_m1)
+    released: "2026-07"
+    section: "Speech and audio"
+    description: Lightweight 82M single-speaker Kazakh text-to-speech voice built by fine-tuning Kokoro-82M on ISSAI KazakhTTS2 with a StyleTTS2 pipeline, running in real-time on CPU.
+    tasks:
+      - Text-to-speech
+    tier: A
+    kind: speech
+    access: open
+    license: Apache-2.0
+    languages:
+      - kk
+    architecture: Kokoro-82M (StyleTTS2)
+    base_model: hexgrad/Kokoro-82M
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: Nuraidar Mambetaly
+        url: https://www.linkedin.com/in/nuraidar-mambetaly-b4120a330/
+      - name: Anuar Sultanbekov
+        url: https://www.linkedin.com/in/anuar-sultanbekov-747288249
+      - name: Altair Balakhazy
+        url: https://www.linkedin.com/in/altair-balakhazy-197843354/
+    organization:
+      - name: TilLabs
+        url: https://huggingface.co/TilLabs
+    params:
+      display: "82M"
+      variants: []
+    storage:
+      unit: MB
+      value: 313.7
+    links:
+      model: https://huggingface.co/TilLabs/kokoro-tts-kazakh
+      code: https://github.com/semidark/kikiri-tts
+      paper: null
+      project: null
+    metrics:
+      summary: "Reported 16.4% WER on held-out Kazakh validation sentences using Whisper ASR scoring; 1.1x–3.1x real-time speedup on CPU."
+    training:
+      datasets:
+        - ai4kazakh/ISSAI_KazakhTTS2
+      summary: "Fine-tuned Kokoro-82M on 102.8 hours of single-speaker (km_m1) audio from ISSAI KazakhTTS2 over 5 epochs with StyleTTS2 adversarial/SLM training and espeak-ng IPA phonemization."
+    kazakh_evidence: Dedicated Kazakh voice model trained exclusively on Kazakh speech with Kazakh phonemization.
+    last_verified: "2026-11-04"
+    added_to_catalog: "2026-11-04"
+
+  - id: nemotron-transcribe-kk-v2
+    name: Nemotron-3.5-Transcribe-kk-v2
+    released: "2026-11"
+    section: "Speech and audio"
+    description: Kazakh speech recognition fine-tune of NVIDIA Nemotron-3.5-Transcribe-30B-A4B with hybrid Mamba-Transformer MoE backbone, producing punctuated and cased Kazakh transcripts.
+    tasks:
+      - Automatic speech recognition
+    tier: A
+    kind: speech
+    access: open
+    license: OpenMDW-1.1
+    languages:
+      - kk
+    architecture: Hybrid Mamba-Transformer MoE (~4.3B active / 30B total), LoRA
+    base_model: nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: Sherkhan243
+        url: https://huggingface.co/Sherkhan243
+    organization: []
+    params:
+      display: "30B (4.3B active)"
+      variants: []
+    storage:
+      unit: GB
+      value: 62.89
+    links:
+      model: https://huggingface.co/Sherkhan243/Nemotron-3.5-Transcribe-kk-v2
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "Reported FLEURS kk_kz test WER 8.51%, CER 2.22%; KSC2 full test WER 14.34%, CER 4.60% (read speech 9.0% WER, TV news 8.6% WER)."
+    training:
+      datasets:
+        - InflexionLab/ISSAI-KSC2-Structured
+        - google/fleurs
+      summary: "Trained on ~1,193 h of Kazakh speech (ISSAI-KSC2-Structured train 1,158 h + FLEURS kk train x3) using NeMo Speech SALMAutomodel with LoRA (r=64, alpha=128) and full audio projection/encoder tuning."
+    kazakh_evidence: Full adaptation to Kazakh of a base model that originally lacked Kazakh support, with thorough evaluation on KSC2 and FLEURS.
+    last_verified: "2026-11-04"
+    added_to_catalog: "2026-11-04"
 
   # ---------------------------------------------------------------------
   # Vision, OCR, and multimodal

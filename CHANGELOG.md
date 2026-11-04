@@ -2,6 +2,18 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-11-04 — Late Fall 2026 models addition pass
+
+### Added
+
+- Added **k5 Kazakh-Russian STT (streaming, 600M)** (`k5-kazakh-russian-stt`): streaming Conformer-CTC speech recognition model fine-tuned by Alibi Serikbay from GigaAM-Multilingual on 2,364 hours of speech with KenLM and inverse text normalization (FLEURS kk WER 9.14%).
+- Added **k5 Kazakh OmniVoice** (`k5-kazakh-omnivoice`): zero-shot text-to-speech and voice cloning model for Kazakh and Russian fine-tuned by Alibi Serikbay from OmniVoice (diffusion LM on Qwen3-0.6B) on KazakhTTS2 and KazEmoTTS.
+- Added **Kokoro TTS Kazakh (km_m1)** (`kokoro-tts-kazakh`): lightweight 82M single-speaker Kazakh text-to-speech model built by TilLabs (Mambetaly, Sultanbekov, Balakhazy) on ISSAI KazakhTTS2, running real-time on CPU (16.4% held-out WER).
+- Added **Nemotron-3.5-Transcribe-kk-v2** (`nemotron-transcribe-kk-v2`): Kazakh speech recognition fine-tune of NVIDIA Nemotron-3.5-Transcribe-30B-A4B MoE by Sherkhan243, producing punctuated and cased transcripts (FLEURS kk WER 8.51%, KSC2 test WER 14.34%).
+- Added **Qwen3-1.7B Kazakh Text-to-SQL (GRPO)** (`qwen3-kazakh-text-to-sql`): Kazakh natural language to SQLite query translation model by Rakhat Masat, trained via a 3-stage curriculum (SFT -> DPO -> GRPO with execution reward).
+- Added **KazRoBERTa Spelling Detector** (`kazroberta-spelling-detector`): token classification model for orthographic error detection in Kazakh text by Daniyar (Turan Text Corrector, test F1 87.7% on misspelled words).
+- Added **Yandex-8B-WMT26** (`yandex-8b-wmt26`): 8B causal language model fine-tuned by Yandex for the WMT26 General MT shared task constrained track, translating English into Kazakh, Russian, Belarusian, and Armenian.
+
 ## 2026-10-04 — Fall 2026 models addition pass
 
 ### Added
