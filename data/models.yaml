@@ -2570,6 +2570,137 @@ models:
     last_verified: "2026-11-04"
     added_to_catalog: "2026-11-04"
 
+  - id: bge-m3-kaz-16384
+    name: BGE-M3 Kazakh (16k, trimmed)
+    released: "2026-02"
+    section: "Text, NLP, and LLM"
+    description: Vocabulary-trimmed variant of BAAI/bge-m3 optimized for Kazakh with a 16,384-token context length; non-Kazakh tokens pruned to reduce parameters by 42.1% and memory footprint while retaining dense retrieval accuracy.
+    tasks:
+      - Embeddings / dense retrieval
+    tier: B
+    kind: embedding
+    access: open
+    license: MIT
+    languages:
+      - kk
+    architecture: XLM-RoBERTa (1024-dim, trimmed 16k vocab)
+    base_model: BAAI/bge-m3
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: AlphaEdgeAI
+        url: https://huggingface.co/alphaedge-ai
+    organization: []
+    params:
+      display: "328.5M"
+      variants: []
+    storage:
+      value: 1.31
+      unit: GB
+    links:
+      model: https://huggingface.co/alphaedge-ai/bge-m3-kaz-16384
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "93.45% vocabulary reduction (250,002 to 16,384 tokens) yielding 42.14% parameter reduction (567.8M to 328.5M params)."
+    training:
+      datasets:
+        - lbourdois/fineweb-2-trimming
+      summary: "Vocabulary trimmed using frequency mining on Kazakh subsets of FineWeb-2 via tokenizer vocabulary pruning."
+    kazakh_evidence: Explicit Kazakh-specific vocabulary pruning and tokenizer optimization for Kazakh retrieval.
+    last_verified: "2026-11-11"
+    added_to_catalog: "2026-11-11"
+
+  - id: qazwen-2b
+    name: Qazwen-2B
+    released: "2026-10"
+    section: "Text, NLP, and LLM"
+    description: Instruction-tuned Kazakh language model adapter on Qwen3.5-2B, trained by Abai University for conversational, instructional, and reasoning tasks in Kazakh.
+    tasks:
+      - Large language model
+      - Instruction following
+    tier: B
+    kind: instruction
+    access: open
+    license: Apache-2.0
+    languages:
+      - kk
+      - ru
+      - en
+    architecture: Qwen3.5-2B + LoRA (r=16, alpha=32)
+    base_model: Qwen/Qwen3.5-2B
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: Abai Kazakh National Pedagogical University
+        url: https://huggingface.co/AbaiUniversity
+    organization:
+      - name: Abai University
+        url: https://abaiuniversity.edu.kz
+    params:
+      display: "2.23B (16.8M adapter)"
+      variants: []
+    storage:
+      value: 84.8
+      unit: MB
+    links:
+      model: https://huggingface.co/AbaiUniversity/Qazwen-2B
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "Evaluated on custom Kazakh instruction benchmark with comparative analysis against base Qwen3.5-2B."
+    training:
+      datasets: []
+      summary: "Instruction fine-tuning using PEFT LoRA on Kazakh conversational and multi-turn instruction datasets."
+    kazakh_evidence: University-led Kazakh instruction-tuning effort with dedicated Kazakh conversational evaluation.
+    last_verified: "2026-11-11"
+    added_to_catalog: "2026-11-11"
+
+  - id: lfm3-1-7b-kazakh
+    name: LFM3-1.7B-Kazakh
+    released: "2026-11"
+    section: "Text, NLP, and LLM"
+    description: First Kazakh fine-tune of Liquid AI's Liquid Foundation Model (LFM3-1.7B), teaching the non-transformer dynamical architecture to understand and respond natively in Kazakh.
+    tasks:
+      - Large language model
+      - Instruction following
+    tier: B
+    kind: instruction
+    access: open
+    license: other
+    languages:
+      - kk
+    architecture: LFM3 (Liquid Foundation Model, 1.7B)
+    base_model: LiquidAI/LFM3-1.7B
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: RedBullet12
+        url: https://huggingface.co/RedBullet12
+    organization: []
+    params:
+      display: "1.7B"
+      variants: []
+    storage:
+      value: 3.31
+      unit: GB
+    links:
+      model: https://huggingface.co/RedBullet12/LFM3-1.7B-Kazakh
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "Adapts base LFM3 (which misidentifies Kazakh) to reliably respond in grammatical Kazakh."
+    training:
+      datasets:
+        - AmanMussa/kazakh-instruction-v2
+      summary: "LoRA SFT (rank 16, alpha 32) on 52,123 rows of AmanMussa/kazakh-instruction-v2 using TRL, merged into full weights."
+    kazakh_evidence: Specifically targets teaching the non-transformer LFM3 architecture Kazakh language capabilities.
+    last_verified: "2026-11-11"
+    added_to_catalog: "2026-11-11"
+
   # ---------------------------------------------------------------------
   # Speech and audio
   # ---------------------------------------------------------------------
@@ -4126,6 +4257,93 @@ models:
     kazakh_evidence: Full adaptation to Kazakh of a base model that originally lacked Kazakh support, with thorough evaluation on KSC2 and FLEURS.
     last_verified: "2026-11-04"
     added_to_catalog: "2026-11-04"
+
+  - id: k5-kazakh-voxcpm2
+    name: k5 Kazakh VoxCPM2
+    released: "2026-10"
+    section: "Speech and audio"
+    description: Commercially usable, tokenizer-free autoregressive diffusion TTS model fine-tuned from VoxCPM2 (2B) on ~248 hours of studio-quality Kazakh speech, streaming natively with ~0.1 s to first audio.
+    tasks:
+      - Text-to-speech
+    tier: A
+    kind: speech
+    access: open
+    license: Apache-2.0
+    languages:
+      - kk
+      - ru
+    architecture: VoxCPM2 (2B autoregressive diffusion TTS)
+    base_model: openbmb/VoxCPM2
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: Alibi Serikbay
+        url: https://huggingface.co/alibiserikbay
+    organization: []
+    params:
+      display: "2B"
+      variants: []
+    storage:
+      value: 9.1
+      unit: GB
+    links:
+      model: https://huggingface.co/alibiserikbay/k5-kazakh-voxcpm2
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "Streaming latency ~0.1s to first audio; capable of ~32 concurrent real-time streams per H100 GPU."
+    training:
+      datasets:
+        - issai/KazakhTTS2
+      summary: "Full fine-tuning on ~248 hours across 5 studio speakers of ISSAI KazakhTTS2 filtered by DNSMOS BAK >= 3.5."
+    kazakh_evidence: Full adaptation of VoxCPM2 with studio-quality Kazakh voice cloning and low-latency streaming.
+    last_verified: "2026-11-11"
+    added_to_catalog: "2026-11-11"
+
+  - id: qwen3-asr-0-6b-kazakh
+    name: Qwen3-ASR-0.6B Kazakh
+    released: "2026-11"
+    section: "Speech and audio"
+    description: Compact 600M speech recognition model fine-tuned from Qwen3-ASR on ~960k Kazakh speech utterances across ISSAI KSC2, Alfarabi STT, and NCSpeech corpora.
+    tasks:
+      - Automatic speech recognition
+    tier: B
+    kind: speech
+    access: open
+    license: CC-BY-NC-4.0
+    languages:
+      - kk
+    architecture: Qwen3-ASR (Conformer-Transformer encoder-decoder, 0.6B)
+    base_model: Qwen/Qwen3-ASR-0.6B
+    base_model_id: null
+    derivative_of: null
+    authors:
+      - name: ai4kazakh
+        url: https://huggingface.co/ai4kazakh
+    organization: []
+    params:
+      display: "600M"
+      variants: []
+    storage:
+      value: 1.5
+      unit: GB
+    links:
+      model: https://huggingface.co/ai4kazakh/qwen3-asr-0.6b-kazakh
+      code: null
+      paper: null
+      project: null
+    metrics:
+      summary: "Trained on 958,337 utterances across ISSAI KSC2 (627k), Alfarabi STT (173k), and NCSpeech (156k)."
+    training:
+      datasets:
+        - issai/Kazakh_Speech_Corpus_2
+        - farabi-lab/kazakh-stt
+        - NCSpeech/YO-CPT-kk
+      summary: "Fine-tuned on normalized lowercase Kazakh Cyrillic speech across three public Kazakh speech corpora."
+    kazakh_evidence: Comprehensive multi-corpus Kazakh training with 958k native speech utterances.
+    last_verified: "2026-11-11"
+    added_to_catalog: "2026-11-11"
 
   # ---------------------------------------------------------------------
   # Vision, OCR, and multimodal

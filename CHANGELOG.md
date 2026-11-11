@@ -2,6 +2,16 @@
 
 This changelog starts from the repository's initial curated release.
 
+## 2026-11-11 — November 2026 models addition pass
+
+### Added
+
+- Added **BGE-M3 Kazakh (16k, trimmed)** (`bge-m3-kaz-16384`): vocabulary-trimmed variant of BAAI/bge-m3 optimized for Kazakh by AlphaEdgeAI (42.1% parameter reduction, 16k context, 328.5M params).
+- Added **Qazwen-2B** (`qazwen-2b`): instruction-tuned Kazakh language model adapter on Qwen3.5-2B trained by Abai Kazakh National Pedagogical University.
+- Added **LFM3-1.7B-Kazakh** (`lfm3-1-7b-kazakh`): first Kazakh fine-tune of Liquid AI's Liquid Foundation Model (LFM3-1.7B) dynamical non-transformer architecture by RedBullet12.
+- Added **k5 Kazakh VoxCPM2** (`k5-kazakh-voxcpm2`): commercially usable, tokenizer-free autoregressive diffusion TTS model fine-tuned from VoxCPM2 (2B, Apache-2.0) by Alibi Serikbay on ~248h studio Kazakh speech (~0.1s to first audio).
+- Added **Qwen3-ASR-0.6B Kazakh** (`qwen3-asr-0-6b-kazakh`): compact 600M speech recognition model fine-tuned from Qwen3-ASR by ai4kazakh across ~960k Kazakh speech utterances.
+
 ## 2026-11-04 — Late Fall 2026 models addition pass
 
 ### Added
