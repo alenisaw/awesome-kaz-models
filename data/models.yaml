@@ -4376,7 +4376,7 @@ models:
     license: Apache-2.0
     links:
       model: https://huggingface.co/alenisaw/turkicocr-svtrv2-b
-      paper: null
+      paper: https://doi.org/10.1007/978-3-032-41546-2_22
       code: https://github.com/alenisaw/turkicocr-svtrv2-b
       project: null
     training:
